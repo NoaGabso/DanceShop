@@ -1,9 +1,13 @@
+using OnlineDanceStore.ViewModels;
+
 namespace OnlineDanceStore.View;
 
-public partial class Register : ContentPage
+public partial class RegisterPage : ContentPage
 {
-	public Register()
+	public RegisterPage(RegisterPageViewModel vm)
 	{
-		InitializeComponent();
+		this.BindingContext = vm;
+        InitializeComponent();
+		
 	}
 }

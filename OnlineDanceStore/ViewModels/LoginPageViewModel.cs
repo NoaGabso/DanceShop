@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace OnlineDanceStore.ViewModels
 {
-    internal class LoginViewModel:ViewModel
+    public class LoginPageViewModel:ViewModel
     {
+
     }
 }

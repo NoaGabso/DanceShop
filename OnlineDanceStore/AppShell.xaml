@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="Home"
+        Title="Welcome To My Dance Store"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
