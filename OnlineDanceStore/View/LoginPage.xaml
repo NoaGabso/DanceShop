@@ -3,12 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OnlineDanceStore.View.LoginPage"
             xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
-             x:DataType="viewmodels:LoginPageViewModel"
+             x:DataType="viewmodels:LoginPageViewModels"
              Title="LoginPage">
     <VerticalStackLayout>
         <Label 
             Text="welcome back"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <StackLayout>
+            <Label
+         FontFamily="OpenSansRegular"
+         FontSize="16"
+         Text="שם משתמש"
+         TextColor="AliceBlue" />
+            <Grid Margin="0,5" RowDefinitions="auto,auto">
+            
+                <Entry
+             Placeholder="הכנס.י שם משתמש"
+             
+             Text="{Binding UserName}" />
+                <Label
+             Grid.Row="1"
+             IsVisible="{Binding ShowUserNameError}"
+             Style="{StaticResource error}"
+             Text="{Binding UserErrorMessage}" />
+            </Grid>
+
+            <Label
+         FontFamily="OpenSansRegular"
+         FontSize="16"
+         Text="סיסמה"
+         TextColor="PaleGoldenrod"/>
+            <Grid Margin="0,5" RowDefinitions="auto,auto">
+               
+                <Entry
+             Margin="5,0"
+             BackgroundColor="Transparent"
+             IsPassword="True"
+             Placeholder="הכנס.י סיסמה"
+             PlaceholderColor="Gray"
+             Text="{Binding Password}"
+             TextColor="White" />
+                <Label
+             Grid.Row="1"
+             IsVisible="{Binding ShowPasswordError}"
+             Style="{StaticResource error}"
+             Text="{Binding PasswordErrorMessage}" />
+
+            </Grid>
+        </StackLayout>
+
+        <Button
+     Margin="0,15"
+     BackgroundColor="Purple"
+     Command="{Binding LogInCommand}"
+     FontFamily="OpenSansBold"
+     IsEnabled="{Binding IsButtonEnabled}"
+     Text="כניסה"
+     TextColor="{StaticResource PrimaryColor}" />
+        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand"/>
+
     </VerticalStackLayout>
 </ContentPage>

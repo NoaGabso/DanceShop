@@ -1,12 +1,15 @@
+
 using OnlineDanceStore.ViewModels;
+using OnlineDanceStore.View;
+
 namespace OnlineDanceStore.View;
 
-public partial class LoginPage : ContentPage
+public partial class LoadingPage : ContentPage
 {
-   public LoginPage(LoginPageViewModels vm) 
+    public LoadingPage(LoadingPageViewModel vm)
     {
         this.BindingContext = vm;
         InitializeComponent();
-        
+
     }
 }

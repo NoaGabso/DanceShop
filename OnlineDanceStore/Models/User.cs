@@ -8,10 +8,9 @@ namespace OnlineDanceStore.Models
 {
     public class User
     {
-        //private string name;
-        //private string lastname;
-        //private string password;
-        //private string email;
+        public string UserName;
+        public string Password;
+        public string Email;
 
 
     }

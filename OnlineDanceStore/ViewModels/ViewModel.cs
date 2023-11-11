@@ -15,5 +15,12 @@ namespace OnlineDanceStore.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        private bool _isBusy;
+        public bool IsBusy { get => _isBusy; set { _isBusy = value; OnPropertyChange(); } }
+       
+
+       
     }
 }
+
