@@ -28,7 +28,7 @@
      FontFamily="OpenSansBold"
                 IsEnabled="True"
                 Clicked="loginclicked"
-     Text="התחברות"
+     Text="התחברות" 
      TextColor="Pink" />
 
             <Label
