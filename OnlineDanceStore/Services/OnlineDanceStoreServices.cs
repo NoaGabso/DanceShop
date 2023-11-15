@@ -13,7 +13,7 @@ namespace OnlineDanceStore.Services
     {
         readonly HttpClient _httpClient;
         readonly JsonSerializerOptions _serializerOptions;
-        const string URL = @"";
+        const string URL = @" https://github.com/stma1one/TriviaMauiClient.git";
         public OnlineDanceStoreServices()
         {
             _httpClient = new HttpClient();
