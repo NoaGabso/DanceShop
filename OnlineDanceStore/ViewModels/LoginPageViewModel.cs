@@ -15,7 +15,7 @@ namespace OnlineDanceStore.ViewModels
     {
 
         #region Fields
-        private string _userName;//שם משתמש
+        private string _email;//שם משתמש
         private bool _showUserNameError;//האם להציג שדה שגיאת שם משתמש
         private string _userErrorMessage;//תאור שגיאת שם משתמש
         private string _password;//סיסמה
@@ -31,10 +31,10 @@ namespace OnlineDanceStore.ViewModels
         #endregion
 
         #region Properties
-        public string UserName
+        public string Email
         {
-            get => _userName;
-            set { if (_userName != value) { _userName = value; if (!ValidateUser()) { ShowUserNameError = true; UserErrorMessage = ErrorMessages.INVALID_USERNAME; } else { ShowUserNameError = true; UserErrorMessage = string.Empty; } OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled)); } }
+            get => _email;
+            set { if (_email != value) { _email = value; if (!ValidateUser()) { ShowUserNameError = true; UserErrorMessage = ErrorMessages.INVALID_USERNAME; } else { ShowUserNameError = true; UserErrorMessage = string.Empty; } OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled)); } }
         }
 
         public bool ShowUserNameError
@@ -97,7 +97,7 @@ namespace OnlineDanceStore.ViewModels
         public LoginPageViewModels(OnlineDanceStoreServices service)
         {
             _service = service;
-            UserName = string.Empty;
+            Email = string.Empty;
             Password = string.Empty;
 
             LogInCommand = new Command(async () =>
@@ -109,7 +109,7 @@ namespace OnlineDanceStore.ViewModels
                     var lvm = new LoadingPageViewModel() { IsBusy = true };
                     await AppShell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
                     #endregion
-                    var user = await _service.LoginAsync(UserName, Password);
+                    var user = await _service.LoginAsync(Email, Password);
 
                     lvm.IsBusy = false;
                     await Shell.Current.Navigation.PopModalAsync();
@@ -120,9 +120,9 @@ namespace OnlineDanceStore.ViewModels
                     }
                     else
                     {
-                        await AppShell.Current.DisplayAlert("התחברת", "אישור להתחלת משחק", "אישור");
+                        await AppShell.Current.DisplayAlert("התחברת", "אישור כניסה לאתר", "אישור");
                         await SecureStorage.Default.SetAsync("LoggedUser", JsonSerializer.Serialize(user.User));
-                        await AppShell.Current.GoToAsync("Game");
+                        await AppShell.Current.GoToAsync("HomePage");
                     }
 
 
@@ -142,7 +142,7 @@ namespace OnlineDanceStore.ViewModels
         #region פעולות עזר
         private bool ValidateUser()
         {
-            return !(string.IsNullOrEmpty(_userName) || _userName.Length < 3);
+            return !(string.IsNullOrEmpty(_email) || _email.Length < 3);
         }
         private bool ValidatePassWord()
         {

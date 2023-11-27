@@ -13,7 +13,7 @@ namespace OnlineDanceStore.Services
     {
         readonly HttpClient _httpClient;
         readonly JsonSerializerOptions _serializerOptions;
-        const string URL = @" https://github.com/stma1one/TriviaMauiClient.git";
+        const string URL = @"https://j6gcbt8d-7123.euw.devtunnels.ms/api/DanceStore/";
         public OnlineDanceStoreServices()
         {
             _httpClient = new HttpClient();
@@ -25,12 +25,12 @@ namespace OnlineDanceStore.Services
             };
         }
             #region
-            public async Task<UserDto> LoginAsync(string userName, string password)
+            public async Task<UserDto> LoginAsync(string email, string password)
             {
                 try
                 {
                     //האובייקט לשליחה
-                    User user = new User() { UserName = userName, Password = password };
+                    User user = new User() { Email = email, UserPswd = password };
                     //מבצעת סיריליזציה
                     var jsonContent = JsonSerializer.Serialize(user, _serializerOptions);
                     var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");

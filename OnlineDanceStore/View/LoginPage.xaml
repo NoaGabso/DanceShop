@@ -17,11 +17,11 @@
          Text="שם משתמש"
          TextColor="AliceBlue" />
             <Grid Margin="0,5" RowDefinitions="auto,auto">
-            
+
                 <Entry
-             Placeholder="הכנס.י שם משתמש"
+             Placeholder="enter EMAIL"
              
-             Text="{Binding UserName}" />
+             Text="{Binding Email}" />
                 <Label
              Grid.Row="1"
              IsVisible="{Binding ShowUserNameError}"
@@ -35,15 +35,15 @@
          Text="סיסמה"
          TextColor="PaleGoldenrod"/>
             <Grid Margin="0,5" RowDefinitions="auto,auto">
-               
+
                 <Entry
              Margin="5,0"
              BackgroundColor="Transparent"
              IsPassword="True"
-             Placeholder="הכנס.י סיסמה"
+             Placeholder="enter PASSWORD"
              PlaceholderColor="Gray"
              Text="{Binding Password}"
-             TextColor="White" />
+             TextColor="Black" />
                 <Label
              Grid.Row="1"
              IsVisible="{Binding ShowPasswordError}"
