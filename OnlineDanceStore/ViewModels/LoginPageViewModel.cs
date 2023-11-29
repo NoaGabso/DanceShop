@@ -34,7 +34,7 @@ namespace OnlineDanceStore.ViewModels
         public string Email
         {
             get => _email;
-            set { if (_email != value) { _email = value; if (!ValidateUser()) { _showEmailError = true; EmailErrorMessage = ErrorMessages.INVALID_Email; } else { ShowEmailError = true; UserErrorMessage = string.Empty; } OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled)); } }
+            set { if (_email != value) { _email = value; if (!ValidateUser()) { _showEmailError = true; EmailErrorMessage = ErrorMessages.INVALID_Email; } else { ShowEmailError = true; EmailErrorMessage = string.Empty; } OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled)); } }
         }
 
         public bool ShowEmailError
