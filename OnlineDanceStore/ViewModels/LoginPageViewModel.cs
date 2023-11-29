@@ -16,8 +16,8 @@ namespace OnlineDanceStore.ViewModels
 
         #region Fields
         private string _email;//שם משתמש
-        private bool _showUserNameError;//האם להציג שדה שגיאת שם משתמש
-        private string _userErrorMessage;//תאור שגיאת שם משתמש
+        private bool _showEmailError;//האם להציג שדה שגיאת שם משתמש
+        private string _emailErrorMessage;//תאור שגיאת שם משתמש
         private string _password;//סיסמה
 
         private bool _showPasswordError;//האם להציג שגיאת סיסמה
@@ -34,16 +34,16 @@ namespace OnlineDanceStore.ViewModels
         public string Email
         {
             get => _email;
-            set { if (_email != value) { _email = value; if (!ValidateUser()) { ShowUserNameError = true; UserErrorMessage = ErrorMessages.INVALID_USERNAME; } else { ShowUserNameError = true; UserErrorMessage = string.Empty; } OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled)); } }
+            set { if (_email != value) { _email = value; if (!ValidateUser()) { _showEmailError = true; EmailErrorMessage = ErrorMessages.INVALID_Email; } else { ShowEmailError = true; UserErrorMessage = string.Empty; } OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled)); } }
         }
 
-        public bool ShowUserNameError
+        public bool ShowEmailError
         {
-            get => _showUserNameError; set
+            get => _showEmailError; set
             {
-                if (_showUserNameError != value)
+                if (_showEmailError != value)
                 {
-                    _showUserNameError = value; OnPropertyChange();
+                    _showEmailError = value; OnPropertyChange();
                 }
             }
         }
@@ -70,7 +70,7 @@ namespace OnlineDanceStore.ViewModels
             }
         }
 
-        public string UserErrorMessage { get => _userErrorMessage; set { if (_userErrorMessage != value) { _userErrorMessage = value; OnPropertyChange(); } } }
+        public string EmailErrorMessage { get => _emailErrorMessage; set { if (_emailErrorMessage != value) { _emailErrorMessage = value; OnPropertyChange(); } } }
 
 
         public bool ShowPasswordError { get => _showPasswordError; set { if (_showPasswordError != value) { _showPasswordError = value; OnPropertyChange(); } } }

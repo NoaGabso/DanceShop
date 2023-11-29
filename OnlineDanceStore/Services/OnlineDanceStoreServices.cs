@@ -59,8 +59,42 @@ namespace OnlineDanceStore.Services
                 return new UserDto() { Success = false, User = null, Message = ErrorMessages.INVALID_LOGIN };
 
             }
-#endregion
+
+        public async Task<User> RegisterUser(User user)
+        {
+            //create the json
+            var jsonContent = JsonSerializer.Serialize(user, _serializerOptions);
+            //add the json to the content of the request
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            try
+            {
+                //send it to the server
+                var response = await _httpClient.PostAsync($"{URL}Register", content);
+
+                switch (response.StatusCode)
+                {
+                    case (HttpStatusCode.OK):
+                    case (HttpStatusCode.Created):
+                        {
+                            jsonContent = await response.Content.ReadAsStringAsync();
+                            user = JsonSerializer.Deserialize<User>(jsonContent, _serializerOptions);
+                            return user;
+
+                        }
+                    case (HttpStatusCode.Conflict):
+                        {
+                            return null;
+                        }
+
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            return null;
 
         }
+        #endregion
+
+    }
     }
 
