@@ -24,9 +24,9 @@
              Text="{Binding Email}" />
                 <Label
              Grid.Row="1"
-             IsVisible="{Binding ShowUserNameError}"
+             IsVisible="{Binding ShowEmailError}"
              Style="{StaticResource error}"
-             Text="{Binding UserErrorMessage}" />
+             Text="{Binding EmailErrorMessage}" />
             </Grid>
 
             <Label
