@@ -60,7 +60,7 @@ namespace OnlineDanceStore.Services
 
             }
 
-        public async Task<User> RegisterUser(User user)
+        public async Task<UserDto> RegisterUser(User user)
         {
             //create the json
             var jsonContent = JsonSerializer.Serialize(user, _serializerOptions);
@@ -76,9 +76,14 @@ namespace OnlineDanceStore.Services
                     case (HttpStatusCode.OK):
                     case (HttpStatusCode.Created):
                         {
+                            User u =new User();
+                            u.Email = user.Email;
+                            u.FirstName = user.FirstName;
+                            u.LastName = user.LastName; 
+                            u.UserPswd = user.UserPswd;
                             jsonContent = await response.Content.ReadAsStringAsync();
-                            user = JsonSerializer.Deserialize<User>(jsonContent, _serializerOptions);
-                            return user;
+                           u = JsonSerializer.Deserialize<User>(jsonContent, _serializerOptions);
+                            return new UserDto {Success=true, Message=null, User=u };
 
                         }
                     case (HttpStatusCode.Conflict):
