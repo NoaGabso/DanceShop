@@ -14,41 +14,94 @@ namespace OnlineDanceStore.ViewModels
 {
     public class RegisterPageViewModel:ViewModel
     {
+        #region Fields
         private string name;
         private string lastname;
         private string password;
         private string email;
 
+        private bool _showEmailError;
+        private string _emailErrorMessage;
+
         private bool _showPasswordError;//האם להציג שגיאת סיסמה
         private string _passwordErrorMessage;
-        private bool _showLoginError;//
-        private string _loginErrorMessage;
-        private bool _showUserNameError;//האם להציג שדה שגיאת שם משתמש
-        private string _userErrorMessage;//תאור שגיאת שם משתמש
+
+        private bool _showRegisterError;//
+        private string _registerErrorMessage;
+
+        private bool _showNameError;//האם להציג שדה שגיאת שם משתמש
+        private string _nameErrorMessage;//תאור שגיאת שם משתמש
+
+       
+        #endregion
         public string Name
         {
-            get { return name; }
+            get => name;
             set
             {
-                if (name != value && ValidateName())
-                { name = value; OnPropertyChange(); }
-                else
-                    name = ""; ShowUserNameError = true;
+                if (name != value)
+                {
+                    name = value; if (!ValidateName()) { _showNameError = true; NameErrorMessage = ErrorMessages.INVALID_Name; }
+                    else { ShowNameError = false; NameErrorMessage = string.Empty; }
+                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
+                }
             }
         }
-                
+        public bool ShowNameError
+        {
+            get => _showNameError; set
+            {
+                if (_showNameError != value)
+                {
+                    _showNameError = value; OnPropertyChange();
+                }
+            }
+        }
+        public string NameErrorMessage
+        {
+            get => _nameErrorMessage; set
+            {
+                if (_nameErrorMessage != value)
+                { _nameErrorMessage = value; OnPropertyChange(); }
+            }
+        }
+
         public string LastName
         {
-            get { return lastname; }
+            get => lastname;
             set
             {
-                if (lastname != value && ValidateName())
-                { name = value; OnPropertyChange(); }
-                else
-                    lastname = ""; ShowUserNameError = true;
+                if (lastname != value)
+                {
+                    lastname = value; if (!ValidateName()) { _showNameError = true; NameErrorMessage = ErrorMessages.INVALID_LastName; }
+                    else { ShowNameError = false; NameErrorMessage = string.Empty; }
+                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
+                }
             }
         }
-        public string Password { get { return password; }
+
+        public string Email
+        {
+            get => email;
+            set { if (email != value) { email = value; if (!ValidateUser()) { _showEmailError = true; EmailErrorMessage = ErrorMessages.INVALID_Email; }
+                    else { ShowEmailError = true; EmailErrorMessage = string.Empty; } OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled)); } }
+        }
+
+        public bool ShowEmailError
+        {
+            get => _showEmailError; set
+            {
+                if (_showEmailError != value)
+                {
+                    _showEmailError = value; OnPropertyChange();
+                }
+            }
+        }
+        public string EmailErrorMessage { get => _emailErrorMessage; set { if (_emailErrorMessage != value) { _emailErrorMessage = value; OnPropertyChange(); } } }
+
+        public string Password
+        {
+            get { return password; }
             set
             {
                 if (password != value)
@@ -64,44 +117,31 @@ namespace OnlineDanceStore.ViewModels
                         ShowPasswordError = false;
                     };
                     OnPropertyChange();
-                   
+
                 }
             }
         }
 
-        public string Email { get { return email; } set { email = value; } }
-
-        public string UserErrorMessage { get => _userErrorMessage; set
-            { if (_userErrorMessage != value)
-                { _userErrorMessage = value; OnPropertyChange(); } } }
-
-        public bool ShowUserNameError
-        {
-            get => _showUserNameError; set
-            {
-                if (_showUserNameError != value)
-                {
-                    _showUserNameError = value; OnPropertyChange();
-                }
-            }
-        }
         public bool ShowPasswordError { get => _showPasswordError; set 
             { if (_showPasswordError != value) 
                 { _showPasswordError = value; OnPropertyChange(); } } }
+
         public string PasswordErrorMessage { get => _passwordErrorMessage; set
             { if (_passwordErrorMessage != value)
                 { _passwordErrorMessage = value; OnPropertyChange(); } } }
 
-        public bool ShowLoginError { get => _showLoginError; set
-            { if (_showLoginError != value)
-                { _showLoginError = value; OnPropertyChange(); } } }
-        public string LoginErrorMessage { get => _loginErrorMessage; set
-            { if (_loginErrorMessage != value) 
-                { _loginErrorMessage = value; OnPropertyChange(); } } }
+        public bool ShowRegisterError { get => _showRegisterError; set
+            { if (_showRegisterError != value)
+                { _showRegisterError = value; OnPropertyChange(); } } }
+        public string RegisterErrorMessage { get => _registerErrorMessage; set
+            { if (_registerErrorMessage != value) 
+                { _registerErrorMessage = value; OnPropertyChange(); } } }
+
+
 
         private readonly OnlineDanceStoreServices _service;
         #region Commands
-        public ICommand IRegisterCommand { get; protected set; }
+        public ICommand RegisterCommand { get; protected set; }
         public bool IsButtonEnabled
         {
             get { return ValidatePage(); }
@@ -110,14 +150,14 @@ namespace OnlineDanceStore.ViewModels
         public RegisterPageViewModel(OnlineDanceStoreServices service)
         {
             _service = service;
-            Email = string.Empty;
+            email = string.Empty;
             Password = string.Empty;
             name = string.Empty;
             lastname = string.Empty;    
 
-            IRegisterCommand = new Command(async () =>
+            RegisterCommand = new Command(async () =>
             {
-                /*ShowLoginError = false;*///הסתרת שגיאת לוגין
+                ShowRegisterError = false; ///הסתרת שגיאת לוגין
                 try
                 {
                     #region טעינת מסך ביניים
@@ -126,7 +166,7 @@ namespace OnlineDanceStore.ViewModels
                     #endregion
                     User user = new User();
                     {
-                        user.Email = Email;
+                        user.Email = email;
                       user.UserPswd = Password;
                         user.FirstName = name;
                         user.LastName= lastname;
@@ -137,8 +177,8 @@ namespace OnlineDanceStore.ViewModels
                     await Shell.Current.Navigation.PopModalAsync();
                     if (!u.Success)
                     {
-                        ShowLoginError = true;
-                        LoginErrorMessage = u.Message;
+                        ShowRegisterError = true;
+                       RegisterErrorMessage = u.Message;
                     }
                     else
                     {
@@ -162,6 +202,10 @@ namespace OnlineDanceStore.ViewModels
             });
         }
         #region פעולות עזר
+        private bool ValidateUser()
+        {
+            return !(string.IsNullOrEmpty(email) || email.Length < 3);
+        }
         private bool ValidateName()
     {
    
@@ -169,12 +213,12 @@ namespace OnlineDanceStore.ViewModels
     }
         private bool ValidatePassWord()
         {
-            return !(string.IsNullOrEmpty(password)||password.Length>=4);
+            return !(string.IsNullOrEmpty(password)||password.Length>=3);
     }
 
     private bool ValidatePage()
     {
-        return ValidateName() && ValidatePassWord();
+            return ValidateName() && ValidatePassWord() && ValidateUser();
     }
     #endregion
 

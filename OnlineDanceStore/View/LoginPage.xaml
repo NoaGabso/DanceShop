@@ -56,7 +56,7 @@
         <Button
      Margin="0,15"
      BackgroundColor="Purple"
-     Command="{Binding }"
+     Command="{Binding LogInCommand}"
      FontFamily="OpenSansBold"
      IsEnabled="{Binding IsButtonEnabled}"
      Text="כניסה"
