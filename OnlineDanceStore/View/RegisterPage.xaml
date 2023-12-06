@@ -10,5 +10,93 @@
             Text="nice to meet you"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <StackLayout>
+            <Label
+FontFamily="OpenSansRegular"
+FontSize="16"
+Text="שם משתמש"
+TextColor="PaleGoldenrod"/>
+            <Grid Margin="0,5" RowDefinitions="auto,auto">
+                <Entry
+    Margin="5,0"
+    BackgroundColor="Transparent"
+   
+    PlaceholderColor="Gray"
+    Text="{Binding Name}"
+    TextColor="Black" />
+                <Label
+    Grid.Row="1"/>
+                <!--IsVisible="{Binding ShowPasswordError}"
+    Style="{StaticResource error}"
+    Text="{Binding PasswordErrorMessage}" />-->
+            </Grid>
+            <Label
+FontFamily="OpenSansRegular"
+FontSize="16"
+Text="שם משפחה"
+TextColor="PaleGoldenrod"/>
+            <Grid Margin="0,5" RowDefinitions="auto,auto">
+                <Entry
+    Margin="5,0"
+    BackgroundColor="Transparent"
+ 
+    PlaceholderColor="Gray"
+    Text="{Binding LastName}"
+    TextColor="Black" />
+                <Label
+    Grid.Row="1"/>
+                <!--IsVisible="{Binding ShowPasswordError}"
+    Style="{StaticResource error}"
+    Text="{Binding PasswordErrorMessage}" />-->
+            </Grid>
+            <Label
+FontFamily="OpenSansRegular"
+FontSize="16"
+Text="אימייל"
+TextColor="PaleGoldenrod"/>
+            <Grid Margin="0,5" RowDefinitions="auto,auto">
+                <Entry
+    Margin="5,0"
+    BackgroundColor="Transparent"
+ 
+    PlaceholderColor="Gray"
+    Text="{Binding Email}"
+    TextColor="Black" />
+                <Label
+    Grid.Row="1"/>
+                
+                <!--IsVisible="{Binding ShowPasswordError}"
+    Style="{StaticResource error}"
+    Text="{Binding PasswordErrorMessage}" />-->
+            </Grid>
+            <Label
+FontFamily="OpenSansRegular"
+FontSize="16"
+Text="סיסמא"
+TextColor="PaleGoldenrod"/>
+            <Grid Margin="0,5" RowDefinitions="auto,auto">
+                <Entry
+    Margin="5,0"
+    BackgroundColor="Transparent"
+ 
+    PlaceholderColor="Gray"
+    Text="{Binding Password}"
+    TextColor="Black" />
+                <Label
+    Grid.Row="1"/>
+                <!--IsVisible="{Binding ShowPasswordError}"
+    Style="{StaticResource error}"
+    Text="{Binding PasswordErrorMessage}" />-->
+            </Grid>
+
+            <Button
+Margin="0,15"
+BackgroundColor="Purple"
+Command="{Binding IRegisterCommand}"
+FontFamily="OpenSansBold"
+IsEnabled="{Binding IsButtonEnabled}"
+Text="כניסה"
+TextColor="{StaticResource PrimaryColor}" />
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

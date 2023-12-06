@@ -56,11 +56,11 @@
         <Button
      Margin="0,15"
      BackgroundColor="Purple"
-     Command="{Binding LogInCommand}"
+     Command="{Binding }"
      FontFamily="OpenSansBold"
      IsEnabled="{Binding IsButtonEnabled}"
      Text="כניסה"
-     TextColor="{StaticResource PrimaryColor}" />
+     />
         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand"/>
 
     </VerticalStackLayout>

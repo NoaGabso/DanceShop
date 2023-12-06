@@ -99,6 +99,68 @@ namespace OnlineDanceStore.ViewModels
             { if (_loginErrorMessage != value) 
                 { _loginErrorMessage = value; OnPropertyChange(); } } }
 
+        private readonly OnlineDanceStoreServices _service;
+        #region Commands
+        public ICommand IRegisterCommand { get; protected set; }
+        public bool IsButtonEnabled
+        {
+            get { return ValidatePage(); }
+        }
+        #endregion
+        public RegisterPageViewModel(OnlineDanceStoreServices service)
+        {
+            _service = service;
+            Email = string.Empty;
+            Password = string.Empty;
+            name = string.Empty;
+            lastname = string.Empty;    
+
+            IRegisterCommand = new Command(async () =>
+            {
+                /*ShowLoginError = false;*///הסתרת שגיאת לוגין
+                try
+                {
+                    #region טעינת מסך ביניים
+                    var lvm = new LoadingPageViewModel() { IsBusy = true };
+                    await AppShell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
+                    #endregion
+                    User user = new User();
+                    {
+                        user.Email = Email;
+                      user.UserPswd = Password;
+                        user.FirstName = name;
+                        user.LastName= lastname;
+                    }
+                  var   u = await _service.RegisterUser(user);
+
+                    lvm.IsBusy = false;
+                    await Shell.Current.Navigation.PopModalAsync();
+                    if (!u.Success)
+                    {
+                        ShowLoginError = true;
+                        LoginErrorMessage = u.Message;
+                    }
+                    else
+                    {
+                        await AppShell.Current.DisplayAlert("התחברת", "אישור כניסה לאתר", "אישור");
+                        await SecureStorage.Default.SetAsync("RegistedUser", JsonSerializer.Serialize(u.User));
+                        await AppShell.Current.GoToAsync("HomePage");
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+
+                    await AppShell.Current.Navigation.PopModalAsync();
+                }
+
+
+            });
+        }
         #region פעולות עזר
         private bool ValidateName()
     {
