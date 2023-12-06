@@ -25,10 +25,10 @@ TextColor="PaleGoldenrod"/>
     Text="{Binding Name}"
     TextColor="Black" />
                 <Label
-    Grid.Row="1"/>
-                <!--IsVisible="{Binding ShowPasswordError}"
-    Style="{StaticResource error}"
-    Text="{Binding PasswordErrorMessage}" />-->
+    Grid.Row="1"
+            IsVisible="{Binding ShowNameError}"
+Style="{StaticResource error}"
+Text="{Binding NameErrorMessage}" />
             </Grid>
             <Label
 FontFamily="OpenSansRegular"
@@ -44,30 +44,27 @@ TextColor="PaleGoldenrod"/>
     Text="{Binding LastName}"
     TextColor="Black" />
                 <Label
-    Grid.Row="1"/>
-                <!--IsVisible="{Binding ShowPasswordError}"
+    Grid.Row="1"
+                IsVisible="{Binding ShowNameError}"
     Style="{StaticResource error}"
-    Text="{Binding PasswordErrorMessage}" />-->
+    Text="{Binding NameErrorMessage}" />
             </Grid>
             <Label
 FontFamily="OpenSansRegular"
 FontSize="16"
 Text="אימייל"
-TextColor="PaleGoldenrod"/>
+TextColor="AliceBlue" />
             <Grid Margin="0,5" RowDefinitions="auto,auto">
+
                 <Entry
-    Margin="5,0"
-    BackgroundColor="Transparent"
- 
-    PlaceholderColor="Gray"
-    Text="{Binding Email}"
-    TextColor="Black" />
+    Placeholder="enter EMAIL"
+    
+    Text="{Binding Email}" />
                 <Label
-    Grid.Row="1"/>
-                
-                <!--IsVisible="{Binding ShowPasswordError}"
+    Grid.Row="1"
+    IsVisible="{Binding ShowEmailError}"
     Style="{StaticResource error}"
-    Text="{Binding PasswordErrorMessage}" />-->
+    Text="{Binding EmailErrorMessage}" />
             </Grid>
             <Label
 FontFamily="OpenSansRegular"
@@ -83,10 +80,10 @@ TextColor="PaleGoldenrod"/>
     Text="{Binding Password}"
     TextColor="Black" />
                 <Label
-    Grid.Row="1"/>
-                <!--IsVisible="{Binding ShowPasswordError}"
+    Grid.Row="1"
+    IsVisible="{Binding ShowPasswordError}"
     Style="{StaticResource error}"
-    Text="{Binding PasswordErrorMessage}" />-->
+    Text="{Binding PasswordErrorMessage}" />
             </Grid>
 
             <Button

@@ -84,7 +84,7 @@ namespace OnlineDanceStore.ViewModels
         {
             get => email;
             set { if (email != value) { email = value; if (!ValidateUser()) { _showEmailError = true; EmailErrorMessage = ErrorMessages.INVALID_Email; }
-                    else { ShowEmailError = true; EmailErrorMessage = string.Empty; } OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled)); } }
+                    else { ShowEmailError = false; EmailErrorMessage = string.Empty; } OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled)); } }
         }
 
         public bool ShowEmailError
@@ -213,7 +213,7 @@ namespace OnlineDanceStore.ViewModels
     }
         private bool ValidatePassWord()
         {
-            return !(string.IsNullOrEmpty(password)||password.Length>=3);
+            return !(string.IsNullOrEmpty(password)||password.Length<3);
     }
 
     private bool ValidatePage()
