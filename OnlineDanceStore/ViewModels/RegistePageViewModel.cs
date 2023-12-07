@@ -83,8 +83,15 @@ namespace OnlineDanceStore.ViewModels
         public string Email
         {
             get => email;
-            set { if (email != value) { email = value; if (!ValidateUser()) { _showEmailError = true; EmailErrorMessage = ErrorMessages.INVALID_Email; }
-                    else { ShowEmailError = false; EmailErrorMessage = string.Empty; } OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled)); } }
+            set
+            {
+                if (email != value)
+                {
+                    email = value; if (!ValidateUser()) { _showEmailError = true; EmailErrorMessage = ErrorMessages.INVALID_Email; }
+                    else { ShowEmailError = false; EmailErrorMessage = string.Empty; }
+                    OnPropertyChange();
+                }
+            }
         }
 
         public bool ShowEmailError
@@ -116,8 +123,7 @@ namespace OnlineDanceStore.ViewModels
                         PasswordErrorMessage = string.Empty;
                         ShowPasswordError = false;
                     };
-                    OnPropertyChange();
-
+                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
                 }
             }
         }
@@ -157,7 +163,7 @@ namespace OnlineDanceStore.ViewModels
 
             RegisterCommand = new Command(async () =>
             {
-                ShowRegisterError = false; ///הסתרת שגיאת לוגין
+                ShowRegisterError = false; //הסתרת שגיאת לוגין
                 try
                 {
                     #region טעינת מסך ביניים
