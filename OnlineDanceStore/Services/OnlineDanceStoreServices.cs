@@ -76,11 +76,7 @@ namespace OnlineDanceStore.Services
                     case (HttpStatusCode.OK):
                     case (HttpStatusCode.Created):
                         {
-                            User u =new User();
-                            u.Email = user.Email;
-                            u.FirstName = user.FirstName;
-                            u.LastName = user.LastName; 
-                            u.UserPswd = user.UserPswd;
+                            User u;
                             jsonContent = await response.Content.ReadAsStringAsync();
                            u = JsonSerializer.Deserialize<User>(jsonContent, _serializerOptions);
                             return new UserDto {Success=true, Message=null, User=u };

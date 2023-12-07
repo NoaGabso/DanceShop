@@ -8,7 +8,7 @@ using OnlineDanceStore.Models;
 using OnlineDanceStore.View;
 using OnlineDanceStore.Services;
 using System.Text.Json;
-
+using System.Diagnostics;
 
 namespace OnlineDanceStore.ViewModels
 {
@@ -193,7 +193,7 @@ namespace OnlineDanceStore.ViewModels
                 catch (Exception ex)
                 {
 
-                    Console.WriteLine(ex.Message);
+                    Debug.WriteLine(ex.Message);
 
                     await AppShell.Current.Navigation.PopModalAsync();
                 }
