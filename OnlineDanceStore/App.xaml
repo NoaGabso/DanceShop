@@ -6,7 +6,14 @@
     <Application.Resources>
         <ResourceDictionary>
             <Style TargetType="Button">
-                <Setter Property="TextColor" Value="Red"/>
+                <Setter Property="BackgroundColor" Value="LightPink"/>
+                <Setter Property="BorderColor" Value="DeepPink"/>
+                <Setter Property="TextColor" Value="AliceBlue"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="FontFamily" Value="cursive"/>
+
             </Style>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
