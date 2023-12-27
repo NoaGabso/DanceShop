@@ -6,9 +6,30 @@
     xmlns:local="clr-namespace:OnlineDanceStore"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Welcome To My Dance Store"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        
+        <ShellContent
+    Title="Welcome To My Dance Store"
+    ContentTemplate="{DataTemplate local:MainPage}"
+    Route="MainPage" />
+        
+        <Tab Title="דף הבית">
+            <ShellContent
+                x:Name="home"
+                Title="הוםפייג"
+                ContentTemplate="{DataTemplate local:HomePage}"
+                Route="HomePage" />
+        </Tab>
+
+        <Tab Title="מסך אחר">
+            <ShellContent
+                Title="מסך אחר"
+                ContentTemplate="{DataTemplate local:AnotherPage}"
+                Route="AnotherPage" />
+        </Tab>
+
+    </TabBar>
+
+    
 
 </Shell>

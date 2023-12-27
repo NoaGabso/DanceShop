@@ -28,6 +28,12 @@ public static class MauiProgram
 		builder.Services.AddSingleton<OnlineDanceStoreServices>();
 		builder.Services.AddSingleton<HomePageViewModel>();
 		builder.Services.AddSingleton<HomePage>();
+        builder.Services.AddSingleton<HomePageViewModel>();
+		builder.Services.AddSingleton <ShoppingCart>();
+        builder.Services.AddSingleton<HomePageViewModel>();
+        builder.Services.AddSingleton<HomePage>();
+        builder.Services.AddSingleton<HomePageViewModel>();
+        builder.Services.AddSingleton<HomePage>();
 
 
 
