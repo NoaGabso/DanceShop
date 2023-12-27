@@ -13,19 +13,26 @@
     ContentTemplate="{DataTemplate local:MainPage}"
     Route="MainPage" />
         
-        <Tab Title="דף הבית">
+        <Tab Title="Home Page">
             <ShellContent
                 x:Name="home"
-                Title="הוםפייג"
+                Title="HomePage"
                 ContentTemplate="{DataTemplate local:HomePage}"
                 Route="HomePage" />
         </Tab>
 
-        <Tab Title="מסך אחר">
+        <Tab Title="Shopping Cart">
             <ShellContent
-                Title="מסך אחר"
-                ContentTemplate="{DataTemplate local:AnotherPage}"
-                Route="AnotherPage" />
+                Title="shopping cart"
+                ContentTemplate="{DataTemplate local:ShoppingCart}"
+                Route="ShoppingCart" />
+        </Tab>
+
+        <Tab Title="User Information">
+            <ShellContent
+         Title="user info"
+         ContentTemplate="{DataTemplate local:UserInfo}"
+         Route="UserInfo" />
         </Tab>
 
     </TabBar>
