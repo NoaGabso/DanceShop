@@ -1,8 +1,8 @@
 namespace OnlineDanceStore.View;
 
-public partial class NewPage1 : ContentPage
+public partial class ShoppingCart : ContentPage
 {
-	public NewPage1()
+	public ShoppingCart()
 	{
 		InitializeComponent();
 	}
