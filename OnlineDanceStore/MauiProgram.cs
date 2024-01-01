@@ -32,6 +32,8 @@ public static class MauiProgram
 		builder.Services.AddSingleton<ShoppingCart>();
 		builder.Services.AddSingleton<UserInfoViewModel>();
 		builder.Services.AddSingleton<UserInfo>();
+		builder.Services.AddSingleton<CategoriesViewModel>();
+		builder.Services.AddSingleton<Categories>();
         
 
 

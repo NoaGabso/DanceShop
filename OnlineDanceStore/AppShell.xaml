@@ -3,6 +3,7 @@
     x:Class="OnlineDanceStore.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:view="clr-namespace:OnlineDanceStore.View"
     xmlns:local="clr-namespace:OnlineDanceStore"
     Shell.FlyoutBehavior="Disabled">
 
@@ -13,25 +14,50 @@
     ContentTemplate="{DataTemplate local:MainPage}"
     Route="MainPage" />
         
-        <Tab Title="Home Page">
+        <Tab  Title="Home Page">
             <ShellContent
                 x:Name="home"
-                Title="HomePage"
-                ContentTemplate="{DataTemplate local:HomePage}"
+                Title="HomePage"    
+                ContentTemplate="{DataTemplate view:HomePage}"
                 Route="HomePage" />
+            
+        </Tab>
+
+
+        <Tab Title="Categories">
+            <ShellContent
+                Title="Leotards"
+                ContentTemplate="{DataTemplate view:ShoppingCart}"
+                Route="ShoppingCart" />
+            <ShellContent
+    Title="Women"
+    ContentTemplate="{DataTemplate view:ShoppingCart}"
+    Route="ShoppingCart" />
+            <ShellContent
+    Title="Men"
+    ContentTemplate="{DataTemplate view:ShoppingCart}"
+    Route="ShoppingCart" />
+            <ShellContent
+    Title="Dancing Shoes"
+    ContentTemplate="{DataTemplate view:ShoppingCart}"
+    Route="ShoppingCart" />
+            <ShellContent
+    Title="Accessories"
+    ContentTemplate="{DataTemplate view:ShoppingCart}"
+    Route="ShoppingCart" />
         </Tab>
 
         <Tab Title="Shopping Cart">
             <ShellContent
                 Title="shopping cart"
-                ContentTemplate="{DataTemplate local:ShoppingCart}"
+                ContentTemplate="{DataTemplate view:ShoppingCart}"
                 Route="ShoppingCart" />
         </Tab>
 
         <Tab Title="User Information">
             <ShellContent
          Title="user info"
-         ContentTemplate="{DataTemplate local:UserInfo}"
+         ContentTemplate="{DataTemplate view:UserInfo}"
          Route="UserInfo" />
         </Tab>
 
