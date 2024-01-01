@@ -14,18 +14,19 @@
     ContentTemplate="{DataTemplate local:MainPage}"
     Route="MainPage" />
         
-        <Tab  Title="Home Page">
+        <Tab  Icon="iconshome" Title="Home Page">
             <ShellContent
                 x:Name="home"
                 Title="HomePage"    
-              Icon="iconshome.png"
+             
                 ContentTemplate="{DataTemplate view:HomePage}"
                 Route="HomePage" />
             
         </Tab>
 
 
-        <Tab Title="Categories">
+        <Tab Icon="iconsmagnifying_glass"
+             Title="Categories">
             <ShellContent
                 Title="Leotards"
                 ContentTemplate="{DataTemplate view:Categories}"
@@ -48,14 +49,16 @@
     Route="ShoppingCart" />
         </Tab>
 
-        <Tab Title="Shopping Cart">
+        <Tab Icon="iconsshopping_bag"
+            Title="Shopping Cart">
             <ShellContent
                 Title="shopping cart"
                 ContentTemplate="{DataTemplate view:ShoppingCart}"
                 Route="ShoppingCart" />
         </Tab>
 
-        <Tab Title="User Information">
+        <Tab Icon="iconsfemale_profile"
+   Title="User Information">
             <ShellContent
          Title="user info"
          ContentTemplate="{DataTemplate view:UserInfo}"

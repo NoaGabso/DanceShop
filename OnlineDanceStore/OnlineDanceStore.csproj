@@ -49,7 +49,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\iconsfemale_profile.png" />
 	  <None Remove="Resources\Images\iconshome.png" />
+	  <None Remove="Resources\Images\iconsmagnifying_glass.png" />
+	  <None Remove="Resources\Images\iconsshopping_bag.png" />
 	</ItemGroup>
 
 	<ItemGroup>
