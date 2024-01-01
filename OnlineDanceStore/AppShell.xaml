@@ -18,6 +18,7 @@
             <ShellContent
                 x:Name="home"
                 Title="HomePage"    
+              Icon="iconshome.png"
                 ContentTemplate="{DataTemplate view:HomePage}"
                 Route="HomePage" />
             
@@ -27,23 +28,23 @@
         <Tab Title="Categories">
             <ShellContent
                 Title="Leotards"
-                ContentTemplate="{DataTemplate view:ShoppingCart}"
+                ContentTemplate="{DataTemplate view:Categories}"
                 Route="ShoppingCart" />
             <ShellContent
     Title="Women"
-    ContentTemplate="{DataTemplate view:ShoppingCart}"
+    ContentTemplate="{DataTemplate view:Categories}"
     Route="ShoppingCart" />
             <ShellContent
     Title="Men"
-    ContentTemplate="{DataTemplate view:ShoppingCart}"
+    ContentTemplate="{DataTemplate view:Categories}"
     Route="ShoppingCart" />
             <ShellContent
     Title="Dancing Shoes"
-    ContentTemplate="{DataTemplate view:ShoppingCart}"
+    ContentTemplate="{DataTemplate view:Categories}"
     Route="ShoppingCart" />
             <ShellContent
     Title="Accessories"
-    ContentTemplate="{DataTemplate view:ShoppingCart}"
+    ContentTemplate="{DataTemplate view:Categories}"
     Route="ShoppingCart" />
         </Tab>
 
