@@ -9,4 +9,15 @@ public partial class HomePage : ContentPage
         InitializeComponent();
 
     }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        foreach (var x in Shell.Current.Items)
+        {
+            if (x.CurrentItem.CurrentItem.Route == nameof(MainPage)) { x.FlyoutItemIsVisible = false; }
+            
+            else x.FlyoutItemIsVisible = true;
+        }
+    }
 }
