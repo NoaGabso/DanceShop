@@ -27,7 +27,7 @@ namespace OnlineDanceStore.ViewModels
             {
                 if (tabisVisible != value)
                 {
-                    tabisVisible = value; OnPropertyChanged();
+                    tabisVisible = value; OnPropertyChange();
                 }
             }
         }
@@ -142,7 +142,7 @@ namespace OnlineDanceStore.ViewModels
                     {
                         await AppShell.Current.DisplayAlert("התחברת", "אישור כניסה לאתר", "אישור");
                         await SecureStorage.Default.SetAsync("LoggedUser", JsonSerializer.Serialize(user.User));
-                        IsVisible = false;
+                        IsVisible = true;
                         await AppShell.Current.GoToAsync("HomePage");
                     }
 
@@ -175,14 +175,7 @@ namespace OnlineDanceStore.ViewModels
             return ValidateUser() && ValidatePassWord();
         }
         #endregion
-        #region INOTIFYPROPERTYCHANGE EVENT
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
+       
     }
 
 }

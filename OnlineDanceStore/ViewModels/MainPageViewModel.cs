@@ -11,11 +11,29 @@ using System.Windows.Input;
 
 namespace OnlineDanceStore.ViewModels
 {
+
     public class MainPageViewModel:ViewModel
     {
        
         public ICommand LoginCommand { get; protected set; }
         public ICommand RegisterCommand { get; protected set; }
+        #region Fields
+        private bool tabisVisible;//הסתרת הטאב הנוכחי
+        #endregion
+
+        #region Properties
+        public bool IsVisible
+        {
+            get =>!tabisVisible;
+            set
+            {
+                if (tabisVisible != value)
+                {
+                    tabisVisible = value; OnPropertyChange();
+                }
+            }
+        }
+        #endregion
         public MainPageViewModel()
         {
           
@@ -26,10 +44,12 @@ namespace OnlineDanceStore.ViewModels
             RegisterCommand = new Command(async () =>
             {
                 await AppShell.Current.GoToAsync("Register");
+               tabisVisible = true; 
             });
             LoginCommand = new Command(  async() =>
             {
                   await AppShell.Current.GoToAsync("Login");
+                tabisVisible = true; 
                 //ShowLoginError = false;//הסתרת שגיאת לוגין
                 //try
                 //{

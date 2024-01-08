@@ -4,7 +4,8 @@
              x:Class="OnlineDanceStore.MainPage"
              xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
              x:DataType="viewmodels:MainPageViewModel" 
-         FlowDirection="RightToLeft">
+             IsVisible="{Binding IsVisible}"
+         FlowDirection="RightToLeft" Shell.TabBarIsVisible="False">
 
 
 

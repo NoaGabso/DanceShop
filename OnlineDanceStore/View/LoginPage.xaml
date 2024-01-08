@@ -5,8 +5,8 @@
             xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
              x:DataType="viewmodels:LoginPageViewModels"
              Title="LoginPage"
-             IsVisible="{Binding IsVisible}"
-             Shell.TabBarIsVisible="false">
+            
+             Shell.TabBarIsVisible="{Binding IsVisible}">
     <VerticalStackLayout>
         <Label 
             Text="welcome back"
@@ -27,7 +27,7 @@
                 <Label
              Grid.Row="1"
              IsVisible="{Binding ShowEmailError}"
-             Style="{StaticResource error}"
+            
              Text="{Binding EmailErrorMessage}" />
             </Grid>
 
@@ -49,7 +49,7 @@
                 <Label
              Grid.Row="1"
              IsVisible="{Binding ShowPasswordError}"
-             Style="{StaticResource error}"
+            
              Text="{Binding PasswordErrorMessage}" />
 
             </Grid>
