@@ -8,11 +8,30 @@ using System.Windows.Input;
 using OnlineDanceStore.Models;
 using OnlineDanceStore.View;
 using System.Text.Json;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace OnlineDanceStore.ViewModels
 {
     public class LoginPageViewModels : ViewModel
     {
+        #region Fields
+        private bool tabisVisible;//הסתרת הטאב הנוכחי
+        #endregion
+
+        #region Properties
+        public bool IsVisible
+        {
+            get => tabisVisible;
+            set
+            {
+                if (tabisVisible != value)
+                {
+                    tabisVisible = value; OnPropertyChanged();
+                }
+            }
+        }
+        #endregion
 
         #region Fields
         private string _email;//שם משתמש
@@ -123,7 +142,7 @@ namespace OnlineDanceStore.ViewModels
                     {
                         await AppShell.Current.DisplayAlert("התחברת", "אישור כניסה לאתר", "אישור");
                         await SecureStorage.Default.SetAsync("LoggedUser", JsonSerializer.Serialize(user.User));
-                        
+                        IsVisible = false;
                         await AppShell.Current.GoToAsync("HomePage");
                     }
 
@@ -156,7 +175,14 @@ namespace OnlineDanceStore.ViewModels
             return ValidateUser() && ValidatePassWord();
         }
         #endregion
+        #region INOTIFYPROPERTYCHANGE EVENT
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
     }
 
 }

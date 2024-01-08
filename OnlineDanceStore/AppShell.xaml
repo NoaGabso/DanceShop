@@ -5,18 +5,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:view="clr-namespace:OnlineDanceStore.View"
     xmlns:local="clr-namespace:OnlineDanceStore"
-    Shell.FlyoutBehavior="Flyout">
+    Shell.FlyoutBehavior="Disabled">
 
-    <FlyoutItem Title="Welcome To My Dance Store">
+    <TabBar Title="Welcome To My Dance Store">
 
         <ShellContent
    
     ContentTemplate="{DataTemplate local:MainPage}"
     Route="MainPage" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems" FlyoutItemIsVisible="False">
-
+    </TabBar>
+    <TabBar>
+        
         <Tab  Icon="iconshome" Title="Home Page">
             <ShellContent
                 x:Name="home"
@@ -68,7 +67,7 @@
          Route="UserInfo" />
         </Tab>
 
-    </FlyoutItem>
+    </TabBar>
 
 
 

@@ -3,9 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OnlineDanceStore.MainPage"
              xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
-             x:DataType="viewmodels:MainPageViewModel"
-            
-                          FlowDirection="RightToLeft">
+             x:DataType="viewmodels:MainPageViewModel" 
+         FlowDirection="RightToLeft">
 
 
 

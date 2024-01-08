@@ -7,17 +7,18 @@ public partial class HomePage : ContentPage
     {
         this.BindingContext = vm;
         InitializeComponent();
+        
 
     }
 
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-        foreach (var x in Shell.Current.Items)
-        {
-            if (x.CurrentItem.CurrentItem.Route == nameof(MainPage)) { x.FlyoutItemIsVisible = false; }
+    //protected override void OnAppearing()
+    //{
+    //    base.OnAppearing();
+    //    foreach (var x in Shell.Current.Items)
+    //    {
+    //        if (x.CurrentItem.CurrentItem.Route == nameof(MainPage)) { x.FlyoutItemIsVisible = false; }
             
-            else x.FlyoutItemIsVisible = true;
-        }
-    }
+    //        else x.FlyoutItemIsVisible = true;
+    //    }
+    //}
 }

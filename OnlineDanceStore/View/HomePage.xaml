@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OnlineDanceStore.View.HomePage"
              xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
-             Title="HomePage"  Shell.FlyoutItemIsVisible="True" Shell.TabBarIsVisible="True">
+             Title="HomePage"  
+             Shell.TabBarIsVisible="True">
     <VerticalStackLayout>
         <Label 
             Text="Welcome to my store!!!"
