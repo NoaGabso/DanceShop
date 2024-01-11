@@ -44,12 +44,12 @@ namespace OnlineDanceStore.ViewModels
             RegisterCommand = new Command(async () =>
             {
                 await AppShell.Current.GoToAsync("Register");
-               tabisVisible = true; 
+               IsVisible = true; 
             });
             LoginCommand = new Command(  async() =>
             {
                   await AppShell.Current.GoToAsync("Login");
-                tabisVisible = true; 
+                IsVisible = true; 
                 //ShowLoginError = false;//הסתרת שגיאת לוגין
                 //try
                 //{

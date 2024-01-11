@@ -4,6 +4,7 @@
              x:Class="OnlineDanceStore.View.RegisterPage"
              xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
  x:DataType="viewmodels:RegisterPageViewModel"
+             Shell.TabBarIsVisible="False"
              Title="Register">
     <VerticalStackLayout>
         <Label 

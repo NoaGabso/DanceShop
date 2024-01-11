@@ -4,9 +4,10 @@
              x:Class="OnlineDanceStore.View.LoginPage"
             xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
              x:DataType="viewmodels:LoginPageViewModels"
-             Title="LoginPage"
-            
-             Shell.TabBarIsVisible="{Binding IsVisible}">
+                   Shell.TabBarIsVisible="False"
+             Title="LoginPage">
+
+
     <VerticalStackLayout>
         <Label 
             Text="welcome back"
