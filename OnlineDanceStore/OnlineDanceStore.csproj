@@ -53,6 +53,7 @@
 	  <None Remove="Resources\Images\iconshome.png" />
 	  <None Remove="Resources\Images\iconsmagnifying_glass.png" />
 	  <None Remove="Resources\Images\iconsshopping_bag.png" />
+	  <None Remove="Resources\Images\leotardforexaple.png" />
 	</ItemGroup>
 
 	<ItemGroup>

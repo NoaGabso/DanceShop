@@ -6,11 +6,29 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using OnlineDanceStore.Models;
+using static Android.Content.ClipData;
+using static Android.Util.EventLogTags;
 
 namespace OnlineDanceStore.Services
 {
     public class OnlineDanceStoreServices
     {
+        #region TestData
+        private static List<Item> items = new List<Item>()
+      { new Item() { Categories= new Categories(){Id= 2, Name= "Shoes" },
+          SubCategory= new SubCategory(){Category=new Categories(){Id=2} ,Id=4, Name="Jazz shoes" },
+          Name = " jazz dance shoes",
+          Description="...shoes...",
+          SizeItem= new SizeItem(){Id=4,Size=37},
+          ColorItem=new ColorItem(){Id=1,Name="black"},
+          Quantity= 5,
+          Price= 200,
+          Image="imagestringshoes" }};
+      
+        
+       
+        #endregion
+
         readonly HttpClient _httpClient;
         readonly JsonSerializerOptions _serializerOptions;
         const string URL = @"https://j6gcbt8d-7123.euw.devtunnels.ms/api/DanceStore/";
@@ -23,6 +41,8 @@ namespace OnlineDanceStore.Services
                 PropertyNameCaseInsensitive = true,
                 ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve
             };
+
+           
         }
             #region
             public async Task<UserDto> LoginAsync(string email, string password)
