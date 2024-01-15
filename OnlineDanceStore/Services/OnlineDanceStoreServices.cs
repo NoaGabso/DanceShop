@@ -6,8 +6,9 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using OnlineDanceStore.Models;
-using static Android.Content.ClipData;
-using static Android.Util.EventLogTags;
+
+
+
 
 namespace OnlineDanceStore.Services
 {
@@ -15,6 +16,7 @@ namespace OnlineDanceStore.Services
     {
         #region TestData
         private static List<Item> items = new List<Item>()
+
       { new Item() { Categories= new Categories(){Id= 2, Name= "Shoes" },
           SubCategory= new SubCategory(){Category=new Categories(){Id=2} ,Id=4, Name="Jazz shoes" },
           Name = " jazz dance shoes",
