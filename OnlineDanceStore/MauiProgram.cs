@@ -2,6 +2,7 @@
 using OnlineDanceStore.Services;
 using OnlineDanceStore.ViewModels;
 using OnlineDanceStore.View;
+using OnlineDanceStore.View.Categories;
 
 namespace OnlineDanceStore;
 
@@ -33,7 +34,14 @@ public static class MauiProgram
 		builder.Services.AddSingleton<UserInfoViewModel>();
 		builder.Services.AddSingleton<UserInfo>();
 		builder.Services.AddSingleton<CategoriesViewModel>();
-		builder.Services.AddSingleton<Categories>();
+		builder.Services.AddSingleton<Leotards>();
+		builder.Services.AddSingleton<Accessories>(); 
+		builder.Services.AddSingleton<Men>(); 
+		builder.Services.AddSingleton<Women>(); 
+		builder.Services.AddSingleton<DancingShoes> (); 
+
+
+
         
 
 

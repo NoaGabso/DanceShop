@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:view="clr-namespace:OnlineDanceStore.View"
+     xmlns:categories="clr-namespace:OnlineDanceStore.View.Categories"
     xmlns:local="clr-namespace:OnlineDanceStore"
     Shell.FlyoutBehavior="Disabled">
 
@@ -30,20 +31,20 @@
              Title="Categories">
             <ShellContent
                 Title="Leotards"
-                ContentTemplate="{DataTemplate view:Categories}"
-                Route="ShoppingCart" />
+                ContentTemplate="{DataTemplate categories:Leotards}"
+                Route="Leotards" />
             <ShellContent
     Title="Women"
-    ContentTemplate="{DataTemplate view:Categories}"
-    Route="Categories" />
+    ContentTemplate="{DataTemplate categories:Women}"
+    Route="Women" />
             <ShellContent
     Title="Men"
-    ContentTemplate="{DataTemplate view:Categories}"
-    Route="Categories" />
+    ContentTemplate="{DataTemplate categories:Men}"
+    Route="Men" />
             <ShellContent
     Title="Dancing Shoes"
-    ContentTemplate="{DataTemplate view:Categories}"
-    Route="Categories" />
+    ContentTemplate="{DataTemplate categories:DancingShoes}"
+    Route="DancingShoes" />
             <ShellContent
     Title="Accessories"
     ContentTemplate="{DataTemplate view:Categories}"

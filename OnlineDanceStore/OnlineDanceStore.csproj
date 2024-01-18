@@ -69,7 +69,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="View\Categories.xaml">
+	  <MauiXaml Update="View\Categories\Accessories.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Categories\DancingShoes.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Categories\Leotards.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Categories\Men.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Categories\Women.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\LoadingPage.xaml">

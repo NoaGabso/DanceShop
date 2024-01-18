@@ -26,7 +26,19 @@ namespace OnlineDanceStore.Services
           ColorItem=new ColorItem(){Id=1,Name="black"},
           Quantity= 5,
           Price= 200,
-          Image="imagestringshoes" }};
+          Image="imagestringshoes" },
+
+          new Item() { Categories= new Categories(){Id= 1, Name= "Leotards" },
+          Name = "women leotards",
+          Description="...leotards...",
+          Gender=new Gender(){Id=1, Name ="Female"},
+          SizeItem= new SizeItem(){Id=1,Size=00},
+          ColorItem=new ColorItem(){Id=1,Name="maroon"},
+          Quantity= 2,
+          Price= 150,
+          Image="imagestringleotard" }
+
+        };
 
 
 
@@ -146,7 +158,7 @@ namespace OnlineDanceStore.Services
         }
         public static async Task<List<Item>> GetAllAccessories()
         {
-            return items.Where(x => x.Categories.Id == 3).ToList();
+            return items.Where(x => x.Categories.Id == 1).ToList();
         }
         #endregion
 
