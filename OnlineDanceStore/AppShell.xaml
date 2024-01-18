@@ -35,19 +35,19 @@
             <ShellContent
     Title="Women"
     ContentTemplate="{DataTemplate view:Categories}"
-    Route="ShoppingCart" />
+    Route="Categories" />
             <ShellContent
     Title="Men"
     ContentTemplate="{DataTemplate view:Categories}"
-    Route="ShoppingCart" />
+    Route="Categories" />
             <ShellContent
     Title="Dancing Shoes"
     ContentTemplate="{DataTemplate view:Categories}"
-    Route="ShoppingCart" />
+    Route="Categories" />
             <ShellContent
     Title="Accessories"
     ContentTemplate="{DataTemplate view:Categories}"
-    Route="ShoppingCart" />
+    Route="Categories" />
         </Tab>
 
         <Tab Icon="iconsshopping_bag"

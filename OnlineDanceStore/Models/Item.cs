@@ -12,6 +12,7 @@ namespace OnlineDanceStore.Models
         public SubCategory SubCategory { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public Gender Gender {  get; set; }
         public SizeItem SizeItem { get; set; }
         public ColorItem ColorItem { get; set; }
         public int Quantity { get; set; }

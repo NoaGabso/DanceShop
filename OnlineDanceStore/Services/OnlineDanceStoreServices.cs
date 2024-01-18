@@ -21,6 +21,7 @@ namespace OnlineDanceStore.Services
           SubCategory= new SubCategory(){Category=new Categories(){Id=2} ,Id=4, Name="Jazz shoes" },
           Name = " jazz dance shoes",
           Description="...shoes...",
+          Gender=new Gender(){Id=1, Name ="Female"},
           SizeItem= new SizeItem(){Id=4,Size=37},
           ColorItem=new ColorItem(){Id=1,Name="black"},
           Quantity= 5,
@@ -117,11 +118,36 @@ namespace OnlineDanceStore.Services
 
         }
 
-        public async Task<List<Item>> GetItems(int CategoryId)
+        public static async Task<List<Item>> GetItemsByCategory(int CategoryId)
         {
-            return items.Where(x=> x.Categories.Id == CategoryId).ToList();
+           return items.Where(x=> x.Categories.Id == CategoryId).ToList();
         }
-           
+
+        public static async Task<List<Item>> GetItemsBySubCategory(int CategoryId, int SubCategoryId)
+        {
+            return items.Where(x=> x.Categories.Id==CategoryId && x.SubCategory.Id==SubCategoryId).ToList();
+        }
+
+        public static async Task<List<Item>> GetItemsForWomen()
+        {
+            return items.Where(x=> x.Gender.Id==1).ToList();
+        }
+        public static async Task<List<Item>> GetItemsForMen()
+        {
+            return items.Where(x => x.Gender.Id == 2).ToList();
+        }
+        public static async Task<List<Item>> GetAllLeotards()
+        {
+            return items.Where(x => x.Categories.Id == 1).ToList();
+        }
+        public static async Task<List<Item>> GetAllDancingShoes()
+        {
+            return items.Where(x => x.Categories.Id == 2).ToList();
+        }
+        public static async Task<List<Item>> GetAllAccessories()
+        {
+            return items.Where(x => x.Categories.Id == 3).ToList();
+        }
         #endregion
 
     } 
