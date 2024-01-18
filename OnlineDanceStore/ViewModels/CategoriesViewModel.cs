@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using OnlineDanceStore.Models;
-using OnlineDanceStore.View;
+using OnlineDanceStore.View.Categories;
 using System.Text.Json;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
