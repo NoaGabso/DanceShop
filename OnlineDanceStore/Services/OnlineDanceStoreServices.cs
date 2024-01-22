@@ -130,33 +130,33 @@ namespace OnlineDanceStore.Services
 
         }
 
-        public static async Task<List<Item>> GetItemsByCategory(int CategoryId)
+        public async Task<List<Item>> GetItemsByCategory(int CategoryId)
         {
            return items.Where(x=> x.Categories.Id == CategoryId).ToList();
         }
 
-        public static async Task<List<Item>> GetItemsBySubCategory(int CategoryId, int SubCategoryId)
+        public async Task<List<Item>> GetItemsBySubCategory(int CategoryId, int SubCategoryId)
         {
             return items.Where(x=> x.Categories.Id==CategoryId && x.SubCategory.Id==SubCategoryId).ToList();
         }
 
-        public static async Task<List<Item>> GetItemsForWomen()
+        public async Task<List<Item>> GetItemsForWomen()
         {
             return items.Where(x=> x.Gender.Id==1).ToList();
         }
-        public static async Task<List<Item>> GetItemsForMen()
+        public async Task<List<Item>> GetItemsForMen()
         {
             return items.Where(x => x.Gender.Id == 2).ToList();
         }
-        public static async Task<List<Item>> GetAllLeotards()
+        public async Task<List<Item>> GetAllLeotards()
         {
             return items.Where(x => x.Categories.Id == 1).ToList();
         }
-        public static async Task<List<Item>> GetAllDancingShoes()
+        public async Task<List<Item>> GetAllDancingShoes()
         {
             return items.Where(x => x.Categories.Id == 2).ToList();
         }
-        public static async Task<List<Item>> GetAllAccessories()
+        public async Task<List<Item>> GetAllAccessories()
         {
             return items.Where(x => x.Categories.Id == 1).ToList();
         }
