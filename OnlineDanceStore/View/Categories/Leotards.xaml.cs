@@ -3,8 +3,15 @@ namespace OnlineDanceStore.View.Categories;
 
 public partial class Leotards : ContentPage
 {
-	public Leotards()
+	public Leotards(CategoriesViewModel vm)
 	{
-		InitializeComponent();
+        this.BindingContext = vm;
+        InitializeComponent();
 	}
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        CategoriesViewModel vm = (CategoriesViewModel)BindingContext;
+        vm.GetAllLeotardsCommand.Execute(null);
+    }
 }

@@ -104,6 +104,7 @@ namespace OnlineDanceStore.ViewModels
                 try
                 {
                     var listofitems = await _service.GetAllAccessories();
+                    Items = new ObservableCollection<Item>(listofitems);
                 }
                 catch (Exception ex) { }
             });

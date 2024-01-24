@@ -3,8 +3,15 @@ namespace OnlineDanceStore.View.Categories;
 
 public partial class Men : ContentPage
 {
-	public Men()
+	public Men(CategoriesViewModel vm)
 	{
-		InitializeComponent();
+        this.BindingContext = vm;
+        InitializeComponent();
 	}
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        CategoriesViewModel vm = (CategoriesViewModel)BindingContext;
+        vm.GetItemsForMenCommand.Execute(null);
+    }
 }

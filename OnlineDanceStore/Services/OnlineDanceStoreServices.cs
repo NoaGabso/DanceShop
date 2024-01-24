@@ -158,7 +158,7 @@ namespace OnlineDanceStore.Services
         }
         public async Task<List<Item>> GetAllAccessories()
         {
-            return items.Where(x => x.Categories.Id == 1).ToList();
+            return items.Where(x => x.Categories.Id == 3).ToList();
         }
         #endregion
 

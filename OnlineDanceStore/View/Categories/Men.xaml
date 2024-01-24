@@ -3,8 +3,11 @@
     x:Class="OnlineDanceStore.View.Categories.Men"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:models="clr-namespace:OnlineDanceStore.Models"
     xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
+     x:DataType="viewmodels:CategoriesViewModel">
     Title="Men">
+   
     <VerticalStackLayout>
         <Label
             HorizontalOptions="Center"
