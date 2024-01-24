@@ -5,12 +5,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
      xmlns:models="clr-namespace:OnlineDanceStore.Models"
     xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
-    x:DataType="viewmodels:CategoriesViewModel">
+    x:DataType="viewmodels:CategoriesViewModel"
     Title="DancingShoes">
+
     <VerticalStackLayout>
         <Label
             HorizontalOptions="Center"
             Text="What Are You Looking For"
             VerticalOptions="Center" />
+        <CollectionView EmptyView="No shoes found" ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Item">
+                    <StackLayout>
+                        <Label Text="{Binding Description}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
