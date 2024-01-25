@@ -15,7 +15,7 @@ namespace OnlineDanceStore.Services
     public class OnlineDanceStoreServices
     {
         #region TestData
-        private static List<Item> items = new List<Item>()
+        public static List<Item> items = new List<Item>()
 
       { new Item() { Categories= new Categories(){Id= 2, Name= "Shoes" },
           SubCategory= new SubCategory(){Category=new Categories(){Id=2} ,Id=4, Name="Jazz shoes" },

@@ -47,7 +47,7 @@
     Route="DancingShoes" />
             <ShellContent
     Title="Accessories"
-    ContentTemplate="{DataTemplate view:Categories}"
+    ContentTemplate="{DataTemplate categories:Accessories}"
     Route="Categories" />
         </Tab>
 

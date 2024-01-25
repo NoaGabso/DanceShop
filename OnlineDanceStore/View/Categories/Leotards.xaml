@@ -16,7 +16,7 @@
             VerticalOptions="Center" />
         <CollectionView EmptyView="No leotards found" ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:Item">
+                <DataTemplate x:DataType="models:Item" >
                     <StackLayout>
                         <Label Text="{Binding Name}" />
                         <Label Text="{Binding SizeItem.Size}" />
