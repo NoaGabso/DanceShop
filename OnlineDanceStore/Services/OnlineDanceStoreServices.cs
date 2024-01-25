@@ -32,8 +32,8 @@ namespace OnlineDanceStore.Services
           Name = "women leotards",
           Description="...leotards...",
           Gender=new Gender(){Id=1, Name ="Female"},
-          SizeItem= new SizeItem(){Id=1,Size=00},
-          ColorItem=new ColorItem(){Id=1,Name="maroon"},
+          SizeItem= new SizeItem(){Id=1,Size=0},
+          ColorItem=new ColorItem(){Id=5,Name="maroon"},
           Quantity= 2,
           Price= 150,
           Image="imagestringleotard" }

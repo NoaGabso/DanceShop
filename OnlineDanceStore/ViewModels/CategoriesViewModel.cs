@@ -59,6 +59,7 @@ namespace OnlineDanceStore.ViewModels
                 try
                 {
                     var listofitems = await _service.GetItemsBySubCategory(CategoryId, SubCategoryId);
+                    Items = new ObservableCollection<Item>(listofitems);
                 }
                 catch (Exception ex) { }
             });
@@ -68,6 +69,7 @@ namespace OnlineDanceStore.ViewModels
                 try
                 {
                     var listofitems = await _service.GetItemsForWomen();
+                    Items = new ObservableCollection<Item>(listofitems);
                 }
                 catch (Exception ex) { }
             });
@@ -77,6 +79,7 @@ namespace OnlineDanceStore.ViewModels
                 try
                 {
                     var listofitems = await _service.GetItemsForMen();
+                    Items = new ObservableCollection<Item>(listofitems);
                 }
                 catch (Exception ex) { }
             });
@@ -86,6 +89,7 @@ namespace OnlineDanceStore.ViewModels
                 try
                 {
                     var listofitems = await _service.GetAllLeotards();
+                    Items = new ObservableCollection<Item>(listofitems);
                 }
                 catch (Exception ex) { }
             });
@@ -95,6 +99,7 @@ namespace OnlineDanceStore.ViewModels
                 try
                 {
                     var listofitems = await _service.GetAllDancingShoes();
+                    Items = new ObservableCollection<Item>(listofitems);
                 }
                 catch (Exception ex) { }
             });
