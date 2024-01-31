@@ -8,7 +8,7 @@
     x:DataType="viewmodels:CategoriesViewModel"
     Title="DancingShoes">
 
-    <VerticalStackLayout>
+    <!--<VerticalStackLayout>
         <Label
             HorizontalOptions="Center"
             Text="What Are You Looking For"
@@ -23,5 +23,46 @@
             </CollectionView.ItemTemplate>
 
         </CollectionView>
-    </VerticalStackLayout>
+    </VerticalStackLayout>-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        
+        <Border BackgroundColor="Black" WidthRequest="1" >
+            <Grid>
+                <Label   Grid.Row="0" HorizontalOptions="Center"
+ Text="What Are You Looking For"
+ VerticalOptions="Center" />
+
+        
+        <CollectionView EmptyView="No shoes found" ItemsSource="{Binding Items}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Item">
+                   
+                    <StackLayout>
+                                <Label Text="{Binding Name}"  Grid.Row="1" Grid.Column="0" />
+                        <Label Text="{Binding SizeItem.Size}" />
+                        <Label Text="{Binding ColorItem.Id}" />
+                        <Label Text="{Binding Price}" />
+                        <Label Text="{Binding Description}" />
+
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </Grid>
+        </Border>
+    </Grid>
+
 </ContentPage>
