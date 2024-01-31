@@ -18,6 +18,10 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Item">
                     <StackLayout>
+                        <Label Text="{Binding Name}" />
+                        <Label Text="{Binding SizeItem.Size}" />
+                        <Label Text="{Binding ColorItem.Id}" />
+                        <Label Text="{Binding Price}" />
                         <Label Text="{Binding Description}" />
                     </StackLayout>
                 </DataTemplate>
