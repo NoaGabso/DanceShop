@@ -23,6 +23,8 @@
                         <Label Text="{Binding ColorItem.Id}" />
                         <Label Text="{Binding Price}" />
                         <Label Text="{Binding Description}" />
+                        <Button x:DataType="viewmodels:ShoppingCartViewModel"
+     Text="Add Item" Command="{Binding AddToCartCommand}" />
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

@@ -36,7 +36,7 @@
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         
-        <Border BackgroundColor="Black" WidthRequest="1" >
+        <Border BackgroundColor="Black" WidthRequest="3" Padding="5" >
             <Grid>
                 <Label   Grid.Row="0" HorizontalOptions="Center"
  Text="What Are You Looking For"
@@ -56,8 +56,9 @@
                         <Label Text="{Binding ColorItem.Id}" />
                         <Label Text="{Binding Price}" />
                         <Label Text="{Binding Description}" />
-
-                    </StackLayout>
+                                <Button x:DataType="viewmodels:ShoppingCartViewModel"
+                                    Text="Add Item" Command="{Binding AddToCartCommand}" />
+                            </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
