@@ -3,10 +3,10 @@
     x:Class="OnlineDanceStore.View.Categories.DancingShoes"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-     xmlns:models="clr-namespace:OnlineDanceStore.Models"
+    xmlns:models="clr-namespace:OnlineDanceStore.Models"
     xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
-    x:DataType="viewmodels:CategoriesViewModel"
-    Title="DancingShoes">
+    Title="DancingShoes"
+    x:DataType="viewmodels:CategoriesViewModel">
 
     <!--<VerticalStackLayout>
         <Label
@@ -25,7 +25,8 @@
         </CollectionView>
     </VerticalStackLayout>-->
 
-    <Grid>
+
+    <Grid Margin="20" HorizontalOptions="CenterAndExpand">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -35,34 +36,51 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-        
-        <Border BackgroundColor="Black" WidthRequest="3" Padding="5" >
-            <Grid>
-                <Label   Grid.Row="0" HorizontalOptions="Center"
- Text="What Are You Looking For"
- VerticalOptions="Center" />
 
-        
-        <CollectionView EmptyView="No shoes found" ItemsSource="{Binding Items}">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:Item">
-                   
-                    <StackLayout>
-                                <Label Text="{Binding Name}"  Grid.Row="1" Grid.Column="0" />
-                        <Label Text="{Binding SizeItem.Size}" />
-                        <Label Text="{Binding ColorItem.Id}" />
-                        <Label Text="{Binding Price}" />
-                        <Label Text="{Binding Description}" />
-                                <Button x:DataType="viewmodels:ShoppingCartViewModel"
-                                    Text="Add Item" Command="{Binding AddToCartCommand}" />
+        <Label
+            Grid.Row="0"
+            HorizontalOptions="Center"
+            Text="What Are You Looking For"
+            VerticalOptions="Center" />
+        <Border
+            Grid.Row="1"
+            Padding="5"
+            BackgroundColor="AliceBlue"
+            HeightRequest="200"
+            WidthRequest="300">
+            <Grid>
+
+
+                <CollectionView ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.EmptyView>
+                        <StackLayout>
+                            <Label Text="No Shoes Found" />
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Item">
+
+                            <StackLayout HeightRequest="200">
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Text="{Binding Name}" />
+                                <Label Text="{Binding SizeItem.Size}" />
+                                <Label Text="{Binding ColorItem.Id}" />
+                                <Label Text="{Binding Price}" />
+                                <Label Text="{Binding Description}" />
+                                <Button
+                                    x:DataType="viewmodels:ShoppingCartViewModel"
+                                    Command="{Binding AddToCartCommand}"
+                                    Text="Add Item" />
                             </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
         </Border>
     </Grid>
 
