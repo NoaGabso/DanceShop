@@ -9,26 +9,64 @@
     Title="Leotards">
 
 
-    <VerticalStackLayout>
+
+    <Grid Margin="15" HorizontalOptions="CenterAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
         <Label
+            Grid.Row="0"
             HorizontalOptions="Center"
             Text="What Are You Looking For"
             VerticalOptions="Center" />
-        <CollectionView EmptyView="No leotards found" ItemsSource="{Binding Items}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:Item" >
-                    <StackLayout>
-                        <Label Text="{Binding Name}" />
-                        <Label Text="{Binding SizeItem.Size}" />
-                        <Label Text="{Binding ColorItem.Id}" />
-                        <Label Text="{Binding Price}" />
-                        <Label Text="{Binding Description}" />
-                        <Button x:DataType="viewmodels:ShoppingCartViewModel"
-     Text="Add Item" Command="{Binding AddToCartCommand}" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+        <Border
+            Grid.Row="1"
+            Padding="5"     
+            BackgroundColor="AliceBlue"
+            HeightRequest="210"
+            WidthRequest="250">
+            <Grid>
 
-        </CollectionView>
-    </VerticalStackLayout>
+
+                <CollectionView EmptyView="No Leotards Found" ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Item">
+
+                            <StackLayout HeightRequest="200" >
+                                <Image Grid.Column="1" Grid.Row="0" Source="{Binding Image}" WidthRequest="50" HeightRequest="50" />
+                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding Name, StringFormat='Name: {0}'}"/>
+                                <Label Grid.Column="0" Grid.Row="1" Text="{Binding SizeItem.Size, StringFormat='Size: {0}'}"/>
+                                <Label Grid.Column="0" Grid.Row="2" Text="{Binding ColorItem.Id, StringFormat='collor: {0}'}"/>
+                                <Label  Grid.Column="0" Grid.Row="3" Text="{Binding Price, StringFormat='Price: {0}'}"/>
+                                <Label  Grid.Column="0" Grid.Row="4" Text="{Binding Description, StringFormat='Description: {0}'}"/>
+
+
+                                <Button
+                                    x:DataType="viewmodels:ShoppingCartViewModel"
+                                    Command="{Binding AddToCartCommand}"
+                                    Text="Add Item" />
+                            </StackLayout>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+
+
+                </CollectionView>
+            </Grid>
+        </Border>
+    </Grid>
+
 </ContentPage>

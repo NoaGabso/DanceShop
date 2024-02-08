@@ -50,15 +50,12 @@
             WidthRequest="250">
             <Grid>
 
-                <CollectionView ItemsSource="{Binding Items}">
+
+                <CollectionView EmptyView="No Shoes Found" ItemsSource="{Binding Items}">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" />
                     </CollectionView.ItemsLayout>
-                    <CollectionView.EmptyView>
-                        <StackLayout>
-                            <Label Text="No Shoes Found" />
-                        </StackLayout>
-                    </CollectionView.EmptyView>
+                    
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:Item">
 

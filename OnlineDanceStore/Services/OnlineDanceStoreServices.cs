@@ -15,9 +15,9 @@ namespace OnlineDanceStore.Services
     public class OnlineDanceStoreServices
     {
         #region TestData
-        public static List<Item> items = new List<Item>()
+        public static List<Item> items = new List<Item>() {
 
-      { new Item() { Categories= new Categories(){Id= 2, Name= "Shoes" },
+       new Item() { Categories= new Categories(){Id= 2, Name= "Shoes" },
           SubCategory= new SubCategory(){Category=new Categories(){Id=2} ,Id=4, Name="Jazz shoes" },
           Name = " jazz dance shoes",
           Description="...shoes...",
@@ -36,7 +36,7 @@ namespace OnlineDanceStore.Services
           ColorItem=new ColorItem(){Id=5,Name="maroon"},
           Quantity= 2,
           Price= 150,
-          Image="imagestringleotard" }
+          Image="iconsshopping_bag.png" }
 
         };
 
