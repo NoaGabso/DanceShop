@@ -26,7 +26,7 @@ namespace OnlineDanceStore.Services
           ColorItem=new ColorItem(){Id=1,Name="black"},
           Quantity= 5,
           Price= 200,
-          Image="imagestringshoes" },
+          Image="iconshome.png" },
 
           new Item() { Categories= new Categories(){Id= 1, Name= "Leotards" },
           Name = "women leotards",

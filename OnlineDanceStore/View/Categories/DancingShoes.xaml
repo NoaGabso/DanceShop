@@ -26,7 +26,7 @@
     </VerticalStackLayout>-->
 
 
-    <Grid Margin="20" HorizontalOptions="CenterAndExpand">
+    <Grid Margin="15" HorizontalOptions="CenterAndExpand">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -34,7 +34,7 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
         <Label
@@ -44,12 +44,11 @@
             VerticalOptions="Center" />
         <Border
             Grid.Row="1"
-            Padding="5"
+            Padding="5"     
             BackgroundColor="AliceBlue"
-            HeightRequest="200"
-            WidthRequest="300">
+            HeightRequest="210"
+            WidthRequest="250">
             <Grid>
-
 
                 <CollectionView ItemsSource="{Binding Items}">
                     <CollectionView.ItemsLayout>
@@ -63,22 +62,27 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:Item">
 
-                            <StackLayout HeightRequest="200">
-                                <Label
-                                    Grid.Row="1"
-                                    Grid.Column="0"
-                                    Text="{Binding Name}" />
-                                <Label Text="{Binding SizeItem.Size}" />
-                                <Label Text="{Binding ColorItem.Id}" />
-                                <Label Text="{Binding Price}" />
-                                <Label Text="{Binding Description}" />
+                            <StackLayout HeightRequest="200" >
+                                <Image Grid.Column="1" Grid.Row="0" Source="{Binding Image}" WidthRequest="50" HeightRequest="50" />
+                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding Name, StringFormat='Name: {0}'}"/>
+                                <Label Grid.Column="0" Grid.Row="1" Text="{Binding SizeItem.Size, StringFormat='Size: {0}'}"/>
+                                <Label Grid.Column="0" Grid.Row="2" Text="{Binding ColorItem.Id, StringFormat='collor: {0}'}"/>
+                                <Label  Grid.Column="0" Grid.Row="3" Text="{Binding Price, StringFormat='Price: {0}'}"/>
+                                <Label  Grid.Column="0" Grid.Row="4" Text="{Binding Description, StringFormat='Description: {0}'}"/>
+                               
+
                                 <Button
                                     x:DataType="viewmodels:ShoppingCartViewModel"
                                     Command="{Binding AddToCartCommand}"
                                     Text="Add Item" />
                             </StackLayout>
+                       
                         </DataTemplate>
+                        
                     </CollectionView.ItemTemplate>
+
+                  
+                    
                 </CollectionView>
             </Grid>
         </Border>
