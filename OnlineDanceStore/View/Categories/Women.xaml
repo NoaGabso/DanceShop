@@ -25,12 +25,7 @@
             HorizontalOptions="Center"
             Text="What Are You Looking For"
             VerticalOptions="Center" />
-        <Border
-            Grid.Row="1"
-            Padding="5"     
-            BackgroundColor="AliceBlue"
-            HeightRequest="210"
-            WidthRequest="250">
+       
             <Grid>
 
 
@@ -41,7 +36,12 @@
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:Item">
-
+                        <Border
+     Grid.Row="2"
+     Padding="100"     
+     BackgroundColor="AliceBlue"
+     HeightRequest="210"
+     WidthRequest="300">
                             <StackLayout HeightRequest="200" >
                                 <Image Grid.Column="1" Grid.Row="0" Source="{Binding Image}" WidthRequest="50" HeightRequest="50" />
                                 <Label Grid.Column="0" Grid.Row="0" Text="{Binding Name, StringFormat='Name: {0}'}"/>
@@ -56,8 +56,8 @@
                                     Command="{Binding AddToCartCommand}"
                                     Text="Add Item" />
                             </StackLayout>
-
-                        </DataTemplate>
+                        </Border>
+                    </DataTemplate>
 
                     </CollectionView.ItemTemplate>
 
@@ -65,7 +65,7 @@
 
                 </CollectionView>
             </Grid>
-        </Border>
+ 
     </Grid>
 
 
