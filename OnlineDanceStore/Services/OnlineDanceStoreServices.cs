@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -14,35 +15,35 @@ namespace OnlineDanceStore.Services
 {
     public class OnlineDanceStoreServices
     {
-        #region TestData
-        public static List<Item> items = new List<Item>() {
+       // #region TestData
+       // public static List<Item> items = new List<Item>() {
 
-       new Item() { Categories= new Categories(){CategoryId= 2, CategoriesName= "Shoes" },
-          SubCategory= new SubCategory(){CategoryId=new Categories(){CategoryId=2} ,SubCategoryId=4, SubcategoryName="Jazz shoes" },
-          ItemName = " jazz dance shoes",
-          ItemDescription="...shoes...",
-          Gender=new Gender(){GenderId=1, GenderName ="Female"},
-          SizeItem= new SizeItem(){SizeItemId=4,SizeName=37},
-          ColorItem=new ColorItem(){ColorItemId=1,ColorName="black"},
-          Quantity= 5,
-          Price= 200,
-          ItemImage="iconshome.png" },
+       //new Item() { Categories= new Categories(){CategoryId= 2, CategoriesName= "Shoes" },
+       //   SubCategory= new SubCategory(){CategoryId=new Categories(){CategoryId=2} ,SubCategoryId=4, SubcategoryName="Jazz shoes" },
+       //   ItemName = " jazz dance shoes",
+       //   ItemDescription="...shoes...",
+       //   Gender=new Gender(){GenderId=1, GenderName ="Female"},
+       //   SizeItem= new SizeItem(){SizeItemId=4,SizeName=37},
+       //   ColorItem=new ColorItem(){ColorItemId=1,ColorName="black"},
+       //   Quantity= 5,
+       //   Price= 200,
+       //   ItemImage="iconshome.png" },
 
-          new Item() { Categories= new Categories(){CategoryId= 1, CategoriesName= "Leotards" },
-          ItemName = "women leotards",
-          ItemDescription="...leotards...",
-          Gender=new Gender(){GenderId=1, GenderName ="Female"},
-          SizeItem= new SizeItem(){SizeItemId=1,SizeName=0},
-          ColorItem=new ColorItem(){ColorItemId=5,ColorName="maroon"},
-          Quantity= 2,
-          Price= 150,
-          ItemImage="iconsshopping_bag.png" }
+       //   new Item() { Categories= new Categories(){CategoryId= 1, CategoriesName= "Leotards" },
+       //   ItemName = "women leotards",
+       //   ItemDescription="...leotards...",
+       //   Gender=new Gender(){GenderId=1, GenderName ="Female"},
+       //   SizeItem= new SizeItem(){SizeItemId=1,SizeName=0},
+       //   ColorItem=new ColorItem(){ColorItemId=5,ColorName="maroon"},
+       //   Quantity= 2,
+       //   Price= 150,
+       //   ItemImage="iconsshopping_bag.png" }
 
-        };
+       // };
 
 
 
-        #endregion
+       // #endregion
 
         readonly HttpClient _httpClient;
         readonly JsonSerializerOptions _serializerOptions;
@@ -132,34 +133,100 @@ namespace OnlineDanceStore.Services
 
         public async Task<List<Item>> GetItemsByCategory(int CategoryId)
         {
-           return items.Where(x=> x.Categories.CategoryId == CategoryId).ToList();
+            List<Item> items = new List<Item>();
+            try
+            {
+                //send it to the server
+                var response = await _httpClient.GetAsync($"{URL}GetItemsByCategory?CtegoryId={CategoryId}");
+
+                if (response.StatusCode== HttpStatusCode.OK)
+                {
+
+                   var jsonContent = await response.Content.ReadAsStringAsync();
+                    items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
+                    return items;
+
+
+
+                }
+                return items;
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            return null;
+
+            //return items.Where(x=> x.Categories.CategoryId == CategoryId).ToList();
         }
 
         public async Task<List<Item>> GetItemsBySubCategory(int CategoryId, int SubCategoryId)
         {
-            return items.Where(x=> x.Categories.CategoryId==CategoryId && x.SubCategory.SubCategoryId==SubCategoryId).ToList();
+            List<Item> items = new List<Item>();
+            try
+            {
+                //send it to the server
+                var response = await _httpClient.GetAsync($"{URL}GetItemsBySubCategory?SubCtegoryId={SubCategoryId}?CtegoryId={CategoryId}");
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    var jsonContent = await response.Content.ReadAsStringAsync();
+                    items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
+                    return items;
+
+
+
+                }
+                return items;
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            return null;
+            //return items.Where(x=> x.Categories.CategoryId==CategoryId && x.SubCategory.SubCategoryId==SubCategoryId).ToList();
         }
 
-        public async Task<List<Item>> GetItemsForWomen()
-        {
-            return items.Where(x=> x.Gender.GenderId==1).ToList();
-        }
-        public async Task<List<Item>> GetItemsForMen()
-        {
-            return items.Where(x => x.Gender.GenderId == 2).ToList();
-        }
         public async Task<List<Item>> GetAllLeotards()
         {
-            return items.Where(x => x.Categories.CategoryId == 1).ToList();
+            List<Item> items = new List<Item>();
+            try
+            {
+                //send it to the server
+                var response = await _httpClient.GetAsync($"{URL}GetAllLeotards?CtegoryId={1}");
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    var jsonContent = await response.Content.ReadAsStringAsync();
+                    items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
+                    return items;
+
+
+
+                }
+                return items;
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            return null;
+            //return items.Where(x => x.Categories.CategoryId == 1).ToList();
         }
-        public async Task<List<Item>> GetAllDancingShoes()
-        {
-            return items.Where(x => x.Categories.CategoryId == 2).ToList();
-        }
-        public async Task<List<Item>> GetAllAccessories()
-        {
-            return items.Where(x => x.Categories.CategoryId == 3).ToList();
-        }
+
+        //public async Task<List<Item>> GetItemsForWomen()
+        //{
+        //    //return items.Where(x=> x.Gender.GenderId==1).ToList();
+        //}
+        //public async Task<List<Item>> GetItemsForMen()
+        //{
+        //    return items.Where(x => x.Gender.GenderId == 2).ToList();
+        //}
+
+        //public async Task<List<Item>> GetAllDancingShoes()
+        //{
+        //    return items.Where(x => x.Categories.CategoryId == 2).ToList();
+        //}
+        //public async Task<List<Item>> GetAllAccessories()
+        //{
+        //    return items.Where(x => x.Categories.CategoryId == 3).ToList();
+        //}
         #endregion
 
     } 

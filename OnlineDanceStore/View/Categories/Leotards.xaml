@@ -44,12 +44,12 @@
                         <DataTemplate x:DataType="models:Item">
 
                             <StackLayout HeightRequest="200" >
-                                <Image Grid.Column="1" Grid.Row="0" Source="{Binding Image}" WidthRequest="50" HeightRequest="50" />
-                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding Name, StringFormat='Name: {0}'}"/>
-                                <Label Grid.Column="0" Grid.Row="1" Text="{Binding SizeItem.Size, StringFormat='Size: {0}'}"/>
-                                <Label Grid.Column="0" Grid.Row="2" Text="{Binding ColorItem.Id, StringFormat='collor: {0}'}"/>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding ItemImage}" WidthRequest="50" HeightRequest="50" />
+                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding ItemName, StringFormat='Name: {0}'}"/>
+                                <Label Grid.Column="0" Grid.Row="1" Text="{Binding SizeItem.SizeItemId, StringFormat='Size: {0}'}"/>
+                                <Label Grid.Column="0" Grid.Row="2" Text="{Binding ColorItem.ColorItemId, StringFormat='collor: {0}'}"/>
                                 <Label  Grid.Column="0" Grid.Row="3" Text="{Binding Price, StringFormat='Price: {0}'}"/>
-                                <Label  Grid.Column="0" Grid.Row="4" Text="{Binding Description, StringFormat='Description: {0}'}"/>
+                                <Label  Grid.Column="0" Grid.Row="4" Text="{Binding ItemDescription, StringFormat='Description: {0}'}"/>
 
 
                                 <Button
