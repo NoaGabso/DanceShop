@@ -17,26 +17,26 @@ namespace OnlineDanceStore.Services
         #region TestData
         public static List<Item> items = new List<Item>() {
 
-       new Item() { Categories= new Categories(){Id= 2, Name= "Shoes" },
-          SubCategory= new SubCategory(){Category=new Categories(){Id=2} ,Id=4, Name="Jazz shoes" },
-          Name = " jazz dance shoes",
-          Description="...shoes...",
-          Gender=new Gender(){Id=1, Name ="Female"},
-          SizeItem= new SizeItem(){Id=4,Size=37},
-          ColorItem=new ColorItem(){Id=1,Name="black"},
+       new Item() { Categories= new Categories(){CategoryId= 2, CategoriesName= "Shoes" },
+          SubCategory= new SubCategory(){CategoryId=new Categories(){CategoryId=2} ,SubCategoryId=4, SubcategoryName="Jazz shoes" },
+          ItemName = " jazz dance shoes",
+          ItemDescription="...shoes...",
+          Gender=new Gender(){GenderId=1, GenderName ="Female"},
+          SizeItem= new SizeItem(){SizeItemId=4,SizeName=37},
+          ColorItem=new ColorItem(){ColorItemId=1,ColorName="black"},
           Quantity= 5,
           Price= 200,
-          Image="iconshome.png" },
+          ItemImage="iconshome.png" },
 
-          new Item() { Categories= new Categories(){Id= 1, Name= "Leotards" },
-          Name = "women leotards",
-          Description="...leotards...",
-          Gender=new Gender(){Id=1, Name ="Female"},
-          SizeItem= new SizeItem(){Id=1,Size=0},
-          ColorItem=new ColorItem(){Id=5,Name="maroon"},
+          new Item() { Categories= new Categories(){CategoryId= 1, CategoriesName= "Leotards" },
+          ItemName = "women leotards",
+          ItemDescription="...leotards...",
+          Gender=new Gender(){GenderId=1, GenderName ="Female"},
+          SizeItem= new SizeItem(){SizeItemId=1,SizeName=0},
+          ColorItem=new ColorItem(){ColorItemId=5,ColorName="maroon"},
           Quantity= 2,
           Price= 150,
-          Image="iconsshopping_bag.png" }
+          ItemImage="iconsshopping_bag.png" }
 
         };
 
@@ -132,33 +132,33 @@ namespace OnlineDanceStore.Services
 
         public async Task<List<Item>> GetItemsByCategory(int CategoryId)
         {
-           return items.Where(x=> x.Categories.Id == CategoryId).ToList();
+           return items.Where(x=> x.Categories.CategoryId == CategoryId).ToList();
         }
 
         public async Task<List<Item>> GetItemsBySubCategory(int CategoryId, int SubCategoryId)
         {
-            return items.Where(x=> x.Categories.Id==CategoryId && x.SubCategory.Id==SubCategoryId).ToList();
+            return items.Where(x=> x.Categories.CategoryId==CategoryId && x.SubCategory.SubCategoryId==SubCategoryId).ToList();
         }
 
         public async Task<List<Item>> GetItemsForWomen()
         {
-            return items.Where(x=> x.Gender.Id==1).ToList();
+            return items.Where(x=> x.Gender.GenderId==1).ToList();
         }
         public async Task<List<Item>> GetItemsForMen()
         {
-            return items.Where(x => x.Gender.Id == 2).ToList();
+            return items.Where(x => x.Gender.GenderId == 2).ToList();
         }
         public async Task<List<Item>> GetAllLeotards()
         {
-            return items.Where(x => x.Categories.Id == 1).ToList();
+            return items.Where(x => x.Categories.CategoryId == 1).ToList();
         }
         public async Task<List<Item>> GetAllDancingShoes()
         {
-            return items.Where(x => x.Categories.Id == 2).ToList();
+            return items.Where(x => x.Categories.CategoryId == 2).ToList();
         }
         public async Task<List<Item>> GetAllAccessories()
         {
-            return items.Where(x => x.Categories.Id == 3).ToList();
+            return items.Where(x => x.Categories.CategoryId == 3).ToList();
         }
         #endregion
 

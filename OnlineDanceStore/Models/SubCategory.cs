@@ -8,8 +8,8 @@ namespace OnlineDanceStore.Models
 {
     public class SubCategory
     {
-        public Categories Category { get; set; }
-        public int Id {  get; set; }
-        public string Name { get; set; }
+        public Categories CategoryId { get; set; }
+        public int SubCategoryId {  get; set; }
+        public string SubcategoryName { get; set; }
     }
 }

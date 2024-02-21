@@ -8,7 +8,7 @@ namespace OnlineDanceStore.Models
 {
     public class SizeItem
     {
-        public int Id { get; set; }
-        public int Size { get; set; }
+        public int SizeItemId { get; set; }
+        public int SizeName { get; set; }
     }
 }

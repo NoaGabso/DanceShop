@@ -8,7 +8,7 @@ namespace OnlineDanceStore.Models
 {
     public class ColorItem
     {
-        public int Id { get; set; } 
-        public string Name { get; set; }
+        public int ColorItemId { get; set; } 
+        public string ColorName { get; set; }
     }
 }

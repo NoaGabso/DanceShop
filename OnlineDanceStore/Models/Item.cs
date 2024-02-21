@@ -10,13 +10,13 @@ namespace OnlineDanceStore.Models
     {
         public Categories Categories { get; set; } = null!;
         public SubCategory SubCategory { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string ItemName { get; set; }
+        public string ItemDescription { get; set; }
         public Gender Gender {  get; set; }
         public SizeItem SizeItem { get; set; }
         public ColorItem ColorItem { get; set; }
         public int? Quantity { get; set; }
         public int? Price { get; set; }
-        public string Image {  get; set; }
+        public string ItemImage {  get; set; }
     }
 }
