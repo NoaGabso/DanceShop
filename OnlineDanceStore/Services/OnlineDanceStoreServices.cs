@@ -192,7 +192,7 @@ namespace OnlineDanceStore.Services
             try
             {
                 //send it to the server
-                var response = await _httpClient.GetAsync($"{URL}GetAllLeotards");
+                var response = await _httpClient.GetAsync($"{URL}GetAllItems/1");
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
@@ -209,8 +209,56 @@ namespace OnlineDanceStore.Services
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
             return null;
-            //return items.Where(x => x.Categories.CategoryId == 1).ToList();
         }
+        public async Task<List<Item>> GetAllDancingShoes()
+        {
+            List<Item> items = new List<Item>();
+            try
+            {
+                //send it to the server
+                var response = await _httpClient.GetAsync($"{URL}GetAllItems/2");
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+
+                    var jsonContent = await response.Content.ReadAsStringAsync();
+                    items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
+                    return items;
+
+
+
+                }
+                return items;
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            return null;
+        }
+            public async Task<List<Item>> GetAllAccessories()
+            {
+                List<Item> items = new List<Item>();
+                try
+                {
+                    //send it to the server
+                    var response = await _httpClient.GetAsync($"{URL}GetAllItems/3");
+
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+
+                        var jsonContent = await response.Content.ReadAsStringAsync();
+                        items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
+                        return items;
+
+
+
+                    }
+                    return items;
+
+                }
+                catch (Exception ex) { Console.WriteLine(ex.Message); }
+                return null;
+                //return items.Where(x => x.Categories.CategoryId == 1).ToList();
+            }
 
         //public async Task<List<Item>> GetItemsForWomen()
         //{
