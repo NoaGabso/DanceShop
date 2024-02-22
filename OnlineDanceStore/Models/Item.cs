@@ -8,7 +8,7 @@ namespace OnlineDanceStore.Models
 {
     public class Item
     {
-        public Categories Categories { get; set; } = null!;
+        public Categories Categories { get; set; } 
         public SubCategory SubCategory { get; set; }
         public string ItemName { get; set; }
         public string ItemDescription { get; set; }
@@ -16,7 +16,10 @@ namespace OnlineDanceStore.Models
         public SizeItem SizeItem { get; set; }
         public ColorItem ColorItem { get; set; }
         public int? Quantity { get; set; }
-        public int? Price { get; set; }
+        public double? Price { get; set; }
         public string ItemImage {  get; set; }
+
+        public Item() { }   
     }
+
 }

@@ -192,7 +192,7 @@ namespace OnlineDanceStore.Services
             try
             {
                 //send it to the server
-                var response = await _httpClient.GetAsync($"{URL}GetAllLeotards?CtegoryId={1}");
+                var response = await _httpClient.GetAsync($"{URL}GetAllLeotards");
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
