@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using OnlineDanceStore.Models;
+using static System.Net.WebRequestMethods;
 
 
 
@@ -47,7 +48,8 @@ namespace OnlineDanceStore.Services
 
         readonly HttpClient _httpClient;
         readonly JsonSerializerOptions _serializerOptions;
-        const string URL = @"https://j6gcbt8d-7123.euw.devtunnels.ms/api/DanceStore/";
+        static string URL = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5187/api/DanceStore/" : "http://localhost:5187/api/DanceStore/";
+            //@"https://j6gcbt8d-7123.euw.devtunnels.ms/api/DanceStore/";
         public OnlineDanceStoreServices()
         {
             _httpClient = new HttpClient();
