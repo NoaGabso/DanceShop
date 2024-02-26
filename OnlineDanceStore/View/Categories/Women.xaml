@@ -9,6 +9,7 @@
     Title="women">
 
 
+
     <Grid Margin="15" HorizontalOptions="CenterAndExpand">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -25,23 +26,23 @@
             HorizontalOptions="Center"
             Text="What Are You Looking For"
             VerticalOptions="Center" />
-       
+        <Border
+            Grid.Row="1"
+            Padding="5"     
+            BackgroundColor="AliceBlue"
+            HeightRequest="210"
+            WidthRequest="250">
             <Grid>
 
 
-                <CollectionView EmptyView="No women's items Found" ItemsSource="{Binding Items}">
+                <CollectionView EmptyView="No Women's Clothes Found" ItemsSource="{Binding Items}">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" />
                     </CollectionView.ItemsLayout>
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:Item">
-                        <Border
-     Grid.Row="2"
-     Padding="100"     
-     BackgroundColor="AliceBlue"
-     HeightRequest="210"
-     WidthRequest="300">
+
                             <StackLayout HeightRequest="200" >
                                 <Label Grid.Column="1" Grid.Row="0" Text="{Binding ItemImage}" WidthRequest="50" HeightRequest="50" />
                                 <Label Grid.Column="0" Grid.Row="0" Text="{Binding ItemName, StringFormat='Name: {0}'}"/>
@@ -51,14 +52,13 @@
                                 <Label  Grid.Column="0" Grid.Row="4" Text="{Binding ItemDescription, StringFormat='Description: {0}'}"/>
 
 
-
                                 <Button
                                     x:DataType="viewmodels:ShoppingCartViewModel"
                                     Command="{Binding AddToCartCommand}"
                                     Text="Add Item" />
                             </StackLayout>
-                        </Border>
-                    </DataTemplate>
+
+                        </DataTemplate>
 
                     </CollectionView.ItemTemplate>
 
@@ -66,7 +66,7 @@
 
                 </CollectionView>
             </Grid>
- 
+        </Border>
     </Grid>
 
 
