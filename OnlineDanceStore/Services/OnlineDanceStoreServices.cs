@@ -63,6 +63,8 @@ namespace OnlineDanceStore.Services
 
         }
         #region
+
+        #region Log&Reg
         public async Task<UserDto> LoginAsync(string email, string password)
         {
             try
@@ -132,7 +134,7 @@ namespace OnlineDanceStore.Services
             return null;
 
         }
-
+        #endregion
         public async Task<List<Item>> GetItemsByCategory(int CategoryId)
         {
             List<Item> items = new List<Item>();
@@ -186,13 +188,13 @@ namespace OnlineDanceStore.Services
             //return items.Where(x=> x.Categories.CategoryId==CategoryId && x.SubCategory.SubCategoryId==SubCategoryId).ToList();
         }
 
-        public async Task<List<Item>> GetAllLeotards()
+        public async Task<List<Item>> GetItemsByGender(int gender)
         {
             List<Item> items = new List<Item>();
             try
             {
                 //send it to the server
-                var response = await _httpClient.GetAsync($"{URL}GetAllItems/1");
+                var response = await _httpClient.GetAsync($"{URL}GetItemsByGender?GenderId={gender}");
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
@@ -200,65 +202,45 @@ namespace OnlineDanceStore.Services
                     var jsonContent = await response.Content.ReadAsStringAsync();
                     items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
                     return items;
-
-
-
                 }
                 return items;
 
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
-            return null;
+            return null;         
         }
-        public async Task<List<Item>> GetAllDancingShoes()
-        {
-            List<Item> items = new List<Item>();
-            try
-            {
-                //send it to the server
-                var response = await _httpClient.GetAsync($"{URL}GetAllItems/2");
-
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-
-                    var jsonContent = await response.Content.ReadAsStringAsync();
-                    items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
-                    return items;
 
 
 
-                }
-                return items;
+        #region TestData
+        //public async Task<List<Item>> GetAllLeotards()
+        //{
+        //    List<Item> items = new List<Item>();
+        //    try
+        //    {
+        //        //send it to the server
+        //        var response = await _httpClient.GetAsync($"{URL}GetAllItems/1");
 
-            }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
-            return null;
-        }
-            public async Task<List<Item>> GetAllAccessories()
-            {
-                List<Item> items = new List<Item>();
-                try
-                {
-                    //send it to the server
-                    var response = await _httpClient.GetAsync($"{URL}GetAllItems/3");
+        //if (response.StatusCode == HttpStatusCode.OK)
+        //        {
 
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
+        //            var jsonContent = await response.Content.ReadAsStringAsync();
+        //            items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
+        //            return items;
+        //        }
+        //        return items;
+        //    }
+        //    catch (Exception ex) { Console.WriteLine(ex.Message); }
+        //    return null;
+        //}
+        //public async Task<List<Item>> GetAllDancingShoes()
+        //{
 
-                        var jsonContent = await response.Content.ReadAsStringAsync();
-                        items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
-                        return items;
-
-
-
-                    }
-                    return items;
-
-                }
-                catch (Exception ex) { Console.WriteLine(ex.Message); }
-                return null;
-                //return items.Where(x => x.Categories.CategoryId == 1).ToList();
-            }
+        //}
+        //    public async Task<List<Item>> GetAllAccessories()
+        //    {
+        //        //return items.Where(x => x.Categories.CategoryId == 1).ToList();
+        //    }
 
         //public async Task<List<Item>> GetItemsForWomen()
         //{
@@ -278,7 +260,9 @@ namespace OnlineDanceStore.Services
         //    return items.Where(x => x.Categories.CategoryId == 3).ToList();
         //}
         #endregion
+        #endregion
 
-    } 
+
     }
+}
 

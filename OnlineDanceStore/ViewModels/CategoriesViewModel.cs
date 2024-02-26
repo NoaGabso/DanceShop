@@ -65,60 +65,60 @@ namespace OnlineDanceStore.ViewModels
                 catch (Exception ex) { }
             });
 
-            //GetItemsForWomenCommand = new Command(async () =>
-            //{
-            //    try
-            //    {
-            //        var listofitems = await _service.GetItemsForWomen();
-            //        Items = new ObservableCollection<Item>(listofitems);
-            //        OnPropertyChange(nameof(Items));
-            //    }
-            //    catch (Exception ex) { }
-            //});
-
-            //GetItemsForMenCommand = new Command(async () =>
-            //{
-            //    try
-            //    {
-            //        var listofitems = await _service.GetItemsForMen();
-            //        Items = new ObservableCollection<Item>(listofitems);
-            //        OnPropertyChange(nameof(Items));
-            //    }
-            //    catch (Exception ex) { }
-            //});
-
-            GetAllLeotardsCommand = new Command(async () =>
+            GetItemsForWomenCommand = new Command(async () =>
             {
                 try
                 {
-                    var listofitems = await _service.GetAllLeotards();
+                    var listofitems = await _service.GetItemsByGender(1);
                     Items = new ObservableCollection<Item>(listofitems);
                     OnPropertyChange(nameof(Items));
                 }
                 catch (Exception ex) { }
             });
 
-            //GetAllDancingShoesCommand = new Command(async () =>
-            //{
-            //    try
-            //    {
-            //        var listofitems = await _service.GetAllDancingShoes();
-            //        Items = new ObservableCollection<Item>(listofitems);
-            //        OnPropertyChange(nameof(Items));
-            //    }
-            //    catch (Exception ex) { }
-            //});
+            GetItemsForMenCommand = new Command(async () =>
+            {
+                try
+                {
+                    var listofitems = await _service.GetItemsByGender(2);
+                    Items = new ObservableCollection<Item>(listofitems);
+                    OnPropertyChange(nameof(Items));
+                }
+                catch (Exception ex) { }
+            });
 
-            //GetAllAccessoriesCommand = new Command(async () =>
-            //{
-            //    try
-            //    {
-            //        var listofitems = await _service.GetAllAccessories();
-            //        Items = new ObservableCollection<Item>(listofitems);
-            //        OnPropertyChange(nameof(Items));
-            //    }
-            //    catch (Exception ex) { }
-            //});
+            GetAllLeotardsCommand = new Command(async () =>
+            {
+                try
+                {
+                    var listofitems = await _service.GetItemsByCategory(1);
+                    Items = new ObservableCollection<Item>(listofitems);
+                    OnPropertyChange(nameof(Items));
+                }
+                catch (Exception ex) { }
+            });
+
+            GetAllDancingShoesCommand = new Command(async () =>
+            {
+                try
+                {
+                    var listofitems = await _service.GetItemsByCategory(2);
+                    Items = new ObservableCollection<Item>(listofitems);
+                    OnPropertyChange(nameof(Items));
+                }
+                catch (Exception ex) { }
+            });
+
+            GetAllAccessoriesCommand = new Command(async () =>
+            {
+                try
+                {
+                    var listofitems = await _service.GetItemsByCategory(3);
+                    Items = new ObservableCollection<Item>(listofitems);
+                    OnPropertyChange(nameof(Items));
+                }
+                catch (Exception ex) { }
+            });
 
 
         }

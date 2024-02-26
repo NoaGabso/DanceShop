@@ -13,5 +13,6 @@ public partial class Leotards : ContentPage
         base.OnAppearing();
         CategoriesViewModel vm = (CategoriesViewModel)BindingContext;
         vm.GetAllLeotardsCommand.Execute(null);
+       
     }
 }
