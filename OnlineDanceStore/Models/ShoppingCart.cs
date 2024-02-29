@@ -30,6 +30,7 @@ namespace OnlineDanceStore.Models
         private double? CalculatePrice()
         {
            return Cart.Sum(x => x.Price);
+            
         }
     }
 }

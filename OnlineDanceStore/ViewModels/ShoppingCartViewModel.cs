@@ -17,10 +17,9 @@ namespace OnlineDanceStore.ViewModels
     public class ShoppingCartViewModel:ViewModel
     {
         #region Fields
-        private Item newitem;
-
+      
         #region Properties
-        public Item NewItem { get => newitem; set { newitem = value; } }
+      
      
         public ObservableCollection<Item> Items { get; set; }
         #endregion
@@ -29,8 +28,18 @@ namespace OnlineDanceStore.ViewModels
         private readonly OnlineDanceStoreServices _service;
         #endregion
         #region Commands
-      
+        public ICommand RemoveFromCartCommand { get; protected set; }
+        public ICommand ShowPriceCommand { get; protected set; }
         #endregion
-      
+        ShoppingCartViewModel(OnlineDanceStoreServices service)
+        {
+            _service = service;
+            
+            //RemoveFromCartCommand = new Command<Item>(async (item) =>
+            //{
+              
+            //    ; await AppShell.Current.DisplayAlert("המוצר נמחק מהרשימה", "", "אישור");
+            //});
+        }
     }
 }
