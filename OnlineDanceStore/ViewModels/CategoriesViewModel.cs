@@ -24,6 +24,8 @@ namespace OnlineDanceStore.ViewModels
         #region Properties
         public int CategoryId { get=>_categoryid; set { _categoryid = value; } }
         public int SubCategoryId { get=>_subcategoryid; set { _subcategoryid = value; } }
+
+        private ShoppingCart ShoppingCart;
         public ObservableCollection<Item> Items { get; set; }
         #endregion
         #region Service component
@@ -38,8 +40,10 @@ namespace OnlineDanceStore.ViewModels
         public ICommand GetAllDancingShoesCommand { get; protected set; }
         public ICommand GetAllAccessoriesCommand { get; protected set; }
         #endregion
+        public ICommand AddToCartCommand { get; protected set; }
         public CategoriesViewModel(OnlineDanceStoreServices service)
         {
+            ShoppingCart= ShoppingCart.CreateShoppingCart();
             CategoryId =0;
             SubCategoryId =0;
             _service = service;
@@ -120,7 +124,12 @@ namespace OnlineDanceStore.ViewModels
                 catch (Exception ex) { }
             });
 
+            AddToCartCommand = new Command<Item>(async (item) => {
+                ShoppingCart.Cart.Add(item); await AppShell.Current.DisplayAlert("המוצר  נוסף בהצלחה", "", "אישור");
+            });
+                
 
-        }
+
+            }
     }
 }

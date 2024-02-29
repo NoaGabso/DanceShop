@@ -29,21 +29,8 @@ namespace OnlineDanceStore.ViewModels
         private readonly OnlineDanceStoreServices _service;
         #endregion
         #region Commands
-        public ICommand AddToCartCommand { get; protected set; }
+      
         #endregion
-        public List<Item> ItemsInTheCart { get; set; } = new List<Item>();
-        public ShoppingCartViewModel(OnlineDanceStoreServices service) 
-        {
-            _service = service;
-            NewItem = new Item();
-            AddToCartCommand= new Command(async () =>
-            {
-                try
-                {
-                    ItemsInTheCart.Add(NewItem);
-                }
-                catch (Exception ex) { }
-            });
-        }
+      
     }
 }
