@@ -21,6 +21,7 @@ namespace OnlineDanceStore.ViewModels
         private bool tabisVisible;//הסתרת הטאב הנוכחי
         #endregion
 
+
         #region Properties
         public bool IsVisible
         {
