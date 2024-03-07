@@ -9,4 +9,14 @@ public partial class ShoppingCart : ContentPage
 		this.BindingContext = vm;
 		InitializeComponent();
 	}
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+		var vm=BindingContext as ShoppingCartViewModel;
+		if (vm != null)
+		{
+			await vm.Refresh();
+		}
+    }
 }

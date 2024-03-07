@@ -41,15 +41,26 @@ namespace OnlineDanceStore.ViewModels
         public ICommand ShowPriceCommand { get; protected set; }
 
         #endregion
-        ShoppingCartViewModel(OnlineDanceStoreServices service)
+       public ShoppingCartViewModel(OnlineDanceStoreServices service, Models.ShoppingCart cart)
         {
             _service = service;
-            cart = Models.ShoppingCart.CreateShoppingCart();
+            this.cart = cart;
             Items = new ObservableCollection<Item>(cart.Cart);
 
             RemoveFromCartCommand = new Command<Item>(async (item) => {
              cart.Cart.Remove(item); await AppShell.Current.DisplayAlert(" המוצר נמחק מהרשימה", "", "אישור");
             });
+        }
+        public async Task Refresh()
+        {
+            Items.Clear();
+            if(cart.Cart.Count > 0)
+            {
+                foreach(var item in cart.Cart) 
+                {
+                    Items.Add(item);
+                }
+            }
         }
 
         

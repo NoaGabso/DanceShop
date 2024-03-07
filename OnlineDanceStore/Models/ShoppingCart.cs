@@ -8,26 +8,19 @@ namespace OnlineDanceStore.Models
 {
   public  class ShoppingCart
     {
-        static ShoppingCart Instance;
+        
         public List<Item> Cart { get; set; }=new List<Item>();
         public double? TotalPrice { get => CalculatePrice(); }
 
 
-        private ShoppingCart()
+        public ShoppingCart()
         {
            
         }
 
-        public static ShoppingCart CreateShoppingCart()
-        {
-            if (Instance == null)
-            {
-                Instance = new ShoppingCart();
-            }
-            return Instance;
-        }
+        
 
-        private double? CalculatePrice()
+        public double? CalculatePrice()
         {
            return Cart.Sum(x => x.Price);
             

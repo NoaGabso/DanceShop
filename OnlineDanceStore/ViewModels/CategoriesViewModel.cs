@@ -41,9 +41,9 @@ namespace OnlineDanceStore.ViewModels
         public ICommand GetAllAccessoriesCommand { get; protected set; }
         #endregion
         public ICommand AddToCartCommand { get; protected set; }
-        public CategoriesViewModel(OnlineDanceStoreServices service)
+        public CategoriesViewModel(OnlineDanceStoreServices service, Models.ShoppingCart cart)
         {
-            ShoppingCart= ShoppingCart.CreateShoppingCart();
+            ShoppingCart=cart;
             CategoryId =0;
             SubCategoryId =0;
             _service = service;
