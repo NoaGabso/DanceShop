@@ -1,100 +1,95 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OnlineDanceStore.View.RegisterPage"
-             xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
- x:DataType="viewmodels:RegisterPageViewModel"
-             Shell.TabBarIsVisible="False"
-             Title="Register">
+<ContentPage
+    x:Class="OnlineDanceStore.View.RegisterPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
+    Title="Register"
+    x:DataType="viewmodels:RegisterPageViewModel"
+    Shell.TabBarIsVisible="False">
     <VerticalStackLayout>
-        <Label 
+        <Label
+            HorizontalOptions="Center"
             Text="nice to meet you"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            VerticalOptions="Center" />
         <StackLayout>
             <Label
-FontFamily="OpenSansRegular"
-FontSize="16"
-Text="שם משתמש"
-TextColor="PaleGoldenrod"/>
+                FontFamily="OpenSansRegular"
+                FontSize="16"
+                Text="שם משתמש"
+                TextColor="PaleGoldenrod" />
             <Grid Margin="0,5" RowDefinitions="auto,auto">
                 <Entry
-    Margin="5,0"
-    BackgroundColor="Transparent"
-   
-    PlaceholderColor="Gray"
-    Text="{Binding Name}"
-    TextColor="Black" />
+                    Margin="5,0"
+                    BackgroundColor="Transparent"
+                    PlaceholderColor="Gray"
+                    Text="{Binding Name}"
+                    TextColor="Black" />
                 <Label
-    Grid.Row="1"
-            IsVisible="{Binding ShowNameError}"
-Style="{StaticResource error}"
-Text="{Binding NameErrorMessage}" />
+                    Grid.Row="1"
+                    IsVisible="{Binding ShowNameError}"
+                    Style="{StaticResource error}"
+                    Text="{Binding NameErrorMessage}" />
             </Grid>
             <Label
-FontFamily="OpenSansRegular"
-FontSize="16"
-Text="שם משפחה"
-TextColor="PaleGoldenrod"/>
+                FontFamily="OpenSansRegular"
+                FontSize="16"
+                Text="שם משפחה"
+                TextColor="PaleGoldenrod" />
             <Grid Margin="0,5" RowDefinitions="auto,auto">
                 <Entry
-    Margin="5,0"
-    BackgroundColor="Transparent"
- 
-    PlaceholderColor="Gray"
-    Text="{Binding LastName}"
-    TextColor="Black" />
+                    Margin="5,0"
+                    BackgroundColor="Transparent"
+                    PlaceholderColor="Gray"
+                    Text="{Binding LastName}"
+                    TextColor="Black" />
                 <Label
-    Grid.Row="1"
-                IsVisible="{Binding ShowNameError}"
-    Style="{StaticResource error}"
-    Text="{Binding NameErrorMessage}" />
+                    Grid.Row="1"
+                    IsVisible="{Binding ShowNameError}"
+                    Style="{StaticResource error}"
+                    Text="{Binding NameErrorMessage}" />
             </Grid>
             <Label
-FontFamily="OpenSansRegular"
-FontSize="16"
-Text="אימייל"
-TextColor="AliceBlue" />
+                FontFamily="OpenSansRegular"
+                FontSize="16"
+                Text="אימייל"
+                TextColor="AliceBlue" />
             <Grid Margin="0,5" RowDefinitions="auto,auto">
 
-                <Entry
-    Placeholder="enter EMAIL"
-    
-    Text="{Binding Email}" />
+                <Entry Placeholder="enter EMAIL" Text="{Binding Email}" />
                 <Label
-    Grid.Row="1"
-    IsVisible="{Binding ShowEmailError}"
-    Style="{StaticResource error}"
-    Text="{Binding EmailErrorMessage}" />
+                    Grid.Row="1"
+                    IsVisible="{Binding ShowEmailError}"
+                    Style="{StaticResource error}"
+                    Text="{Binding EmailErrorMessage}" />
             </Grid>
             <Label
-FontFamily="OpenSansRegular"
-FontSize="16"
-Text="סיסמא"
-TextColor="PaleGoldenrod"/>
+                FontFamily="OpenSansRegular"
+                FontSize="16"
+                Text="סיסמא"
+                TextColor="PaleGoldenrod" />
             <Grid Margin="0,5" RowDefinitions="auto,auto">
                 <Entry
-    Margin="5,0"
-    BackgroundColor="Transparent"
- 
-    PlaceholderColor="Gray"
-    Text="{Binding Password}"
-    TextColor="Black" />
+                    Margin="5,0"
+                    BackgroundColor="Transparent"
+                    PlaceholderColor="Gray"
+                    Text="{Binding Password}"
+                    TextColor="Black" />
                 <Label
-    Grid.Row="1"
-    IsVisible="{Binding ShowPasswordError}"
-    Style="{StaticResource error}"
-    Text="{Binding PasswordErrorMessage}" />
+                    Grid.Row="1"
+                    IsVisible="{Binding ShowPasswordError}"
+                    Style="{StaticResource error}"
+                    Text="{Binding PasswordErrorMessage}" />
             </Grid>
 
             <Button
-Margin="0,15"
-BackgroundColor="Purple"
-Command="{Binding RegisterCommand}"
-FontFamily="OpenSansBold"
-IsEnabled="{Binding IsButtonEnabled}"
-Text="כניסה"
-TextColor="{StaticResource PrimaryColor}" />
+                Margin="0,15"
+                BackgroundColor="Purple"
+                Command="{Binding RegisterCommand}"
+                FontFamily="OpenSansBold"
+                IsEnabled="{Binding IsButtonEnabled}"
+                Text="כניסה"
+                TextColor="{StaticResource PrimaryColor}" />
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

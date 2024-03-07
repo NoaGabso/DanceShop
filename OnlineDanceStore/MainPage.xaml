@@ -1,48 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OnlineDanceStore.MainPage"
-             xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
-             x:DataType="viewmodels:MainPageViewModel" 
-             IsVisible="{Binding IsVisible}"
-         FlowDirection="RightToLeft" Shell.TabBarIsVisible="False">
+<ContentPage
+    x:Class="OnlineDanceStore.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
+    x:DataType="viewmodels:MainPageViewModel"
+    FlowDirection="RightToLeft"
+    IsVisible="{Binding IsVisible}"
+    Shell.TabBarIsVisible="False">
 
 
-<!--test-->
+    <!--  test  -->
     <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
             Padding="30,0"
+            Spacing="25"
             VerticalOptions="Center">
 
-            
+
 
             <Label
-                Text="להתחברות לחץ כאן!"
-                SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level1"
+                Text="להתחברות לחץ כאן!" />
             <Button
-     Margin="0,15"
-     Command="{Binding LoginCommand}"
-     FontFamily="OpenSansBold"
+                Margin="0,15"
+                Command="{Binding LoginCommand}"
+                FontFamily="OpenSansBold"
                 IsEnabled="True"
-     Text="התחברות" 
-     TextColor="Pink" />
+                Text="התחברות"
+                TextColor="Pink" />
 
             <Label
-                Text="להרשמה לחץ כאן"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                SemanticProperties.HeadingLevel="Level2"
+                Text="להרשמה לחץ כאן" />
 
             <Button
-Margin="0,15"
-Command="{Binding RegisterCommand}"
-FontFamily="OpenSansBold"
-Text="הרשמה"
-TextColor="Pink" />
+                Margin="0,15"
+                Command="{Binding RegisterCommand}"
+                FontFamily="OpenSansBold"
+                Text="הרשמה"
+                TextColor="Pink" />
 
         </VerticalStackLayout>
     </ScrollView>

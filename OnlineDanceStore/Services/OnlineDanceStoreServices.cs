@@ -137,7 +137,7 @@ namespace OnlineDanceStore.Services
         #endregion
         public async Task<List<Item>> GetItemsByCategory(int CategoryId)
         {
-            List<Item> items = new List<Item>();
+            List<Item> items = new List<Item>(); 
             try
             {
                 //send it to the server

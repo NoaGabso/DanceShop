@@ -18,34 +18,43 @@ namespace OnlineDanceStore.ViewModels
     {
         #region Fields
         Models.ShoppingCart cart;
+        ObservableCollection<Item> items;
         #region Properties
 
 
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Item> Items
+        {
+            get => items;
+            set
+            {
+                items = value;
+                OnPropertyChange(nameof(Items));
+            }
+        }
         #endregion
-        #endregion
-        #region Service component
+            #endregion
+            #region Service component
         private readonly OnlineDanceStoreServices _service;
         #endregion
         #region Commands 
         public ICommand RemoveFromCartCommand { get; protected set; }
         public ICommand ShowPriceCommand { get; protected set; }
-        public ICommand ListOfItemInCart { get; protected set; }
+
         #endregion
         ShoppingCartViewModel(OnlineDanceStoreServices service)
         {
             _service = service;
             cart = Models.ShoppingCart.CreateShoppingCart();
             Items = new ObservableCollection<Item>(cart.Cart);
-            OnPropertyChange(nameof(Items));
-        }
-    
-      
-            //RemoveFromCartCommand = new Command<Item>(async (item) =>
-            //{
 
-            //    ; await AppShell.Current.DisplayAlert("המוצר נמחק מהרשימה", "", "אישור");
-            //});
+            RemoveFromCartCommand = new Command<Item>(async (item) => {
+             cart.Cart.Remove(item); await AppShell.Current.DisplayAlert(" המוצר נמחק מהרשימה", "", "אישור");
+            });
+        }
+
+        
+
+      
         
     }
 }

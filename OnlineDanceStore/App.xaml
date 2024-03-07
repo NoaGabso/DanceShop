@@ -1,18 +1,19 @@
-﻿<?xml version = "1.0" encoding = "UTF-8" ?>
-<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:OnlineDanceStore"
-             x:Class="OnlineDanceStore.App">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application
+    x:Class="OnlineDanceStore.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:OnlineDanceStore">
     <Application.Resources>
         <ResourceDictionary>
             <Style TargetType="Button">
-                <Setter Property="BackgroundColor" Value="LightPink"/>
-                <Setter Property="BorderColor" Value="DeepPink"/>
-                <Setter Property="TextColor" Value="AliceBlue"/>
-                <Setter Property="Padding" Value="5"/>
-                <Setter Property="FontSize" Value="20"/>
-                <Setter Property="BorderWidth" Value="2"/>
-                <Setter Property="FontFamily" Value="cursive"/>
+                <Setter Property="BackgroundColor" Value="LightPink" />
+                <Setter Property="BorderColor" Value="DeepPink" />
+                <Setter Property="TextColor" Value="AliceBlue" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="FontFamily" Value="cursive" />
 
             </Style>
             <ResourceDictionary.MergedDictionaries>
