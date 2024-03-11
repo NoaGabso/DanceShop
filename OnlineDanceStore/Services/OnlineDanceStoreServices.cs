@@ -194,7 +194,7 @@ namespace OnlineDanceStore.Services
             try
             {
                 //send it to the server
-                var response = await _httpClient.GetAsync($"{URL}GetItemsByGender?GenderId={gender}");
+                var response = await _httpClient.GetAsync($"{URL}GetItemsByGender?gender={gender}");
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {

@@ -8,23 +8,6 @@
     Title="DancingShoes"
     x:DataType="viewmodels:CategoriesViewModel">
 
-    <!--<VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="What Are You Looking For"
-            VerticalOptions="Center" />
-        <CollectionView EmptyView="No shoes found" ItemsSource="{Binding Items}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="models:Item">
-                    <StackLayout>
-                        <Label Text="{Binding Description}" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-
-        </CollectionView>
-    </VerticalStackLayout>-->
-
 
     <Grid Margin="15" HorizontalOptions="CenterAndExpand">
         <Grid.RowDefinitions>

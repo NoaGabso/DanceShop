@@ -73,7 +73,7 @@ namespace OnlineDanceStore.ViewModels
             {
                 try
                 {
-                    var listofitems = await _service.GetItemsByGender(1);
+                    var listofitems = await _service.GetItemsByGender(2);
                     Items = new ObservableCollection<Item>(listofitems);
                     OnPropertyChange(nameof(Items));
                 }
@@ -84,7 +84,7 @@ namespace OnlineDanceStore.ViewModels
             {
                 try
                 {
-                    var listofitems = await _service.GetItemsByGender(2);
+                    var listofitems = await _service.GetItemsByGender(1);
                     Items = new ObservableCollection<Item>(listofitems);
                     OnPropertyChange(nameof(Items));
                 }

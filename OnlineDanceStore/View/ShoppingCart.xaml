@@ -43,12 +43,6 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:Item">
 
-                            <Border
-                                Padding="5"
-                             BackgroundColor="Blue"
-                                 HeightRequest="210"
-                                WidthRequest="250" >
-                                <Grid>  
                             <StackLayout HeightRequest="200">
                                 <Label
                                 Grid.Row="0"
@@ -67,7 +61,7 @@
                                 <Label
                                 Grid.Row="2"
                                 Grid.Column="0"
-                                Text="{Binding ColorItem.ColorName, StringFormat='collor: {0}'}" />
+                                Text="{Binding ColorItem.ColorName, StringFormat='color: {0}'}" />
                                 <Label
                                 Grid.Row="3"
                                 Grid.Column="0"
@@ -77,15 +71,14 @@
                                 Grid.Column="0"
                                 Text="{Binding ItemDescription, StringFormat='Description: {0}'}" />
 
-                                <!--<Button
+                                <Button
                                 Command="{Binding BindingContext.RemoveFromCartCommand, Source={x:Reference colview}}"
                                 CommandParameter="{Binding .}"
-                                Text="Remove Item" />-->
+                                Text="Remove Item" />
 
 
                             </StackLayout>
-                                </Grid>
-                            </Border>
+                             
                         </DataTemplate>
 
                     </CollectionView.ItemTemplate>
