@@ -10,49 +10,38 @@
 
 
 
-    <Grid Margin="15" HorizontalOptions="CenterAndExpand">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto">
 
-        <Label
-            Grid.Row="0"
-            HorizontalOptions="Center"
-            Text="What Are You Looking For"
-            VerticalOptions="Center" />
-        <Border
-            Grid.Row="1"
-            Padding="5"
-            BackgroundColor="AliceBlue"
-            HeightRequest="210"
-            WidthRequest="250">
+
+
+        <ScrollView>
             <Grid>
-
-
                 <CollectionView
-                    x:Name="colview"
-                    EmptyView="No Women's Clothes Found"
-                    ItemsSource="{Binding Items}">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" />
-                    </CollectionView.ItemsLayout>
+                x:Name="colview"
+                EmptyView="No Women's Clothes Found"
+                ItemsSource="{Binding Items}">
 
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="models:Item">
+                <CollectionView.ItemTemplate>
+                    
+                    <DataTemplate x:DataType="models:Item">
+                       
+                        <Border
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            Padding="50"
+                            BackgroundColor="AliceBlue"
+                            HeightRequest="250"
+                            WidthRequest="250">
+                            <VerticalStackLayout HeightRequest="200" >
 
-                            <StackLayout HeightRequest="200">
-                                <Label
+                                <!--<Label
                                     Grid.Row="0"
-                                    Grid.Column="1"
+                                    Grid.Column="0"
                                     HeightRequest="50"
                                     Text="{Binding ItemImage}"
-                                    WidthRequest="50" />
+                                    WidthRequest="50" />-->
+
                                 <Label
                                     Grid.Row="0"
                                     Grid.Column="0"
@@ -64,15 +53,9 @@
                                 <Label
                                     Grid.Row="2"
                                     Grid.Column="0"
-                                    Text="{Binding ColorItem.ColorItemId, StringFormat='collor: {0}'}" />
-                                <Label
-                                    Grid.Row="3"
-                                    Grid.Column="0"
-                                    Text="{Binding Price, StringFormat='Price: {0}'}" />
-                                <Label
-                                    Grid.Row="4"
-                                    Grid.Column="0"
-                                    Text="{Binding ItemDescription, StringFormat='Description: {0}'}" />
+                                    Text="{Binding ColorItem.ColorItemId, StringFormat='color: {0}'}" />
+                                <Label Grid.Column="0" Text="{Binding Price, StringFormat='Price: {0}'}" />
+                                <Label Grid.Column="0" Text="{Binding ItemDescription, StringFormat='Description: {0}'}" />
 
 
 
@@ -80,17 +63,20 @@
                                     Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference colview}}"
                                     CommandParameter="{Binding .}"
                                     Text="Add Item" />
-                            </StackLayout>
+                            </VerticalStackLayout>
+                 
+                        </Border>
+                       
+                    </DataTemplate>
 
-                        </DataTemplate>
-
-                    </CollectionView.ItemTemplate>
+                </CollectionView.ItemTemplate>
 
 
 
-                </CollectionView>
+            </CollectionView>
             </Grid>
-        </Border>
+        </ScrollView>
+
     </Grid>
 
 
