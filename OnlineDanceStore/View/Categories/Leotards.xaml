@@ -26,72 +26,72 @@
             HorizontalOptions="Start"
             Text="What Are You Looking For"
             VerticalOptions="Center" />
-       
-            <Grid>
+
+        <Grid>
 
 
-                <CollectionView
-                    x:Name="colview"
-                    EmptyView="No Leotards Found"
-                    ItemsSource="{Binding Items}">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical" />
-                    </CollectionView.ItemsLayout>
+            <CollectionView
+                x:Name="colview"
+                EmptyView="No Leotards Found"
+                ItemsSource="{Binding Items}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
 
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="models:Item">
-                            <Border
-                  Padding="25"
-                        BackgroundColor="LightBlue"
-                    HeightRequest="250"
-                       >
-                                <Grid>
-                                    <StackLayout HeightRequest="250">
-                                        <Label
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    HeightRequest="50"
-                                    Text="{Binding ItemImage}"
-                                    WidthRequest="50" />
-                                        <Label
-                                    Grid.Row="0"
-                                    Grid.Column="0"
-                                    Text="{Binding ItemName, StringFormat='Name: {0}'}" />
-                                        <Label
-                                    Grid.Row="1"
-                                    Grid.Column="0"
-                                    Text="{Binding SizeItem.SizeItemId, StringFormat='Size: {0}'}" />
-                                        <Label
-                                    Grid.Row="2"
-                                    Grid.Column="0"
-                                    Text="{Binding ColorItem.ColorItemId, StringFormat='collor: {0}'}" />
-                                        <Label
-                                    Grid.Row="3"
-                                    Grid.Column="0"
-                                    Text="{Binding Price, StringFormat='Price: {0}'}" />
-                                        <Label
-                                    Grid.Row="4"
-                                    Grid.Column="0"
-                                    Text="{Binding ItemDescription, StringFormat='Description: {0}'}" />
-
-
-
-                                        <Button
-                                    Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference colview}}"
-                                    CommandParameter="{Binding .}"
-                                    Text="Add Item" />
-                                    </StackLayout>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-
-                    </CollectionView.ItemTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Item">
+                        <Border
+                            Padding="25"
+                            BackgroundColor="LightBlue"
+                            HeightRequest="250">
+                            <Grid>
+                                <StackLayout HeightRequest="250">
+                                    <Image
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Aspect="AspectFit"
+                                        HeightRequest="80"
+                                        Source="{Binding ItemImage}"
+                                        WidthRequest="50" />
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Text="{Binding ItemName, StringFormat='Name: {0}'}" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Text="{Binding SizeItem.SizeItemId, StringFormat='Size: {0}'}" />
+                                    <Label
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        Text="{Binding ColorItem.ColorItemId, StringFormat='collor: {0}'}" />
+                                    <Label
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        Text="{Binding Price, StringFormat='Price: {0}'}" />
+                                    <Label
+                                        Grid.Row="4"
+                                        Grid.Column="0"
+                                        Text="{Binding ItemDescription, StringFormat='Description: {0}'}" />
 
 
 
-                </CollectionView>
-            </Grid>
-      
+                                    <Button
+                                        Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference colview}}"
+                                        CommandParameter="{Binding .}"
+                                        Text="Add Item" />
+                                </StackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+
+
+            </CollectionView>
+        </Grid>
+
     </Grid>
 
 </ContentPage>

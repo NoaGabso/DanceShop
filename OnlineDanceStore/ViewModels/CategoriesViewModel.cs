@@ -52,6 +52,7 @@ namespace OnlineDanceStore.ViewModels
                 try
                 {
                     var listofitems = await _service.GetItemsByCategory(CategoryId);
+
                     Items = new ObservableCollection<Item>(listofitems);
                     OnPropertyChange(nameof(Items));
                 }
@@ -96,6 +97,10 @@ namespace OnlineDanceStore.ViewModels
                 try
                 {
                     var listofitems = await _service.GetItemsByCategory(1);
+                    foreach(var item in listofitems)
+                    {
+                        item.ItemImage = $"{service.IMAGE_URL}{item.ItemImage}";
+                    }
                     Items = new ObservableCollection<Item>(listofitems);
                     OnPropertyChange(nameof(Items));
                 }
