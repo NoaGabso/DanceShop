@@ -48,7 +48,7 @@ namespace OnlineDanceStore.ViewModels
             Items = new ObservableCollection<Item>(cart.Cart);
 
             RemoveFromCartCommand = new Command<Item>(async (item) => {
-             cart.Cart.Remove(item); await AppShell.Current.DisplayAlert(" המוצר נמחק מהרשימה", "", "אישור");
+             cart.Cart.Remove(item);Items.Remove(item); await AppShell.Current.DisplayAlert(" המוצר נמחק מהרשימה", "", "אישור");
             });
         }
         public async Task Refresh()

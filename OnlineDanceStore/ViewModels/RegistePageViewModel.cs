@@ -148,6 +148,7 @@ namespace OnlineDanceStore.ViewModels
         private readonly OnlineDanceStoreServices _service;
         #region Commands
         public ICommand RegisterCommand { get; protected set; }
+        public ICommand GoToLogin { get; protected set; }
         public bool IsButtonEnabled
         {
             get { return ValidatePage(); }
@@ -205,6 +206,10 @@ namespace OnlineDanceStore.ViewModels
                 }
 
 
+            });
+            GoToLogin = new Command(async () =>
+            {
+                await AppShell.Current.GoToAsync("Login");
             });
         }
         #region פעולות עזר

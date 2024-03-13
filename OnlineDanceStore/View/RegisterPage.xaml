@@ -90,6 +90,9 @@
                 IsEnabled="{Binding IsButtonEnabled}"
                 Text="כניסה"
                 TextColor="{StaticResource PrimaryColor}" />
+            <Button
+      Command="{Binding GoToLogin}"
+      Text="להתחברות"/>
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

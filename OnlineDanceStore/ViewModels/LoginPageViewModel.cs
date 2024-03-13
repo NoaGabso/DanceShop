@@ -105,6 +105,7 @@ namespace OnlineDanceStore.ViewModels
 
         #region Commands
         public ICommand LogInCommand { get; protected set; }
+        public ICommand GoToRegister { get; protected set; }
         #endregion
 
 
@@ -159,6 +160,11 @@ namespace OnlineDanceStore.ViewModels
                 }
 
 
+            });
+
+            GoToRegister = new Command(async () =>
+            {
+                await AppShell.Current.GoToAsync("Register");
             });
         }
         #region פעולות עזר

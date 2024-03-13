@@ -6,6 +6,8 @@
     xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
     Title="LoginPage"
     x:DataType="viewmodels:LoginPageViewModels"
+    Shell.NavBarIsVisible="False"
+    Shell.PresentationMode="Modal"
     Shell.TabBarIsVisible="False">
 
 
@@ -59,7 +61,13 @@
             FontFamily="OpenSansBold"
             IsEnabled="{Binding IsButtonEnabled}"
             Text="כניסה" />
+
+        <Button
+            Command="{Binding GoToRegister}"
+            Text="להרשמה"/>
         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" />
+        
+        
 
     </VerticalStackLayout>
 </ContentPage>
