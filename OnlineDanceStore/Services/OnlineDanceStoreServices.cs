@@ -6,6 +6,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
 using OnlineDanceStore.Models;
 using static System.Net.WebRequestMethods;
 
@@ -149,6 +150,10 @@ namespace OnlineDanceStore.Services
 
                    var jsonContent = await response.Content.ReadAsStringAsync();
                     items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
+                    foreach (var item in items)
+                    {
+                        item.ItemImage = $"{IMAGE_URL}{item.ItemImage}";
+                    }
                     return items;
 
 
@@ -176,6 +181,10 @@ namespace OnlineDanceStore.Services
 
                     var jsonContent = await response.Content.ReadAsStringAsync();
                     items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
+                    foreach (var item in items)
+                    {
+                        item.ItemImage = $"{IMAGE_URL}{item.ItemImage}";
+                    }
                     return items;
 
 
@@ -202,6 +211,10 @@ namespace OnlineDanceStore.Services
 
                     var jsonContent = await response.Content.ReadAsStringAsync();
                     items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
+                    foreach (var item in items)
+                    {
+                        item.ItemImage = $"{IMAGE_URL}{item.ItemImage}";
+                    }
                     return items;
                 }
                 return items;
