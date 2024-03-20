@@ -18,7 +18,9 @@ namespace OnlineDanceStore.ViewModels
     {
         #region Fields
         Models.ShoppingCart cart;
+        
         ObservableCollection<Item> items;
+       
         #region Properties
 
 
@@ -31,6 +33,11 @@ namespace OnlineDanceStore.ViewModels
                 OnPropertyChange(nameof(Items));
             }
         }
+
+        public double? TotalPrice
+        {
+            get => cart.TotalPrice;
+        }
         #endregion
             #endregion
             #region Service component
@@ -39,18 +46,33 @@ namespace OnlineDanceStore.ViewModels
         #region Commands 
         public ICommand RemoveFromCartCommand { get; protected set; }
         public ICommand ShowPriceCommand { get; protected set; }
+        public ICommand OrderCommand { get; protected set; }
 
         #endregion
        public ShoppingCartViewModel(OnlineDanceStoreServices service, Models.ShoppingCart cart)
         {
             _service = service;
             this.cart = cart;
+          
             Items = new ObservableCollection<Item>(cart.Cart);
 
             RemoveFromCartCommand = new Command<Item>(async (item) => {
              cart.Cart.Remove(item);Items.Remove(item); await AppShell.Current.DisplayAlert(" המוצר נמחק מהרשימה", "", "אישור");
+            OnPropertyChange(nameof(TotalPrice));
+
+                OrderCommand = new Command(async () => await CreateOrder());
             });
         }
+
+        private  async Task CreateOrder()
+        {
+            var loggeduser = await SecureStorage.Default.GetAsync("LoggedUser");
+            User user= JsonSerializer.Deserialize<User>(loggeduser);
+           Order order = new Order() { Date = DateTime.Now, Items= cart.Cart, User=user,Price= cart.TotalPrice  }; 
+          bool success=  await _service.CreateOrder(order);
+            if (success){/* { AppShell.Current.DisplayAlert(" המוצר נמחק מהרשימה", "", "אישור"); למחוק דברים מהעגלה ואת המחיר לאפס}*/
+        }
+
         public async Task Refresh()
         {
             Items.Clear();
@@ -61,11 +83,13 @@ namespace OnlineDanceStore.ViewModels
                     Items.Add(item);
                 }
             }
+                OnPropertyChange(nameof(TotalPrice));
         }
 
         
 
-      
-        
+
+
+
     }
 }

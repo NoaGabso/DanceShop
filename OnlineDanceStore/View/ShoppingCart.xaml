@@ -78,14 +78,20 @@
 
 
                             </StackLayout>
-                             
+
+                          
+                            
                         </DataTemplate>
 
+                       
                     </CollectionView.ItemTemplate>
 
 
 
                 </CollectionView>
+                <Label
+                    Text="{Binding TotalPrice, StringFormat='TotalPrice: {0,0}'}" />
+                
             </Grid>
         </Border>
     </Grid>

@@ -16,6 +16,9 @@
                 <Setter Property="FontFamily" Value="cursive" />
 
             </Style>
+            <Style TargetType="Grid">
+                <Setter Property="Background" Value="Orange"/>
+            </Style>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

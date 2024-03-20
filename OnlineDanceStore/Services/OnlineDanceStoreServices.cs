@@ -224,6 +224,11 @@ namespace OnlineDanceStore.Services
             return null;         
         }
 
+        internal async Task<bool> CreateOrder(Order order)
+        {
+            throw new NotImplementedException();
+        }
+
 
 
         #region TestData

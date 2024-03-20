@@ -131,6 +131,7 @@ namespace OnlineDanceStore.ViewModels
 
             AddToCartCommand = new Command<Item>(async (item) => {
                 ShoppingCart.Cart.Add(item); await AppShell.Current.DisplayAlert("המוצר  נוסף בהצלחה", "", "אישור");
+               
             });
                 
 

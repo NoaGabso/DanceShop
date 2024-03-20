@@ -34,7 +34,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<ShoppingCartViewModel>();
 		builder.Services.AddTransient<ShoppingCart>();
 		builder.Services.AddSingleton<UserInfoViewModel>();
-		builder.Services.AddSingleton<UserInfo>();
+		builder.Services.AddSingleton<UserInfoPage>();
 		builder.Services.AddSingleton<CategoriesViewModel>();
 		builder.Services.AddSingleton<Leotards>();
 		builder.Services.AddSingleton<Accessories>(); 

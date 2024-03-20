@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OnlineDanceStore.View.UserInfo"
+              xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
+             Title="UserInfo">
+    <Grid Margin="15" HorizontalOptions="CenterAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label
+            Grid.Row="0"
+            HorizontalOptions="Center"
+            Text="What Are You Looking For"
+            VerticalOptions="Center" />
+        <Border
+            Grid.Row="1"
+            Padding="5"
+            BackgroundColor="AliceBlue"
+            HeightRequest="210"
+            WidthRequest="250">
+            <Grid>
+
+
+                <CollectionView
+                    x:Name="colview"
+                    EmptyView="No orders yet"
+                    ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Item">
+
+                            <StackLayout HeightRequest="200">
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    HeightRequest="50"
+                                    Text="{Binding ItemImage}"
+                                    WidthRequest="50" />
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Text="{Binding ItemName, StringFormat='Name: {0}'}" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Text="{Binding SizeItem.SizeName, StringFormat='Size: {0}'}" />
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Text="{Binding ColorItem.ColorName, StringFormat='collor: {0}'}" />
+                                <Label
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    Text="{Binding Price, StringFormat='Price: {0}'}" />
+                                <Label
+                                    Grid.Row="4"
+                                    Grid.Column="0"
+                                    Text="{Binding ItemDescription, StringFormat='Description: {0}'}" />
+                  
+                            </StackLayout>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+
+
+                </CollectionView>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>

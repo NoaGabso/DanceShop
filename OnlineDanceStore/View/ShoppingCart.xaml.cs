@@ -17,6 +17,8 @@ public partial class ShoppingCart : ContentPage
 		if (vm != null)
 		{
 			await vm.Refresh();
+			
+
 		}
     }
 }
