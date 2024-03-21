@@ -29,7 +29,7 @@
             <Grid>
 
 
-                <CollectionView
+                <!--<CollectionView
                     x:Name="colview"
                     EmptyView="No orders yet"
                     ItemsSource="{Binding Items}">
@@ -72,11 +72,11 @@
 
                         </DataTemplate>
 
-                    </CollectionView.ItemTemplate>
+                    </CollectionView.ItemTemplate>-->
 
 
 
-                </CollectionView>
+                <!--</CollectionView>-->
             </Grid>
         </Border>
     </Grid>

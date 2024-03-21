@@ -89,9 +89,13 @@
 
 
                 </CollectionView>
-                <Label
+                <Label VerticalOptions="End"
                     Text="{Binding TotalPrice, StringFormat='TotalPrice: {0,0}'}" />
-                
+                <Button VerticalOptions="End"
+                      Command="{Binding OrderCommand}"
+                      Text="Purchase"/>
+
+
             </Grid>
         </Border>
     </Grid>

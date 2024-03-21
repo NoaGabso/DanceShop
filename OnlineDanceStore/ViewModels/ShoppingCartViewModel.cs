@@ -64,13 +64,18 @@ namespace OnlineDanceStore.ViewModels
             });
         }
 
-        private  async Task CreateOrder()
+        private async Task CreateOrder()
         {
             var loggeduser = await SecureStorage.Default.GetAsync("LoggedUser");
-            User user= JsonSerializer.Deserialize<User>(loggeduser);
-           Order order = new Order() { Date = DateTime.Now, Items= cart.Cart, User=user,Price= cart.TotalPrice  }; 
-          bool success=  await _service.CreateOrder(order);
-            if (success){/* { AppShell.Current.DisplayAlert(" המוצר נמחק מהרשימה", "", "אישור"); למחוק דברים מהעגלה ואת המחיר לאפס}*/
+            User user = JsonSerializer.Deserialize<User>(loggeduser);
+            Order order = new Order() { Date = DateTime.Now, Items = cart.Cart, User = user, Price = cart.TotalPrice };
+            bool success = await _service.CreateOrder(order);
+            if (success)
+            {
+                cart.Cart = null;  
+                { AppShell.Current.DisplayAlert("ההזמנה בוצעה בהצלחה", "", "אישור");}
+
+            }
         }
 
         public async Task Refresh()
