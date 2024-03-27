@@ -11,7 +11,7 @@ namespace OnlineDanceStore.Models
     {
        public List<Item> Items { get; set; }    
         public User User { get; set; }
-        public DateTime Date {  get; set; }
+        public DateTime DateOreder {  get; set; }
         public double? Price { get; set; }
 
     }

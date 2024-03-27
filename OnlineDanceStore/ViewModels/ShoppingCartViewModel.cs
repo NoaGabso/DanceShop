@@ -68,7 +68,7 @@ namespace OnlineDanceStore.ViewModels
         {
             var loggeduser = await SecureStorage.Default.GetAsync("LoggedUser");
             User user = JsonSerializer.Deserialize<User>(loggeduser);
-            Order order = new Order() { Date = DateTime.Now, Items = cart.Cart, User = user, Price = cart.TotalPrice };
+            Order order = new Order() { DateOreder = DateTime.Now, Items = cart.Cart, User = user, Price = cart.TotalPrice };
             bool success = await _service.CreateOrder(order);
             if (success)
             {
