@@ -224,43 +224,43 @@ namespace OnlineDanceStore.Services
             return null;         
         }
 
-        //public async Task<bool> CreateOrder(Order order)
-        //{
-        //       //create the json
-        //        var jsonContent = JsonSerializer.Serialize(order, _serializerOptions);
-        //        //add the json to the content of the request
-        //        var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-        //        try
-        //        {
-        //            //send it to the server
-        //            var response = await _httpClient.PostAsync($"{URL}Order", content);
+        public async Task<bool> CreateOrder(Order order)
+        {
+            //create the json
+            var jsonContent = JsonSerializer.Serialize(order, _serializerOptions);
+            //add the json to the content of the request
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            try
+            {
+                //send it to the server
+                var response = await _httpClient.PostAsync($"{URL}Order", content);
 
-        //            switch (response.StatusCode)
-        //            {
-        //                case (HttpStatusCode.OK):
-        //                case (HttpStatusCode.Created):
-        //                    {
-        //                       Order o;
-        //                        jsonContent = await response.Content.ReadAsStringAsync();
-        //                        o = JsonSerializer.Deserialize<Order>(jsonContent, _serializerOptions);
-        //                        return new OrderDto { Order = o , Message = null,Success= true};
+                switch (response.StatusCode)
+                {
+                    case (HttpStatusCode.OK):
+                    case (HttpStatusCode.Created):
+                        {
 
-        //                    }
-        //                case (HttpStatusCode.Conflict):
-        //                    {
-        //                        return null;
-        //                    }
+                            return true;
 
-        //            }
+                        }
+                    default:
+                        {
+                            Order o;
+                            jsonContent = await response.Content.ReadAsStringAsync();
+                            o = JsonSerializer.Deserialize<Order>(jsonContent, _serializerOptions);
 
-        //        }
-        //        catch (Exception ex) { Console.WriteLine(ex.Message); }
-        //        return null;
 
+                            return false;
+                        }
+
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
            
-
-        //    throw new NotImplementedException();
-        //}
+           throw new NotImplementedException();
+        }
 
 
 

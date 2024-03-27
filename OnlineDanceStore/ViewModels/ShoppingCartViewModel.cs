@@ -72,11 +72,17 @@ namespace OnlineDanceStore.ViewModels
             bool success = await _service.CreateOrder(order);
             if (success)
             {
-                cart.Cart = null;  
-                { AppShell.Current.DisplayAlert("ההזמנה בוצעה בהצלחה", "", "אישור");}
+                cart.Cart = null;
+                items.Clear();
+                { await AppShell.Current.DisplayAlert("ההזמנה בוצעה בהצלחה", "", "אישור"); }
+                await AppShell.Current.GoToAsync("UserInfo"); //לעבור למסך הזמנות
 
             }
-        }
+            else
+                await AppShell.Current.DisplayAlert("ההזמנה לא בוצעה", "", "שגיאה");
+        
+        
+    }
 
         public async Task Refresh()
         {
