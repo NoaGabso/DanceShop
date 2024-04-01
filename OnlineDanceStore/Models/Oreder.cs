@@ -9,9 +9,10 @@ namespace OnlineDanceStore.Models
     
       public class Order
     {
-       public List<Item> Items { get; set; }    
+        public int OrderId { get; set; }
+        public List<Item> OrderItems { get; set; }    
         public User User { get; set; }
-        public DateTime DateOreder {  get; set; }
+        public DateTime OrderDate {  get; set; }
         public double? TotalPrice { get; set; }
 
     }

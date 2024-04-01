@@ -56,19 +56,21 @@ namespace OnlineDanceStore.ViewModels
           
             Items = new ObservableCollection<Item>(cart.Cart);
 
-            RemoveFromCartCommand = new Command<Item>(async (item) => {
-             cart.Cart.Remove(item);Items.Remove(item); await AppShell.Current.DisplayAlert(" המוצר נמחק מהרשימה", "", "אישור");
-            OnPropertyChange(nameof(TotalPrice));
-
-                OrderCommand = new Command(async () => await CreateOrder());
+            RemoveFromCartCommand = new Command<Item>(async (item) =>
+            {
+                cart.Cart.Remove(item); Items.Remove(item); await AppShell.Current.DisplayAlert(" המוצר נמחק מהרשימה", "", "אישור");
+                OnPropertyChange(nameof(TotalPrice));
+            
+              
             });
+            OrderCommand = new Command(async () => await CreateOrder());
         }
 
         private async Task CreateOrder()
         {
             var loggeduser = await SecureStorage.Default.GetAsync("LoggedUser");
             User user = JsonSerializer.Deserialize<User>(loggeduser);
-            Order order = new Order() { DateOreder = DateTime.Now, Items = cart.Cart, User = user, Price = cart.TotalPrice };
+            Order order = new Order() { OrderDate = DateTime.Now, OrderItems = cart.Cart, User = user, TotalPrice = cart.TotalPrice };
             bool success = await _service.CreateOrder(order);
             if (success)
             {

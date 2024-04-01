@@ -3,69 +3,63 @@
     x:Class="OnlineDanceStore.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:view="clr-namespace:OnlineDanceStore.View"
-     xmlns:categories="clr-namespace:OnlineDanceStore.View.Categories"
+    xmlns:categories="clr-namespace:OnlineDanceStore.View.Categories"
     xmlns:local="clr-namespace:OnlineDanceStore"
+    xmlns:view="clr-namespace:OnlineDanceStore.View"
     Shell.FlyoutBehavior="Disabled">
 
     <TabBar Title="Welcome To My Dance Store">
 
-        <ShellContent
-   
-    ContentTemplate="{DataTemplate local:MainPage}"
-    Route="MainPage" />
-   
-        
-        <Tab  Icon="iconshome" Title="Home Page">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+
+
+        <Tab Title="Home Page" Icon="iconshome">
             <ShellContent
                 x:Name="home"
-                Title="HomePage"    
-             
+                Title="HomePage"
                 ContentTemplate="{DataTemplate view:HomePage}"
                 Route="HomePage" />
-            
+
         </Tab>
 
 
-        <Tab Icon="iconsmagnifying_glass"
-             Title="Categories">
+        <Tab Title="Categories" Icon="iconsmagnifying_glass">
             <ShellContent
                 Title="Leotards"
                 ContentTemplate="{DataTemplate categories:Leotards}"
                 Route="Leotards" />
             <ShellContent
-    Title="Women"
-    ContentTemplate="{DataTemplate categories:Women}"
-    Route="Women" />
+                Title="Women"
+                ContentTemplate="{DataTemplate categories:Women}"
+                Route="Women" />
             <ShellContent
-    Title="Men"
-    ContentTemplate="{DataTemplate categories:Men}"
-    Route="Men" />
+                Title="Men"
+                ContentTemplate="{DataTemplate categories:Men}"
+                Route="Men" />
             <ShellContent
-    Title="Dancing Shoes"
-    ContentTemplate="{DataTemplate categories:DancingShoes}"
-    Route="DancingShoes" />
+                Title="Dancing Shoes"
+                ContentTemplate="{DataTemplate categories:DancingShoes}"
+                Route="DancingShoes" />
             <ShellContent
-    Title="Accessories"
-    ContentTemplate="{DataTemplate categories:Accessories}"
-    Route="Categories" />
+                Title="Accessories"
+                ContentTemplate="{DataTemplate categories:Accessories}"
+                Route="Categories" />
         </Tab>
 
-        <Tab Icon="iconsshopping_bag"
-            Title="Shopping Cart">
+        <Tab Title="Shopping Cart" Icon="iconsshopping_bag">
             <ShellContent
                 Title="shopping cart"
                 ContentTemplate="{DataTemplate view:ShoppingCart}"
                 Route="ShoppingCart" />
         </Tab>
 
-        <Tab Icon="iconsfemale_profile"
+        <!--<Tab Icon="iconsfemale_profile"
    Title="User Information">
             <ShellContent
          Title="user info"
          ContentTemplate="{DataTemplate view:UserInfo}"
          Route="UserInfo" />
-        </Tab>
+        </Tab>-->
 
     </TabBar>
 

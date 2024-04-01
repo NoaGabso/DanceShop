@@ -14,7 +14,7 @@ public partial class HomePage : ContentPage
     //protected override void OnAppearing()
     //{
     //    base.OnAppearing();
-    //    foreach (var x in Shell.Current.Items)
+    //    foreach (var x in Shell.Current.OrderItems)
     //    {
     //        if (x.CurrentItem.CurrentItem.Route == nameof(MainPage)) { x.FlyoutItemIsVisible = false; }
             
