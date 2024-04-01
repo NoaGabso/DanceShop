@@ -41,7 +41,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<Men>(); 
 		builder.Services.AddSingleton<Women>(); 
 		builder.Services.AddSingleton<DancingShoes> (); 
-
+		//
 
 
         
