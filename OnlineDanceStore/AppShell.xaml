@@ -53,13 +53,13 @@
                 Route="ShoppingCart" />
         </Tab>
 
-        <!--<Tab Icon="iconsfemale_profile"
+        <Tab Icon="iconsfemale_profile"
    Title="User Information">
             <ShellContent
          Title="user info"
-         ContentTemplate="{DataTemplate view:UserInfo}"
+         ContentTemplate="{DataTemplate view:UserInfoPage}"
          Route="UserInfo" />
-        </Tab>-->
+        </Tab>
 
     </TabBar>
 
