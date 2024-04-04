@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Json;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using OnlineDanceStore.Models;
-using static System.Net.WebRequestMethods;
 
 
 
 
-namespace OnlineDanceStore.Services
-{
+
+namespace OnlineDanceStore.Services;
+
     public class OnlineDanceStoreServices
     {
        // #region TestData
@@ -261,7 +262,36 @@ namespace OnlineDanceStore.Services
            
            throw new NotImplementedException();
         }
+    public async Task<List<Order>> GetUserOrders(int userid)
+    {
+        List<Order> orders = new List<Order>();
+        try
+        {
+            //send it to the server
+            var response = await _httpClient.GetAsync($"{URL}GetUserOrders?userid={userid}");
 
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+
+                var jsonContent = await response.Content.ReadAsStringAsync();
+                orders = JsonSerializer.Deserialize<List<Order>>(jsonContent, _serializerOptions);
+                
+                foreach (var order in orders)
+                {
+                    List<Item> items = new List<Item>();
+                    items = order.OrderItems;
+                    foreach (var item in items)
+                    { item.ItemImage = $"{IMAGE_URL}{item.ItemImage}"; }
+                    
+                }
+                return orders;
+            }
+            return orders;
+
+        }
+        catch (Exception ex) { Console.WriteLine(ex.Message); }
+        return null;
+    }
 
 
         #region TestData
@@ -316,5 +346,5 @@ namespace OnlineDanceStore.Services
 
 
     }
-}
+
 
