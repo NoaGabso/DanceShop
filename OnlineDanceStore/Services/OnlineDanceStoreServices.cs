@@ -293,58 +293,78 @@ namespace OnlineDanceStore.Services;
         return null;
     }
 
+    public async Task<Item> GetItem(int itemid)
+    {
+      Item item=new Item();
+        try
+        {
+            //send it to the server
+            var response = await _httpClient.GetAsync($"{URL}GetItem?itemId={itemid}");
 
-        #region TestData
-        //public async Task<List<Item>> GetAllLeotards()
-        //{
-        //    List<Item> items = new List<Item>();
-        //    try
-        //    {
-        //        //send it to the server
-        //        var response = await _httpClient.GetAsync($"{URL}GetAllItems/1");
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
 
-        //if (response.StatusCode == HttpStatusCode.OK)
-        //        {
+                var jsonContent = await response.Content.ReadAsStringAsync();
+                item = JsonSerializer.Deserialize<Item>(jsonContent, _serializerOptions);
+              
+            }
+            return item;
 
-        //            var jsonContent = await response.Content.ReadAsStringAsync();
-        //            items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
-        //            return items;
-        //        }
-        //        return items;
-        //    }
-        //    catch (Exception ex) { Console.WriteLine(ex.Message); }
-        //    return null;
-        //}
-        //public async Task<List<Item>> GetAllDancingShoes()
-        //{
-
-        //}
-        //    public async Task<List<Item>> GetAllAccessories()
-        //    {
-        //        //return items.Where(x => x.Categories.CategoryId == 1).ToList();
-        //    }
-
-        //public async Task<List<Item>> GetItemsForWomen()
-        //{
-        //    //return items.Where(x=> x.Gender.GenderId==1).ToList();
-        //}
-        //public async Task<List<Item>> GetItemsForMen()
-        //{
-        //    return items.Where(x => x.Gender.GenderId == 2).ToList();
-        //}
-
-        //public async Task<List<Item>> GetAllDancingShoes()
-        //{
-        //    return items.Where(x => x.Categories.CategoryId == 2).ToList();
-        //}
-        //public async Task<List<Item>> GetAllAccessories()
-        //{
-        //    return items.Where(x => x.Categories.CategoryId == 3).ToList();
-        //}
-        #endregion
-        #endregion
-
-
+        }
+        catch (Exception ex) { Console.WriteLine(ex.Message); }
+        return null;
     }
+    #region TestData
+    //public async Task<List<Item>> GetAllLeotards()
+    //{
+    //    List<Item> items = new List<Item>();
+    //    try
+    //    {
+    //        //send it to the server
+    //        var response = await _httpClient.GetAsync($"{URL}GetAllItems/1");
+
+    //if (response.StatusCode == HttpStatusCode.OK)
+    //        {
+
+    //            var jsonContent = await response.Content.ReadAsStringAsync();
+    //            items = JsonSerializer.Deserialize<List<Item>>(jsonContent, _serializerOptions);
+    //            return items;
+    //        }
+    //        return items;
+    //    }
+    //    catch (Exception ex) { Console.WriteLine(ex.Message); }
+    //    return null;
+    //}
+    //public async Task<List<Item>> GetAllDancingShoes()
+    //{
+
+    //}
+    //    public async Task<List<Item>> GetAllAccessories()
+    //    {
+    //        //return items.Where(x => x.Categories.CategoryId == 1).ToList();
+    //    }
+
+    //public async Task<List<Item>> GetItemsForWomen()
+    //{
+    //    //return items.Where(x=> x.Gender.GenderId==1).ToList();
+    //}
+    //public async Task<List<Item>> GetItemsForMen()
+    //{
+    //    return items.Where(x => x.Gender.GenderId == 2).ToList();
+    //}
+
+    //public async Task<List<Item>> GetAllDancingShoes()
+    //{
+    //    return items.Where(x => x.Categories.CategoryId == 2).ToList();
+    //}
+    //public async Task<List<Item>> GetAllAccessories()
+    //{
+    //    return items.Where(x => x.Categories.CategoryId == 3).ToList();
+    //}
+    #endregion
+    #endregion
+
+
+}
 
 
