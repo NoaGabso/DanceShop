@@ -30,7 +30,7 @@
                 FontFamily="OpenSansBold"
                 IsEnabled="True"
                 Text="התחברות"
-                TextColor="Black" />
+                />
 
             <Label
                 FontSize="18"
@@ -44,7 +44,7 @@
                 Command="{Binding RegisterCommand}"
                 FontFamily="OpenSansBold"
                 Text="הרשמה"
-                TextColor="Black" />
+                 />
 
         </VerticalStackLayout>
     </ScrollView>
