@@ -20,7 +20,8 @@
                 <CollectionView
                 x:Name="colview"
                 EmptyView="No Women's Clothes Found"
-                ItemsSource="{Binding Items}">
+                ItemsSource="{Binding Items}"
+                    ItemsLayout="HorizontalGrid, 4">
 
                 <CollectionView.ItemTemplate>
                     
@@ -29,13 +30,13 @@
                         <Border
                             HorizontalOptions="Center"
                             Grid.Row="1"
-                            Grid.ColumnSpan="2"
+                         
                             Padding="3"
                             
                             BackgroundColor="#FBEAE6"
                             HeightRequest="250"
                             WidthRequest="200">
-                                <VerticalStackLayout HeightRequest="250" HorizontalOptions="Center"    Grid.ColumnSpan="2">
+                                <VerticalStackLayout HeightRequest="230" HorizontalOptions="Center"    Grid.ColumnSpan="2">
 
                                     <Image
                                      Grid.Row="0"
