@@ -9,8 +9,7 @@
     <Grid ColumnDefinitions="*,*" RowDefinitions="Auto">
         <ScrollView>
             <Grid>
-                <Label
-            Text="youre history:"/>
+              
       
 
        
