@@ -16,14 +16,35 @@ namespace OnlineDanceStore.ViewModels
 {
     public class UserInfoViewModel:ViewModel
     {
+        #region Fields
+        private int _userid;
+        #endregion
         #region Properties
-       
+
         public ObservableCollection<Item> Items { get; set; }
-        public ObservableCollection<ObservableCollection<Item>> orders { get; set; }
+        public ObservableCollection<Order> Orders { get; set; }
+        #endregion
+        #region Commands
+        public ICommand GetOrdersByUser { get; protected set; }
         #endregion
         #region Service component
         private readonly OnlineDanceStoreServices _service;
         #endregion
-        public UserInfoViewModel(OnlineDanceStoreServices service) { }
+        public UserInfoViewModel(OnlineDanceStoreServices service) 
+        {
+            _service = service;
+           
+            GetOrdersByUser = new Command(async () =>
+            {
+                try
+                {
+                    var listoforders = await _service.GetUserOrders(((App)(Application.Current)).UserinApp.Id);
+
+                    Orders = new ObservableCollection<Order>(listoforders);
+                    OnPropertyChange(nameof(Orders));
+                }
+                catch (Exception ex) { }
+            });
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace OnlineDanceStore.ViewModels
     {
         #region Fields
         private bool tabisVisible;//הסתרת הטאב הנוכחי
+        
         #endregion
 
         #region Properties
@@ -142,6 +143,7 @@ namespace OnlineDanceStore.ViewModels
                     else
                     {
                         await AppShell.Current.DisplayAlert("התחברת", "אישור כניסה לאתר", "אישור");
+                        usera
                         await SecureStorage.Default.SetAsync("LoggedUser", JsonSerializer.Serialize(user.User));
                         IsVisible = true;
 
