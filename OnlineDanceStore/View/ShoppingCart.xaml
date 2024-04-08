@@ -18,7 +18,7 @@
             <Grid>
                 <CollectionView
                 x:Name="colview"
-                EmptyView="Accessories"
+                EmptyView="No Items In The Cart"
                 ItemsSource="{Binding Items}">
 
                     <CollectionView.ItemTemplate>
@@ -26,7 +26,7 @@
                         <DataTemplate x:DataType="models:Item">
 
                             <Border
-                            HorizontalOptions="CenterAndExpand"
+                            HorizontalOptions="Center"
                             Grid.Row="1"
                          
                             Padding="3"
@@ -72,9 +72,11 @@
                     </CollectionView.ItemTemplate>
 
 
-                   
+     
                 </CollectionView>
-                <Label VerticalOptions="CenterAndExpand"
+                <Label VerticalOptions="End"
+                       FontSize="25"
+                   
 Text="{Binding TotalPrice, StringFormat='TotalPrice: {0,0}'}" />
                 <Button VerticalOptions="End"
   Command="{Binding OrderCommand}"

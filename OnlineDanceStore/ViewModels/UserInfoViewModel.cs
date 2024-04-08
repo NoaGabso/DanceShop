@@ -25,7 +25,7 @@ namespace OnlineDanceStore.ViewModels
         public ObservableCollection<Order> Orders { get; set; }
         #endregion
         #region Commands
-        public ICommand GetOrdersByUser { get; protected set; }
+        public ICommand GetOrdersByUserCommand { get; protected set; }
         #endregion
         #region Service component
         private readonly OnlineDanceStoreServices _service;
@@ -34,7 +34,7 @@ namespace OnlineDanceStore.ViewModels
         {
             _service = service;
            
-            GetOrdersByUser = new Command(async () =>
+            GetOrdersByUserCommand = new Command(async () =>
             {
                 try
                 {
@@ -46,5 +46,18 @@ namespace OnlineDanceStore.ViewModels
                 catch (Exception ex) { }
             });
         }
+        public async Task Refresh()
+        {
+            Orders.Clear();
+            if (Orders.Count > 0)
+            {
+                foreach (var item in Orders)
+                {
+                    Orders.Add(item);   
+                }
+            }
+           
+        }
+
     }
 }

@@ -49,13 +49,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Platforms\Android\Resources\xml\network_security_config.xml" />
-	  <None Remove="Resources\Fonts\clothesfont.ttf" />
+	  <None Remove="Resources\Fonts\Oswald.zip" />
 	  <None Remove="Resources\Images\iconsfemale_profile.png" />
 	  <None Remove="Resources\Images\iconshome.png" />
 	  <None Remove="Resources\Images\iconsmagnifying_glass.png" />
 	  <None Remove="Resources\Images\iconsshopping_bag.png" />
-	  <None Remove="Resources\Images\leotardforexaple.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -71,19 +69,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="View\Categories\Accessories.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="View\Categories\DancingShoes.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="View\Categories\Leotards.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="View\Categories\Men.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="View\Categories\Women.xaml">
+	  <MauiXaml Update="View\Categories.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\LoadingPage.xaml">
@@ -101,7 +87,7 @@
 	  <MauiXaml Update="View\RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\UserInfoPage.xaml">
+	  <MauiXaml Update="View\UserInfo.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

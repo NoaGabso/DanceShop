@@ -20,7 +20,7 @@
             <Label
                 Text="For Login Click Here:"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="38"           
+                FontSize="34"           
                 BackgroundColor="AliceBlue"
                 TextColor="Pink"
                 HorizontalOptions="Center" />
@@ -35,7 +35,7 @@
             <Label
      Text="To Register Click Here:"
      SemanticProperties.HeadingLevel="Level1"
-     FontSize="38"
+     FontSize="34"
      BackgroundColor="AliceBlue"
      TextColor="Pink"
      HorizontalOptions="Center" />

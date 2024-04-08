@@ -18,7 +18,7 @@
             <Grid>
                 <CollectionView
                 x:Name="colview"
-                EmptyView="Accessories"
+                EmptyView="No Accessories"
                 ItemsSource="{Binding Items}">
 
                     <CollectionView.ItemTemplate>

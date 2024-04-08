@@ -1,12 +1,59 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OnlineDanceStore.View.UserInfoPage"
+<ContentPage  x:Class="OnlineDanceStore.View.UserInfoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"      
+             xmlns:models="clr-namespace:OnlineDanceStore.Models"
+             xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
+             x:DataType="viewmodels:UserInfoViewModel"
              Title="UserInfoPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="me!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto">
+        <ScrollView>
+            <Grid>
+                <Label
+            Text="youre history:"/>
+      
+
+       
+                <CollectionView
+                x:Name="colview"
+                EmptyView="no orders yet"
+                ItemsSource="{Binding Orders }">
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate x:DataType="models:Order">
+
+                            <Border
+                            HorizontalOptions="CenterAndExpand"
+                            Grid.Row="1"
+                            BackgroundColor="#FBEAE6"
+                            HeightRequest="250"
+                            WidthRequest="200">
+                                <VerticalStackLayout HeightRequest="230" HorizontalOptions="Center"    Grid.ColumnSpan="2">
+                                    <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Text="{Binding OrderDate, StringFormat='Date: {0}'}" />
+                                    <Label
+                                    Grid.Row="1"
+                                      Grid.Column="0"
+                                     Text="{Binding TotalPrice, StringFormat='TotalPrice: {0}'}" />
+      </VerticalStackLayout>
+
+                            </Border>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+
+
+                </CollectionView>
+                </Grid>
+        </ScrollView>
+    </Grid>
+     
+
+ 
+    
 </ContentPage>
