@@ -20,8 +20,7 @@
                 <CollectionView
                 x:Name="colview"
                 EmptyView="No Women's Clothes Found"
-                ItemsSource="{Binding Items}"
-                    ItemsLayout="HorizontalGrid, 4">
+                ItemsSource="{Binding Items}">
 
                 <CollectionView.ItemTemplate>
                     
@@ -53,11 +52,11 @@
                                 <Label
                                     Grid.Row="1"
                                     Grid.Column="0"
-                                    Text="{Binding SizeItem.SizeItemId, StringFormat='Size: {0}'}" />
+                                    Text="{Binding SizeItem.SizeName, StringFormat='Size: {0}'}" />
                                 <Label
                                     Grid.Row="2"
                                     Grid.Column="0"
-                                    Text="{Binding ColorItem.ColorItemId, StringFormat='color: {0}'}" />
+                                    Text="{Binding ColorItem.ColorName, StringFormat='color: {0}'}" />
                                 <Label Grid.Column="0" Text="{Binding Price, StringFormat='Price: {0}'}" />
                                 <Label Grid.Column="0" Text="{Binding ItemDescription, StringFormat='Description: {0}'}" />
 
