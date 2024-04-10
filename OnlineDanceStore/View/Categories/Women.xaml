@@ -13,14 +13,9 @@
 
     <Grid ColumnDefinitions="*,*" RowDefinitions="Auto">
 
-
-
         <ScrollView>
             <Grid>
-                <Button
-                    Text="get all small size"
-                    Command="{Binding FilterBySizeCommand}"
-                    CommandParameter="Small"/>
+              
                 <CollectionView
                 x:Name="colview"
                 EmptyView="No Women's Clothes Found"
@@ -80,9 +75,17 @@
 
 
             </CollectionView>
-            </Grid>
-        </ScrollView>
 
+            
+            </Grid>
+           
+        </ScrollView>
+       
+        <Button Grid.Column="2"
+Text="get all small size"
+Command="{Binding FilterBySizeCommand}"
+CommandParameter="Small"/>
+       
     </Grid>
 
 
