@@ -19,14 +19,18 @@ namespace OnlineDanceStore.ViewModels
         #region Fields
         private int _categoryid;
         private int _subcategoryid;
-      
+
         #endregion
         #region Properties
-        public int CategoryId { get=>_categoryid; set { _categoryid = value; } }
-        public int SubCategoryId { get=>_subcategoryid; set { _subcategoryid = value; } }
+        public int CategoryId { get => _categoryid; set { _categoryid = value; } }
+        public int SubCategoryId { get => _subcategoryid; set { _subcategoryid = value; } }
 
         private ShoppingCart ShoppingCart;
         public ObservableCollection<Item> Items { get; set; }
+
+        public List<Item> filsterlist { get; set; }
+        public List<Item> listofitems { get; set; }
+    
         #endregion
         #region Service component
         private readonly OnlineDanceStoreServices _service;
@@ -41,17 +45,18 @@ namespace OnlineDanceStore.ViewModels
         public ICommand GetAllAccessoriesCommand { get; protected set; }
         #endregion
         public ICommand AddToCartCommand { get; protected set; }
+        public ICommand FilterBySizeCommand { get; protected set; }
         public CategoriesViewModel(OnlineDanceStoreServices service, Models.ShoppingCart cart)
         {
-            ShoppingCart=cart;
-            CategoryId =0;
-            SubCategoryId =0;
+            ShoppingCart = cart;
+            CategoryId = 0;
+            SubCategoryId = 0;
             _service = service;
             GetItemByCategoryCommand = new Command(async () =>
             {
                 try
                 {
-                    var listofitems = await _service.GetItemsByCategory(CategoryId);
+                    listofitems = await _service.GetItemsByCategory(CategoryId);
 
                     Items = new ObservableCollection<Item>(listofitems);
                     OnPropertyChange(nameof(Items));
@@ -63,7 +68,7 @@ namespace OnlineDanceStore.ViewModels
             {
                 try
                 {
-                    var listofitems = await _service.GetItemsBySubCategory(CategoryId, SubCategoryId);
+                    listofitems = await _service.GetItemsBySubCategory(CategoryId, SubCategoryId);
                     Items = new ObservableCollection<Item>(listofitems);
                     OnPropertyChange(nameof(Items));
                 }
@@ -74,7 +79,7 @@ namespace OnlineDanceStore.ViewModels
             {
                 try
                 {
-                    var listofitems = await _service.GetItemsByGender(2);
+                    listofitems = await _service.GetItemsByGender(2);
                     Items = new ObservableCollection<Item>(listofitems);
                     OnPropertyChange(nameof(Items));
                 }
@@ -85,7 +90,7 @@ namespace OnlineDanceStore.ViewModels
             {
                 try
                 {
-                    var listofitems = await _service.GetItemsByGender(1);
+                    listofitems = await _service.GetItemsByGender(1);
                     Items = new ObservableCollection<Item>(listofitems);
                     OnPropertyChange(nameof(Items));
                 }
@@ -96,7 +101,7 @@ namespace OnlineDanceStore.ViewModels
             {
                 try
                 {
-                    var listofitems = await _service.GetItemsByCategory(1);
+                    listofitems = await _service.GetItemsByCategory(1);
                     //foreach(var item in listofitems)
                     //{
                     //    item.ItemImage = $"{service.IMAGE_URL}{item.ItemImage}";
@@ -111,7 +116,7 @@ namespace OnlineDanceStore.ViewModels
             {
                 try
                 {
-                    var listofitems = await _service.GetItemsByCategory(2);
+                    listofitems = await _service.GetItemsByCategory(2);
                     Items = new ObservableCollection<Item>(listofitems);
                     OnPropertyChange(nameof(Items));
                 }
@@ -122,20 +127,31 @@ namespace OnlineDanceStore.ViewModels
             {
                 try
                 {
-                    var listofitems = await _service.GetItemsByCategory(3);
+                    listofitems = await _service.GetItemsByCategory(3);
                     Items = new ObservableCollection<Item>(listofitems);
                     OnPropertyChange(nameof(Items));
                 }
                 catch (Exception ex) { }
             });
 
-            AddToCartCommand = new Command<Item>(async (item) => {
+            AddToCartCommand = new Command<Item>(async (item) =>
+            {
                 ShoppingCart.Cart.Add(item); await AppShell.Current.DisplayAlert("המוצר  נוסף בהצלחה", "", "אישור");
-               
+
             });
-                
 
-
+            FilterBySizeCommand = new Command<string>(async (x) => await FilterBySize(x));
+        }
+       private async Task FilterBySize(string size)
+        {
+            filsterlist = listofitems;
+            filsterlist= listofitems.Where(x=> x.SizeItem.SizeName==size).ToList();
+            Items.Clear();
+            foreach (var item in filsterlist)
+            {
+               Items.Add(item);
             }
+            OnPropertyChange(nameof(Items));
+        }
     }
 }

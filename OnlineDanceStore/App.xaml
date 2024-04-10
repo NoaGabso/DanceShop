@@ -12,10 +12,13 @@
                 <Setter Property="TextColor" Value="#deb887" />
                 <Setter Property="Padding" Value="6" />
                 <Setter Property="FontSize" Value="20" />
-                <Setter Property="BorderWidth" Value="5" />
+                <Setter Property="FontFamily" Value="myfont" />
+              <Setter Property="BorderWidth" Value="5" />
                 <Setter Property="FontAttributes" Value="Italic"/>
-                <Setter Property="FontFamily" Value="Lobster"/>
-
+               
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="myfont" />
             </Style>
             <Style TargetType="Grid">
                 <Setter Property="Background" Value="#f0c5f1"/>

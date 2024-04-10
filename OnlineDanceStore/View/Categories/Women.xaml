@@ -17,6 +17,10 @@
 
         <ScrollView>
             <Grid>
+                <Button
+                    Text="get all small size"
+                    Command="{Binding FilterBySizeCommand}"
+                    CommandParameter="Small"/>
                 <CollectionView
                 x:Name="colview"
                 EmptyView="No Women's Clothes Found"
@@ -48,6 +52,7 @@
                                     <Label
                                     Grid.Row="0"
                                     Grid.Column="0"
+                                    
                                     Text="{Binding ItemName, StringFormat='Name: {0}'}" />
                                 <Label
                                     Grid.Row="1"

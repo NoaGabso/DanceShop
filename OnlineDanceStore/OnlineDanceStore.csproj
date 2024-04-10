@@ -50,6 +50,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\Oswald.zip" />
+	  <None Remove="Resources\Fonts\Playlist-Script.otf" />
 	  <None Remove="Resources\Images\iconsfemale_profile.png" />
 	  <None Remove="Resources\Images\iconshome.png" />
 	  <None Remove="Resources\Images\iconsmagnifying_glass.png" />
