@@ -10,5 +10,7 @@ namespace OnlineDanceStore.Models
     {
         public int GenderId { get; set; }
         public string GenderName { get; set; }
+
+        public Gender() { }
     }
 }

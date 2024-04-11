@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace OnlineDanceStore.Models
 {
     public class SubCategory
@@ -12,5 +13,7 @@ namespace OnlineDanceStore.Models
         public Categories Category { get; set; }
         public int SubCategoryId {  get; set; }
         public string SubcategoryName { get; set; }
+
+        public SubCategory() { }
     }
 }

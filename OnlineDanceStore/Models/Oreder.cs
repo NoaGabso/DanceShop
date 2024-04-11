@@ -14,6 +14,10 @@ namespace OnlineDanceStore.Models
         public User User { get; set; }
         public DateTime OrderDate {  get; set; }
         public double? TotalPrice { get; set; }
+        public Order() 
+        {
+            OrderItems = new List<Item>();
+        }
 
     }
 }
