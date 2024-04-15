@@ -51,10 +51,16 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\Oswald.zip" />
 	  <None Remove="Resources\Fonts\Playlist-Script.otf" />
+	  <None Remove="Resources\Images\dancestoreimage.png" />
 	  <None Remove="Resources\Images\iconsfemale_profile.png" />
 	  <None Remove="Resources\Images\iconshome.png" />
 	  <None Remove="Resources\Images\iconsmagnifying_glass.png" />
 	  <None Remove="Resources\Images\iconsshopping_bag.png" />
+	  <None Remove="Resources\Raw\test_dancestore.mp4" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="2.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -9,7 +9,7 @@
 
 
 <!--test-->
-    <ScrollView>
+    <ScrollView BackgroundColor="AliceBlue">
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
@@ -20,7 +20,7 @@
             <Label
                 Text="For Login Click Here:"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="34" 
+                FontSize="40" 
                FontFamily="myfont"
                 BackgroundColor="AliceBlue"
                 TextColor="Pink"
@@ -46,6 +46,11 @@ Command="{Binding RegisterCommand}"
 FontFamily="OpenSansBold"
 Text="הרשמה"
 TextColor="Pink" />
+            
+            <Image Source="dancerimage14.png"
+                   IsVisible="true"/>
+ 
+
 
         </VerticalStackLayout>
     </ScrollView>

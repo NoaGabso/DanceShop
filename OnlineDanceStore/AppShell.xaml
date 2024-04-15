@@ -6,15 +6,17 @@
     xmlns:categories="clr-namespace:OnlineDanceStore.View.Categories"
     xmlns:local="clr-namespace:OnlineDanceStore"
     xmlns:view="clr-namespace:OnlineDanceStore.View"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Disabled"
+    FlyoutBackgroundColor="#897099">
 
     <TabBar Title="Welcome To My Dance Store">
 
         <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
 
 
-        <Tab Title="Home Page" Icon="iconshome">
+        <Tab Title="Home Page" Icon="iconshome" >
             <ShellContent
+                
                 x:Name="home"
                 Title="HomePage"
                 ContentTemplate="{DataTemplate view:HomePage}"

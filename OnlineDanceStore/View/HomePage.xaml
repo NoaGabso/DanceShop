@@ -6,9 +6,11 @@
              Title="HomePage"  
              Shell.TabBarIsVisible="True">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to my store!!!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+       
+       <Image Source="dancestoreimage.png"
+              HorizontalOptions="End"
+              VerticalOptions="End"
+              HeightRequest="680"/>
+
     </VerticalStackLayout>
 </ContentPage>
