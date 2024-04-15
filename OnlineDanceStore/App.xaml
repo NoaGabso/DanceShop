@@ -7,10 +7,10 @@
     <Application.Resources>
         <ResourceDictionary>
             <Style TargetType="Button">
-                <Setter Property="BackgroundColor" Value="#9932cc" />
-                <Setter Property="BorderColor" Value="#d8c8a0" />
-                <Setter Property="TextColor" Value="#deb887" />
-                <Setter Property="Padding" Value="6" />
+                <Setter Property="BackgroundColor" Value="#897099" />
+                <Setter Property="BorderColor" Value="#EBE9D9" />
+                <Setter Property="TextColor" Value="#EBE9D9" />
+                <Setter Property="Padding" Value="32,16" />
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="FontFamily" Value="myfont" />
               <Setter Property="BorderWidth" Value="5" />
@@ -21,7 +21,11 @@
                 <Setter Property="FontFamily" Value="myfont" />
             </Style>
             <Style TargetType="Grid">
-                <Setter Property="Background" Value="#f0c5f1"/>
+                <Setter Property="Background" Value="#897099"/>
+            </Style>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="#EBE9D9"/>
+                <Setter Property="Padding" Value="32,16"/>
             </Style>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />

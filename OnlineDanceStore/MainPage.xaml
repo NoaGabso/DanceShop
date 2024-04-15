@@ -28,12 +28,33 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+
+            <Border 
+                Grid.Row="0"
+Grid.Column="0"   
+                BackgroundColor="AliceBlue"
+                StrokeThickness="4"
+                StrokeShape=" RoundRectangle 40, 0, 0,40"
+                Padding="16,8">
+                <Label
+         
+Text="To Register Click Here:"
+SemanticProperties.HeadingLevel="Level1"
+FontSize="34"
+TextColor="Pink"
+HorizontalOptions="CenterAndExpand" />
+                
+            </Border>
             <Border
+                 Grid.Row="0"
+ Grid.Column="1"
+                BackgroundColor="AliceBlue"
      StrokeThickness="4"
      StrokeShape=" RoundRectangle 40, 0, 0,40"
      Padding="16,8"
      HorizontalOptions="Center">
                 <Label
+                   
                 Text="For Login Click Here:"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="34" 
@@ -52,26 +73,9 @@
                 IsEnabled="True"
      Text="התחברות" 
      TextColor="Pink" />
-            
-            <Border
-                StrokeThickness="4"
-                StrokeShape=" RoundRectangle 40, 0, 0,40"
-                Padding="16,8"
-                HorizontalOptions="Center">
-                
-                <Label Grid.Row="0"
-                    Grid.Column="1"
-                       
-Text="To Register Click Here:"
-SemanticProperties.HeadingLevel="Level1"
-FontSize="34"
-BackgroundColor="AliceBlue"
-TextColor="Pink"
-HorizontalOptions="CenterAndExpand" />
-            </Border>
-            
+
             <Button
-                 WidthRequest="120"
+ WidthRequest="120"
  HeightRequest="120"
 CornerRadius="60"
                 Grid.Column="0"
@@ -81,19 +85,21 @@ Command="{Binding RegisterCommand}"
 FontFamily="myfont"
 Text="הרשמה"
 TextColor="Pink" />
-            
-          
+
+            <Border
+                  Grid.Row="2"
+ Grid.ColumnSpan="2"
+                Padding="1,1,1,1"
+                BackgroundColor="Pink">
+                
             <toolkit:MediaElement
-               
-  Grid.Row="2"
-                Grid.ColumnSpan="2"
-               
   WidthRequest="640"
   HeightRequest="320"
   Source="embed://test_dancestore.mp4"
-  ShouldAutoPlay="True"/>
+  ShouldAutoPlay="True"
+                />
 
-          
+            </Border>
 
 
             <!--</VerticalStackLayout>-->
