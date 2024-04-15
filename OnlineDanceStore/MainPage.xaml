@@ -11,7 +11,9 @@
 
 <!--test-->
     <ScrollView BackgroundColor="AliceBlue">
-        <Grid>
+        <Grid
+            RowSpacing="6"
+            ColumnSpacing="6">
             <!--<VerticalStackLayout
             Spacing="25"
             Padding="30,0"
@@ -20,41 +22,58 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
-            <Label
+            <Border
+     StrokeThickness="4"
+     StrokeShape=" RoundRectangle 40, 0, 0,40"
+     Padding="16,8"
+     HorizontalOptions="Center">
+                <Label
                 Text="For Login Click Here:"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="40" 
+                FontSize="34" 
                FontFamily="myfont"
                 BackgroundColor="AliceBlue"
                 TextColor="Pink"
                 HorizontalOptions="Center" />
+            </Border>
             <Button
-              
+                WidthRequest="120"
+                HeightRequest="120"
+               CornerRadius="60"
                  Grid.Column="1"
                    Grid.Row="1"
-     Margin="0,15"
      Command="{Binding LoginCommand}"
-     FontFamily="OpenSansBold"
                 IsEnabled="True"
      Text="התחברות" 
      TextColor="Pink" />
-
-            <Label Grid.Column="1"
-     Text="To Register Click Here:"
-     SemanticProperties.HeadingLevel="Level1"
-     FontSize="34"
-     BackgroundColor="AliceBlue"
-     TextColor="Pink"
-     HorizontalOptions="Center" />
-            <Button
+            
+            <Border
+                StrokeThickness="4"
+                StrokeShape=" RoundRectangle 40, 0, 0,40"
+                Padding="16,8"
+                HorizontalOptions="Center">
                 
+                <Label Grid.Row="0"
+                    Grid.Column="1"
+                       
+Text="To Register Click Here:"
+SemanticProperties.HeadingLevel="Level1"
+FontSize="34"
+BackgroundColor="AliceBlue"
+TextColor="Pink"
+HorizontalOptions="CenterAndExpand" />
+            </Border>
+            
+            <Button
+                 WidthRequest="120"
+ HeightRequest="120"
+CornerRadius="60"
                 Grid.Column="0"
                    Grid.Row="1"
 Margin="0,15"
@@ -62,15 +81,19 @@ Command="{Binding RegisterCommand}"
 FontFamily="myfont"
 Text="הרשמה"
 TextColor="Pink" />
+            
+          
             <toolkit:MediaElement
+               
   Grid.Row="2"
                 Grid.ColumnSpan="2"
+               
   WidthRequest="640"
   HeightRequest="320"
   Source="embed://test_dancestore.mp4"
   ShouldAutoPlay="True"/>
 
-
+          
 
 
             <!--</VerticalStackLayout>-->
