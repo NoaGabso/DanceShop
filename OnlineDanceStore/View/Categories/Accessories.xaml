@@ -10,19 +10,11 @@
 
 
 
-    <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,*" RowSpacing="6"
-ColumnSpacing="6">
+    <Grid ColumnDefinitions="*,3*,3*,3*,*" RowDefinitions="*,*,*,*" RowSpacing="6"
+ColumnSpacing="6"
+          BackgroundColor="#897099">
        
 
-        <Button VerticalOptions="Center"    
- WidthRequest="120"
- HeightRequest="120"
-CornerRadius="60"
- Grid.Column="0"
- Grid.Row="0"
-FontFamily="myfont"
-Text="Small"
-TextColor="Pink" />
         <Button VerticalOptions="Center"    
  WidthRequest="120"
  HeightRequest="120"
@@ -30,19 +22,31 @@ CornerRadius="60"
  Grid.Column="1"
  Grid.Row="0"
 FontFamily="myfont"
-Text="Medium"
+Text="Small"
+ BorderColor="#EBE9D9"
 TextColor="Pink" />
-        <Button VerticalOptions="Center"
+        <Button VerticalOptions="Center"    
  WidthRequest="120"
  HeightRequest="120"
 CornerRadius="60"
  Grid.Column="2"
  Grid.Row="0"
 FontFamily="myfont"
+Text="Medium"
+                 BorderColor="#EBE9D9"
+TextColor="Pink" />
+        <Button VerticalOptions="Center"
+ WidthRequest="120"
+ HeightRequest="120"
+CornerRadius="60"
+ Grid.Column="3"
+ Grid.Row="0"
+FontFamily="myfont"
 Text="Large"
+                 BorderColor="#EBE9D9"
 TextColor="Pink" />
 
-        <ScrollView   Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3">
+        <ScrollView BackgroundColor="#897099"  Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="1" Grid.RowSpan="9" >
 
             <CollectionView   Grid.ColumnSpan="3" Grid.Row="1"
  x:Name="colview"
@@ -53,39 +57,40 @@ TextColor="Pink" />
 
                     <DataTemplate x:DataType="models:Item" >
 
-                            <Border Grid.ColumnSpan="3" Grid.Row="1" Padding="6">
-                            <Grid  ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*"  RowSpacing="15">
-                                <Label
-                                    TextColor="AliceBlue"
+                        <Border Grid.ColumnSpan="3" Grid.Row="1"   
+                            BackgroundColor="#FBEAE6" Padding="4">
+                            <Grid  ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*" >
+                                 
+                                <Label  
                                     TextDecorations="Underline"
                                 Grid.Row="0"
                                 Grid.Column="0"
-                                    FontSize="Title"
+                                    FontSize="17"
                                     FontAttributes="Bold"
                                 Text="{Binding ItemName, StringFormat=' Name: {0}'}" />
                                 <Label Grid.Column="0" 
                                        Grid.Row="1"
-                                       FontSize="20"
+                                   
                                        FontAttributes="Bold"
-                                       Text="{Binding ItemDescription, StringFormat='  Description: {0}'}" />
+                                       Text="{Binding ItemDescription, StringFormat='  Description:                                        {0}'}" />
                                 <Label
                                  Grid.Row="2"
                                  Grid.Column="0"
-                                    FontSize="20"
+                                   
                             FontAttributes="Bold"
                                  Text="{Binding SizeItem.SizeName, StringFormat='  Size: {0}'}" />
                                 <Label
                                  Grid.Row="3"
                                  Grid.Column="0"
-                                 FontSize="20"
+                              
                                 FontAttributes="Bold"
                                  Text="{Binding ColorItem.ColorName, StringFormat='  color: {0}'}" />
                                 <Label Grid.Column="0" Grid.Row="4" 
-                                               FontSize="20"
+                                             
                                 FontAttributes="Bold"
                                        Text="{Binding Price, StringFormat='  Price: {0}'}" />
 
-                                <Image
+                                <Image 
                                      Grid.RowSpan="3"
                                     Grid.Row="0"
                                      Grid.Column="1"
@@ -98,7 +103,7 @@ TextColor="Pink" />
                                     Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference colview}}"
                                     CommandParameter="{Binding .}"
                                     Text="Add Item"
-                                        BackgroundColor="Pink"
+                                        BackgroundColor="#897099"
                                         HeightRequest="60"
                                         HorizontalOptions="Center"/>
                                 </Grid>

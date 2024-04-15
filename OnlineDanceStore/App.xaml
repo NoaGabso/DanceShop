@@ -8,7 +8,7 @@
         <ResourceDictionary>
             <Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#897099" />
-                <Setter Property="BorderColor" Value="#EBE9D9" />
+                <Setter Property="BorderColor" Value="#563801" />
                 <Setter Property="TextColor" Value="#EBE9D9" />
                 <Setter Property="Padding" Value="32,16" />
                 <Setter Property="FontSize" Value="20" />
@@ -18,15 +18,16 @@
                
             </Style>
             <Style TargetType="Label">
-                <Setter Property="FontFamily" Value="myfont" />
+                <Setter Property="FontFamily" Value="copensans-regular.ttf"/>
+               
             </Style>
-            <Style TargetType="Grid">
+            <!--<Style TargetType="Grid">
                 <Setter Property="Background" Value="#897099"/>
-            </Style>
-            <Style TargetType="Border">
-                <Setter Property="Background" Value="#EBE9D9"/>
-                <Setter Property="Padding" Value="32,16"/>
-            </Style>
+            </Style>-->
+            <!--<Style TargetType="Border">
+                <Setter Property="Background" Value="#563801"/>
+                <Setter Property="Padding" Value="32,16"/>-->
+            <!--</Style>-->
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

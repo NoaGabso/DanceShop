@@ -59,7 +59,6 @@ HorizontalOptions="CenterAndExpand" />
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="34" 
                FontFamily="myfont"
-                BackgroundColor="AliceBlue"
                 TextColor="Pink"
                 HorizontalOptions="Center" />
             </Border>
