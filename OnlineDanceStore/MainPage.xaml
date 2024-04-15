@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OnlineDanceStore.MainPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
              x:DataType="viewmodels:MainPageViewModel" 
              IsVisible="{Binding IsVisible}"
@@ -10,12 +11,21 @@
 
 <!--test-->
     <ScrollView BackgroundColor="AliceBlue">
-        <VerticalStackLayout
+        <Grid>
+            <!--<VerticalStackLayout
             Spacing="25"
             Padding="30,0"
-            VerticalOptions="Center">
+            VerticalOptions="Center">-->
 
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
             <Label
                 Text="For Login Click Here:"
@@ -26,6 +36,9 @@
                 TextColor="Pink"
                 HorizontalOptions="Center" />
             <Button
+              
+                 Grid.Column="1"
+                   Grid.Row="1"
      Margin="0,15"
      Command="{Binding LoginCommand}"
      FontFamily="OpenSansBold"
@@ -33,7 +46,7 @@
      Text="התחברות" 
      TextColor="Pink" />
 
-            <Label
+            <Label Grid.Column="1"
      Text="To Register Click Here:"
      SemanticProperties.HeadingLevel="Level1"
      FontSize="34"
@@ -41,18 +54,27 @@
      TextColor="Pink"
      HorizontalOptions="Center" />
             <Button
+                
+                Grid.Column="0"
+                   Grid.Row="1"
 Margin="0,15"
 Command="{Binding RegisterCommand}"
-FontFamily="OpenSansBold"
+FontFamily="myfont"
 Text="הרשמה"
 TextColor="Pink" />
-            
-            <Image Source="dancerimage14.png"
-                   IsVisible="true"/>
- 
+            <toolkit:MediaElement
+  Grid.Row="2"
+                Grid.ColumnSpan="2"
+  WidthRequest="640"
+  HeightRequest="320"
+  Source="embed://test_dancestore.mp4"
+  ShouldAutoPlay="True"/>
 
 
-        </VerticalStackLayout>
+
+
+            <!--</VerticalStackLayout>-->
+        </Grid>
     </ScrollView>
 
 </ContentPage>

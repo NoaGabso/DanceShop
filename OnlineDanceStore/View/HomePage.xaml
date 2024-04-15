@@ -4,6 +4,7 @@
              x:Class="OnlineDanceStore.View.HomePage"
              xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
              Title="HomePage"  
+             BackgroundColor="#897099"
              Shell.TabBarIsVisible="True">
     <VerticalStackLayout>
        

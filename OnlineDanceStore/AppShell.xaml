@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:OnlineDanceStore"
     xmlns:view="clr-namespace:OnlineDanceStore.View"
     Shell.FlyoutBehavior="Disabled"
-    FlyoutBackgroundColor="#897099">
+>
 
     <TabBar Title="Welcome To My Dance Store">
 
