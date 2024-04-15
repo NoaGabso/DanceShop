@@ -13,7 +13,7 @@
         <toolkit:MediaElement
             WidthRequest="640"
             HeightRequest="320"
-            Source="test_dancestore.mp4"
+            Source="embed://test_dancestore.mp4"
             ShouldAutoPlay="True"/>
         <ActivityIndicator
             HeightRequest="100"

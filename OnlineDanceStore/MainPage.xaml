@@ -97,6 +97,7 @@ TextColor="Pink" />
   HeightRequest="320"
   Source="embed://test_dancestore.mp4"
   ShouldAutoPlay="True"
+                
                 />
 
             </Border>

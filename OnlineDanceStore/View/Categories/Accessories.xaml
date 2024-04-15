@@ -10,9 +10,11 @@
 
 
 
-    <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto">
+    <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,*" RowSpacing="6"
+ColumnSpacing="6">
        
-            <Button
+
+        <Button VerticalOptions="Center"    
  WidthRequest="120"
  HeightRequest="120"
 CornerRadius="60"
@@ -21,7 +23,7 @@ CornerRadius="60"
 FontFamily="myfont"
 Text="Small"
 TextColor="Pink" />
-            <Button
+        <Button VerticalOptions="Center"    
  WidthRequest="120"
  HeightRequest="120"
 CornerRadius="60"
@@ -30,7 +32,7 @@ CornerRadius="60"
 FontFamily="myfont"
 Text="Medium"
 TextColor="Pink" />
-            <Button
+        <Button VerticalOptions="Center"
  WidthRequest="120"
  HeightRequest="120"
 CornerRadius="60"
@@ -39,50 +41,66 @@ CornerRadius="60"
 FontFamily="myfont"
 Text="Large"
 TextColor="Pink" />
-       
-        <ScrollView  Grid.ColumnSpan="3" >
 
-            <CollectionView Grid.Row="1"
+        <ScrollView   Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="3">
+
+            <CollectionView   Grid.ColumnSpan="3" Grid.Row="1"
  x:Name="colview"
  EmptyView="No Accessories Found"
  ItemsSource="{Binding Items}">
 
-                <CollectionView.ItemTemplate >
+                <CollectionView.ItemTemplate>
 
-                        <DataTemplate x:DataType="models:Item">
+                    <DataTemplate x:DataType="models:Item" >
 
-                            <Border Grid.ColumnSpan="3" Grid.Row="1">
-                            <Grid  ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*">
+                            <Border Grid.ColumnSpan="3" Grid.Row="1" Padding="6">
+                            <Grid  ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*"  RowSpacing="15">
                                 <Label
+                                    TextColor="AliceBlue"
+                                    TextDecorations="Underline"
                                 Grid.Row="0"
                                 Grid.Column="0"
-                                Text="{Binding ItemName, StringFormat='Name: {0}'}" />
+                                    FontSize="Title"
+                                    FontAttributes="Bold"
+                                Text="{Binding ItemName, StringFormat=' Name: {0}'}" />
                                 <Label Grid.Column="0" 
                                        Grid.Row="1"
-                                       Text="{Binding ItemDescription, StringFormat='Description: {0}'}" />
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       Text="{Binding ItemDescription, StringFormat='  Description: {0}'}" />
                                 <Label
                                  Grid.Row="2"
                                  Grid.Column="0"
-                                 Text="{Binding SizeItem.SizeName, StringFormat='Size: {0}'}" />
+                                    FontSize="20"
+                            FontAttributes="Bold"
+                                 Text="{Binding SizeItem.SizeName, StringFormat='  Size: {0}'}" />
                                 <Label
                                  Grid.Row="3"
                                  Grid.Column="0"
-                                 Text="{Binding ColorItem.ColorName, StringFormat='color: {0}'}" />
-                                <Label Grid.Column="0" Grid.Row="4" Text="{Binding Price, StringFormat='Price: {0}'}" />
+                                 FontSize="20"
+                                FontAttributes="Bold"
+                                 Text="{Binding ColorItem.ColorName, StringFormat='  color: {0}'}" />
+                                <Label Grid.Column="0" Grid.Row="4" 
+                                               FontSize="20"
+                                FontAttributes="Bold"
+                                       Text="{Binding Price, StringFormat='  Price: {0}'}" />
 
                                 <Image
                                      Grid.RowSpan="3"
-                                    
+                                    Grid.Row="0"
                                      Grid.Column="1"
                                      Aspect="AspectFit"
-                                     HeightRequest="80"
+                                     HeightRequest="120"
                                      Source="{Binding ItemImage}"
-                                     WidthRequest="50" />
+                                     WidthRequest="120" />
 
-                                <Button Grid.RowSpan="2" Grid.Column="1"
+                                <Button Grid.RowSpan="2" Grid.Row="3" Grid.Column="1"
                                     Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference colview}}"
                                     CommandParameter="{Binding .}"
-                                    Text="Add Item" />
+                                    Text="Add Item"
+                                        BackgroundColor="Pink"
+                                        HeightRequest="60"
+                                        HorizontalOptions="Center"/>
                                 </Grid>
 
                             </Border>
