@@ -11,7 +11,8 @@
 
 
     <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto">
-        <Button
+       
+            <Button
  WidthRequest="120"
  HeightRequest="120"
 CornerRadius="60"
@@ -20,7 +21,7 @@ CornerRadius="60"
 FontFamily="myfont"
 Text="Small"
 TextColor="Pink" />
-        <Button
+            <Button
  WidthRequest="120"
  HeightRequest="120"
 CornerRadius="60"
@@ -29,7 +30,7 @@ CornerRadius="60"
 FontFamily="myfont"
 Text="Medium"
 TextColor="Pink" />
-        <Button
+            <Button
  WidthRequest="120"
  HeightRequest="120"
 CornerRadius="60"
@@ -38,19 +39,19 @@ CornerRadius="60"
 FontFamily="myfont"
 Text="Large"
 TextColor="Pink" />
-        
-        <ScrollView>
+       
+        <ScrollView  Grid.ColumnSpan="3" >
 
-            <CollectionView
+            <CollectionView Grid.Row="1"
  x:Name="colview"
  EmptyView="No Accessories Found"
  ItemsSource="{Binding Items}">
 
-                <CollectionView.ItemTemplate>
+                <CollectionView.ItemTemplate >
 
                         <DataTemplate x:DataType="models:Item">
 
-                            <Border Grid.ColumnSpan="3">
+                            <Border Grid.ColumnSpan="3" Grid.Row="1">
                             <Grid  ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*">
                                 <Label
                                 Grid.Row="0"
