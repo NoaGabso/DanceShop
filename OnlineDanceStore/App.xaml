@@ -12,13 +12,13 @@
                 <Setter Property="TextColor" Value="#EBE9D9" />
                 <Setter Property="Padding" Value="32,16" />
                 <Setter Property="FontSize" Value="20" />
-                <Setter Property="FontFamily" Value="myfont" />
+                <Setter Property="FontFamily" Value="mayafont" />
               <Setter Property="BorderWidth" Value="5" />
                 <Setter Property="FontAttributes" Value="Italic"/>
                
             </Style>
             <Style TargetType="Label">
-                <Setter Property="FontFamily" Value="copensans-regular.ttf"/>
+                <Setter Property="FontFamily" Value="mayafont"/>
                
             </Style>
             <!--<Style TargetType="Grid">
