@@ -8,18 +8,18 @@
              x:DataType="viewmodels:LoadingPageViewModel"
              Title="LoadingPage">
     
-    <VerticalStackLayout Margin="250">
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Margin="250">
 
 
         <ActivityIndicator
-            HeightRequest="100"
+            HeightRequest="150"
             Color="#F995F7"
             IsRunning="{Binding IsBusy}"
             VerticalOptions="CenterAndExpand"
             WidthRequest="300"
             ZIndex="-1" />
         
-        <Label
+        <Labelnbj
             HorizontalOptions="Center"
             Text=" please wait..."
             FontSize="25"
