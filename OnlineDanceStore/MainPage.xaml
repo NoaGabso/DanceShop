@@ -10,7 +10,7 @@
 
 
 <!--test-->
-    <ScrollView BackgroundColor="AliceBlue"
+    <ScrollView 
                 Background="BlanchedAlmond">
         <Grid
             RowSpacing="6"
@@ -35,14 +35,14 @@
               
             </Grid.ColumnDefinitions>
 
-            <Label    
-                Grid.Row="1"
-                Grid.Column="1"  
-                Grid.ColumnSpan="9"
-                Text="Online Dance Store"
-                FontFamily="mayafont"
-                FontSize="30"
-                HorizontalOptions="Center"/>
+            <Label  
+                     Grid.Row="1" 
+                  Grid.Column="1"
+                    FontSize="34"
+      Text="Online Dance Store "
+      FontFamily="mayafont"         
+                         TextColor="#684200"/>
+
             <Border 
                 Grid.Row="2"
                 Grid.Column="1"   
@@ -59,6 +59,7 @@
             Command="{Binding LoginCommand}"
            IsEnabled="True"
                   Text="Logging" 
+                    FontFamily="mayafont"
                     Margin="7,7"
                      BorderWidth="0"
                TextColor="Pink" 
@@ -78,7 +79,7 @@
                  Grid.Column="0"
                  Grid.Row="1"
                  Command="{Binding RegisterCommand}"
-                 FontFamily="myfont"
+                 FontFamily="mayafont"
                  Text="Register"
                  Margin="7,7"
                  TextColor="Pink" 

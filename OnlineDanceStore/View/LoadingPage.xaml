@@ -10,24 +10,22 @@
     
     <VerticalStackLayout Margin="250">
 
-        <toolkit:MediaElement
-            WidthRequest="640"
-            HeightRequest="320"
-            Source="embed://test_dancestore.mp4"
-            ShouldAutoPlay="True"/>
+
         <ActivityIndicator
             HeightRequest="100"
-            BackgroundColor="Pink"
-            Color="Orange"
+            Color="#F995F7"
             IsRunning="{Binding IsBusy}"
             VerticalOptions="CenterAndExpand"
-            WidthRequest="100"
+            WidthRequest="300"
             ZIndex="-1" />
         
         <Label
             HorizontalOptions="Center"
-            Text="המתינו..."
-            VerticalOptions="Center" />
+            Text=" please wait..."
+            FontSize="25"
+            FontFamily="mayafont"
+            VerticalOptions="Center" 
+            TextColor="#F995F7"/>
   
 
 
