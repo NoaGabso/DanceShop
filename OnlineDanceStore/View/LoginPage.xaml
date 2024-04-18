@@ -8,23 +8,33 @@
     x:DataType="viewmodels:LoginPageViewModels"
     Shell.NavBarIsVisible="False"
     Shell.PresentationMode="Modal"
-    Shell.TabBarIsVisible="False">
+    Shell.TabBarIsVisible="False"
+  >
 
 
-    <VerticalStackLayout>
+    <VerticalStackLayout  
+        Spacing="25"
+          Padding="50"
+         VerticalOptions="Center"
+        Background="BlanchedAlmond">
         <Label
-            HorizontalOptions="Center"
-            Text="welcome back"
-            VerticalOptions="Center" />
+           FontSize="34"
+         Text="Welcome Back   "
+            FontFamily="mayafont"         
+          TextColor="#684200"
+            HorizontalOptions="Center"/>
         <StackLayout>
             <Label
-                FontFamily="OpenSansRegular"
-                FontSize="16"
-                Text="שם משתמש"
-                TextColor="AliceBlue" />
-            <Grid Margin="0,5" RowDefinitions="auto,auto">
+                FontSize="18"
+             FontFamily="OpenSansRegular"
+                FontAttributes="Italic"
+                Text=" User Email"
+                TextColor="#684200" />
+            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto">
 
-                <Entry Placeholder="enter EMAIL" Text="{Binding Email}" />
+                <Entry Placeholder="please enter your email" 
+                       Text="{Binding Email}" 
+                      BackgroundColor="AliceBlue" />
                 <Label
                     Grid.Row="1"
                     IsVisible="{Binding ShowEmailError}"
@@ -32,20 +42,21 @@
             </Grid>
 
             <Label
-                FontFamily="OpenSansRegular"
-                FontSize="16"
-                Text="סיסמה"
-                TextColor="PaleGoldenrod" />
-            <Grid Margin="0,5" RowDefinitions="auto,auto">
+                   FontSize="18"
+              FontFamily="OpenSansRegular"
+             FontAttributes="Italic"
+             Text=" Password"
+             TextColor="#684200" />
+            
+            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto">
 
                 <Entry
-                    Margin="5,0"
-                    BackgroundColor="Transparent"
+                    Margin="0,0"
+                    BackgroundColor="AliceBlue" 
                     IsPassword="True"
-                    Placeholder="enter PASSWORD"
-                    PlaceholderColor="Gray"
-                    Text="{Binding Password}"
-                    TextColor="Black" />
+                    Placeholder="please enter youre password"
+                    Text="{Binding Password}"/>
+                
                 <Label
                     Grid.Row="1"
                     IsVisible="{Binding ShowPasswordError}"
@@ -55,16 +66,23 @@
         </StackLayout>
 
         <Button
-            Margin="0,15"
-            BackgroundColor="Purple"
-            Command="{Binding LogInCommand}"
-            FontFamily="OpenSansBold"
+            FontFamily="OpenSansRegular"
+             Margin="7,7"
+            TextColor="Pink" 
+             BorderWidth="4"
+            VerticalOptions="Center"     
+            Command="{Binding LogInCommand}"   
             IsEnabled="{Binding IsButtonEnabled}"
-            Text="כניסה" />
+            Text="Enter" />
 
         <Button
+             FontFamily="OpenSansRegular"
+              Margin="7,7"
+            TextColor="Pink" 
+              BorderWidth="4"
+               VerticalOptions="Center" 
             Command="{Binding GoToRegister}"
-            Text="להרשמה"/>
+            Text="To Register"/>
         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" />
         
         

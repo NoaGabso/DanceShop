@@ -19,7 +19,7 @@
             WidthRequest="300"
             ZIndex="-1" />
         
-        <Labelnbj
+        <Label
             HorizontalOptions="Center"
             Text=" please wait..."
             FontSize="25"
