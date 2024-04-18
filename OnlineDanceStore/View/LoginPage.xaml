@@ -82,7 +82,8 @@
               BorderWidth="4"
                VerticalOptions="Center" 
             Command="{Binding GoToRegister}"
-            Text="To Register"/>
+            Text="To Register"
+            BackgroundColor="#684200"/>
         <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" />
         
         

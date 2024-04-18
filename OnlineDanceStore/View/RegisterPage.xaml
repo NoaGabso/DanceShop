@@ -7,42 +7,55 @@
     Title="Register"
     x:DataType="viewmodels:RegisterPageViewModel"
     Shell.TabBarIsVisible="False">
-    <VerticalStackLayout>
+    <VerticalStackLayout
+          Spacing="25"
+    Padding="50"
+   VerticalOptions="Center"
+  Background="BlanchedAlmond">
         <Label
-            HorizontalOptions="Center"
-            Text="nice to meet you"
-            VerticalOptions="Center" />
+             FontSize="34"
+Text="Welcome To My Dance Store   "
+   FontFamily="mayafont"         
+ TextColor="#684200"
+   HorizontalOptions="Center" />
         <StackLayout>
             <Label
-                FontFamily="OpenSansRegular"
-                FontSize="16"
-                Text="שם משתמש"
-                TextColor="PaleGoldenrod" />
-            <Grid Margin="0,5" RowDefinitions="auto,auto">
+                  FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" User Name"
+   TextColor="#684200"/>
+            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto">
+                <Label
+           Grid.Row="1"
+           IsVisible="{Binding ShowEmailError}"
+           Text="{Binding EmailErrorMessage}" />
+            </Grid>
+            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
+                  BackgroundColor="AliceBlue">
                 <Entry
-                    Margin="5,0"
-                    BackgroundColor="Transparent"
-                    PlaceholderColor="Gray"
+                    Placeholder="please enter your name" 
                     Text="{Binding Name}"
-                    TextColor="Black" />
+                     BackgroundColor="AliceBlue"/>
                 <Label
                     Grid.Row="1"
                     IsVisible="{Binding ShowNameError}"
                     Style="{StaticResource error}"
                     Text="{Binding NameErrorMessage}" />
             </Grid>
+            
             <Label
-                FontFamily="OpenSansRegular"
-                FontSize="16"
-                Text="שם משפחה"
-                TextColor="PaleGoldenrod" />
-            <Grid Margin="0,5" RowDefinitions="auto,auto">
+            FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Last Name"
+   TextColor="#684200"/>
+            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
+                  BackgroundColor="AliceBlue">
                 <Entry
-                    Margin="5,0"
-                    BackgroundColor="Transparent"
-                    PlaceholderColor="Gray"
                     Text="{Binding LastName}"
-                    TextColor="Black" />
+                    Placeholder="please enter your last name" 
+                    BackgroundColor="AliceBlue"/>
                 <Label
                     Grid.Row="1"
                     IsVisible="{Binding ShowNameError}"
@@ -50,13 +63,16 @@
                     Text="{Binding NameErrorMessage}" />
             </Grid>
             <Label
-                FontFamily="OpenSansRegular"
-                FontSize="16"
-                Text="אימייל"
-                TextColor="AliceBlue" />
-            <Grid Margin="0,5" RowDefinitions="auto,auto">
+                           FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Email"
+   TextColor="#684200"/>
+            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
+                  BackgroundColor="AliceBlue">
 
-                <Entry Placeholder="enter EMAIL" Text="{Binding Email}" />
+                <Entry Placeholder="please enter your email" 
+BackgroundColor="AliceBlue" Text="{Binding Email}" />
                 <Label
                     Grid.Row="1"
                     IsVisible="{Binding ShowEmailError}"
@@ -64,17 +80,19 @@
                     Text="{Binding EmailErrorMessage}" />
             </Grid>
             <Label
-                FontFamily="OpenSansRegular"
-                FontSize="16"
-                Text="סיסמא"
-                TextColor="PaleGoldenrod" />
-            <Grid Margin="0,5" RowDefinitions="auto,auto">
+                           FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Password"
+   TextColor="#684200" />
+            
+            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
+                  BackgroundColor="AliceBlue">
                 <Entry
-                    Margin="5,0"
-                    BackgroundColor="Transparent"
-                    PlaceholderColor="Gray"
+                 Placeholder="please enter your password" 
+                    BackgroundColor="AliceBlue"
                     Text="{Binding Password}"
-                    TextColor="Black" />
+           />
                 <Label
                     Grid.Row="1"
                     IsVisible="{Binding ShowPasswordError}"
@@ -83,16 +101,25 @@
             </Grid>
 
             <Button
-                Margin="0,15"
-                BackgroundColor="Purple"
+                 FontFamily="OpenSansRegular"
+  Margin="7,7"
+ TextColor="Pink" 
+  BorderWidth="4"
+ VerticalOptions="Center"   
                 Command="{Binding RegisterCommand}"
-                FontFamily="OpenSansBold"
+                
                 IsEnabled="{Binding IsButtonEnabled}"
-                Text="כניסה"
-                TextColor="{StaticResource PrimaryColor}" />
+                Text="Enter"
+                 />
             <Button
+                 FontFamily="OpenSansRegular"
+  Margin="7,7"
+ TextColor="Pink" 
+  BorderWidth="4"
+ VerticalOptions="Center"   
       Command="{Binding GoToLogin}"
-      Text="להתחברות"/>
+      Text="To Loggin"
+                 BackgroundColor="#684200"/>
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

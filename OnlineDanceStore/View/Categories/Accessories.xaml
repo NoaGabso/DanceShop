@@ -22,9 +22,11 @@ CornerRadius="60"
  Grid.Column="1"
  Grid.Row="0"
 FontFamily="myfont"
-Text="Small"
  BorderColor="#EBE9D9"
-TextColor="Pink" />
+TextColor="Pink"
+Text="Small"
+Command="{Binding FilterBySizeCommand}"
+CommandParameter="Small"/>
         <Button VerticalOptions="Center"    
  WidthRequest="120"
  HeightRequest="120"
@@ -34,7 +36,9 @@ CornerRadius="60"
 FontFamily="myfont"
 Text="Medium"
                  BorderColor="#EBE9D9"
-TextColor="Pink" />
+TextColor="Pink"
+Command="{Binding FilterBySizeCommand}"
+CommandParameter="Medium"/>
         <Button VerticalOptions="Center"
  WidthRequest="120"
  HeightRequest="120"
@@ -44,7 +48,9 @@ CornerRadius="60"
 FontFamily="myfont"
 Text="Large"
                  BorderColor="#EBE9D9"
-TextColor="Pink" />
+TextColor="Pink"
+Command="{Binding FilterBySizeCommand}"
+CommandParameter="Large"/>
 
         <ScrollView BackgroundColor="#897099"  Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="1" Grid.RowSpan="9" >
 
