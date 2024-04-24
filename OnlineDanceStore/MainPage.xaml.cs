@@ -12,10 +12,15 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
 
- //   private void loginclicked(object sender, EventArgs e)
-	//{
- //       AppShell.Current.GoToAsync("Login");
- //   }
+    private void MediaElement_StateChanged(object sender, CommunityToolkit.Maui.Core.Primitives.MediaStateChangedEventArgs e)
+    {
+
+    }
+
+    //   private void loginclicked(object sender, EventArgs e)
+    //{
+    //       AppShell.Current.GoToAsync("Login");
+    //   }
 
 
 }

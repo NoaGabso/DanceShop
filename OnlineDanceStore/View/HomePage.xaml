@@ -5,7 +5,7 @@
              xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
              Title="HomePage"  
              BackgroundColor="#897099"
-             Shell.TabBarIsVisible="True">
+             Shell.TabBarIsVisible="True" >
     <VerticalStackLayout>
        
        <Image Source="dancestoreimage.png"

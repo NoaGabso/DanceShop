@@ -18,9 +18,10 @@ namespace OnlineDanceStore.ViewModels
 
         private bool _isBusy;
         public bool IsBusy { get => _isBusy; set { _isBusy = value; OnPropertyChange(); } }
-       
 
-       
+        private bool _isBusy1;
+        public bool IsBusy1 { get => _isBusy1; set { _isBusy1 = value; OnPropertyChange(); } }
+
     }
 }
 

@@ -6,7 +6,8 @@
     xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
     Title="Register"
     x:DataType="viewmodels:RegisterPageViewModel"
-    Shell.TabBarIsVisible="False">
+    Shell.TabBarIsVisible="False"
+      >
     <VerticalStackLayout
           Spacing="25"
     Padding="50"
@@ -14,7 +15,7 @@
   Background="BlanchedAlmond">
         <Label
              FontSize="34"
-Text="Welcome To My Dance Store   "
+Text="Welcome To My        Dance Store   "
    FontFamily="mayafont"         
  TextColor="#684200"
    HorizontalOptions="Center" />
@@ -118,7 +119,7 @@ FontFamily="OpenSansRegular"
   BorderWidth="4"
  VerticalOptions="Center"   
       Command="{Binding GoToLogin}"
-      Text="To Loggin"
+      Text="To Login"
                  BackgroundColor="#684200"/>
         </StackLayout>
     </VerticalStackLayout>

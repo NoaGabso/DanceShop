@@ -99,8 +99,10 @@
              WidthRequest="290"
              HeightRequest="290"
              Source="embed://DancerVideo.mp4"
-             ShouldAutoPlay="True"
-             ShouldLoopPlayback="True" 
+           ShouldLoopPlayback="True"
+                    
+                    ShouldAutoPlay="True"
+                 
                     Margin="7,7"/>
             </Border>
             
