@@ -7,63 +7,100 @@
              x:DataType="viewmodels:ShoppingCartViewModel"
              Title="ShoppingCart">
 
-  
-
-
-    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto">
 
 
 
-        <ScrollView>
+    <Grid ColumnDefinitions="*,5*,5*,*" RowDefinitions="2*,8*" RowSpacing="6"
+                  ColumnSpacing="6" BackgroundColor="#FBEAE6">
+
+        <Border Grid.Column="2" Grid.Row="0" HeightRequest="70" WidthRequest="150" Padding="4">
+            <Label VerticalOptions="Center" HorizontalOptions="Center"
+               FontSize="25"    
+              TextColor="Black"
+              FontFamily="myfont"
+              Text="{Binding TotalPrice, StringFormat='TotalPrice: {0,0}'}" />
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="0"  HeightRequest="70" WidthRequest="150">
+            <Button VerticalOptions="End"
+            Command="{Binding OrderCommand}"
+           FontAttributes="Bold"
+           FontSize="20"
+           Text="Purchase"/>
+        </Border>
+        
+        <ScrollView  Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" >
             <Grid>
-                <CollectionView
+                <CollectionView 
                 x:Name="colview"
                 EmptyView="No Items In The Cart"
-                ItemsSource="{Binding Items}">
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                ItemsSource="{Binding Items}" >
 
-                    <CollectionView.ItemTemplate>
+                    <CollectionView.ItemTemplate >
 
-                        <DataTemplate x:DataType="models:Item">
+                        <DataTemplate x:DataType="models:Item" >
 
-                            <Border
-                            HorizontalOptions="Center"
-                            Grid.Row="1"
-                         
-                            Padding="3"
-                            
-                            BackgroundColor="#FBEAE6"
-                            HeightRequest="250"
-                            WidthRequest="200">
-                                <VerticalStackLayout HeightRequest="230" HorizontalOptions="Center"    Grid.ColumnSpan="2">
+                            <Border  Padding="4"
+                                     Background="#FBEAE6"
+                                VerticalOptions="Start"
+                            BackgroundColor="Black">
 
-                                    <Image
-                                     Grid.Row="0"
-                                     Grid.Column="1"
-                                     Aspect="AspectFit"
-                                     HeightRequest="80"
-                                     Source="{Binding ItemImage}"
-                                     WidthRequest="50" />
+                                <Grid  ColumnDefinitions="*,*" RowDefinitions="*,2*,*,*,*" >
 
-                                    <Label
-                                    Grid.Row="0"
-                                    Grid.Column="0"
-                                    Text="{Binding ItemName, StringFormat='Name: {0}'}" />
-                                    <Label
-      Grid.Row="1"
+                    <Label  
+          TextDecorations="Underline"
+      Grid.Row="0"
       Grid.Column="0"
-      Text="{Binding SizeItem.SizeName, StringFormat='Size: {0}'}" />
-                                    <Label
-      Grid.Row="2"
-      Grid.Column="0"
-      Text="{Binding ColorItem.ColorName, StringFormat='color: {0}'}" />
-                                    <Label Grid.Column="0" Text="{Binding Price, StringFormat='Price: {0}'}" />
-                                    <Label Grid.Column="0" Text="{Binding ItemDescription, StringFormat='Description: {0}'}" />
-                                    <Button
+          FontSize="20"
+          FontAttributes="Bold"
+      Text="{Binding ItemName, StringFormat=' Name: {0}'}" />
+                                    
+             <Label Grid.Column="0" 
+             Grid.Row="1"
+             FontAttributes="Bold"
+                    FontSize="18"
+             Text="{Binding ItemDescription, StringFormat='  Description:                                        {0}'}" />
+                                    
+           <Label
+       Grid.Row="2"
+       Grid.Column="0"
+  FontAttributes="Bold"
+                FontSize="18"
+       Text="{Binding SizeItem.SizeName, StringFormat='  Size: {0}'}" />
+                                    
+           <Label
+       Grid.Row="3"
+       Grid.Column="0"
+      FontAttributes="Bold"
+       Text="{Binding ColorItem.ColorName, StringFormat='  color: {0}'}"
+                FontSize="18"/>
+                                    
+        <Label Grid.Column="0" Grid.Row="4" 
+  FontFamily="myfont"
+      FontAttributes="Bold"
+                FontSize="18"
+             Text="{Binding Price, StringFormat='  Price: {0}'}" />
+
+                                        <Image 
+           Grid.RowSpan="3"
+          Grid.Row="0"
+           Grid.Column="1"
+           Aspect="AspectFit"
+           HeightRequest="120"
+           Source="{Binding ItemImage}"
+           WidthRequest="120" />
+
+                                    <Button Grid.RowSpan="2" Grid.Row="3" Grid.Column="1"
+                                                HeightRequest="60"
+                                 HorizontalOptions="Center"
+                                            VerticalOptions="Center"
                               Command="{Binding BindingContext.RemoveFromCartCommand, Source={x:Reference colview}}"
                               CommandParameter="{Binding .}"
                               Text="Remove Item" />
-
-                                </VerticalStackLayout>
+                                    </Grid>
+                                
 
                             </Border>
 
@@ -74,15 +111,11 @@
 
      
                 </CollectionView>
-                <Label VerticalOptions="End"
-                       FontSize="25"
-                   
-Text="{Binding TotalPrice, StringFormat='TotalPrice: {0,0}'}" />
-                <Button VerticalOptions="End"
-  Command="{Binding OrderCommand}"
-  Text="Purchase"/>
+               
             </Grid>
+            
         </ScrollView>
-       
+     
     </Grid>
+    
 </ContentPage>

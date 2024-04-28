@@ -92,7 +92,7 @@ CommandParameter="Large"/>
                                 FontAttributes="Bold"
                                  Text="{Binding ColorItem.ColorName, StringFormat='  color: {0}'}" />
                                 <Label Grid.Column="0" Grid.Row="4" 
-                                             
+                                             FontFamily="mayafont"
                                 FontAttributes="Bold"
                                        Text="{Binding Price, StringFormat='  Price: {0}'}" />
 
@@ -111,6 +111,7 @@ CommandParameter="Large"/>
                                     Text="Add Item"
                                         BackgroundColor="#897099"
                                         HeightRequest="60"
+                                        VerticalOptions="Center"
                                         HorizontalOptions="Center"/>
                                 </Grid>
 

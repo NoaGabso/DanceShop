@@ -18,8 +18,8 @@
                
             </Style>
             <Style TargetType="Label">
-                <Setter Property="FontFamily" Value="mayafont"/>
-               
+                <Setter Property="FontFamily" Value="myfont"/>
+
             </Style>
             <!--<Style TargetType="Grid">
                 <Setter Property="Background" Value="#897099"/>
