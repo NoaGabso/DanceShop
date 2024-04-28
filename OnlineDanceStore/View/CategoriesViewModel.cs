@@ -19,11 +19,39 @@ namespace OnlineDanceStore.ViewModels
         #region Fields
         private int _categoryid;
         private int _subcategoryid;
+        private string _shoesize;
 
+        private bool _showSizeError;//האם להציג שגיאת סיסמה
+        private string _sizeErrorMessage;
         #endregion
         #region Properties
         public int CategoryId { get => _categoryid; set { _categoryid = value; } }
         public int SubCategoryId { get => _subcategoryid; set { _subcategoryid = value; } }
+        public bool ShowPasswordError { get => _showSizeError; set { if (_showSizeError != value) { _showSizeError = value; OnPropertyChange(); } } }
+        public string PasswordErrorMessage { get => _sizeErrorMessage; set { if (_sizeErrorMessage != value) { _sizeErrorMessage = value; OnPropertyChange(); } } }
+        public string ShoeSize
+        {
+            get => _shoesize;
+            set
+            {
+                if (_shoesize != value)
+                {
+                    _shoesize = value; if (!ValidateSize())
+                    {
+                        ShowPasswordError = true;
+                        PasswordErrorMessage = ErrorMessages.INVALID_PASSWORD;
+                    }
+                    else
+                    {
+                        PasswordErrorMessage = string.Empty;
+                        ShowPasswordError = false;
+                    };
+                    OnPropertyChange();
+                    OnPropertyChange(nameof(IsButtonEnabled));
+                }
+            }
+        }
+        public bool IsButtonEnabled { get { return ValidateSize(); } }
 
         private ShoppingCart ShoppingCart;
         public ObservableCollection<Item> Items { get; set; }
@@ -165,6 +193,13 @@ namespace OnlineDanceStore.ViewModels
                 Items.Add(item);
             }
             OnPropertyChange(nameof(Items));
+        }
+        private bool ValidateSize()
+        {
+         
+            return !string.IsNullOrEmpty(ShoeSize) && (ShoeSize.StartsWith("3") || ShoeSize.StartsWith("4"))
+                && (ShoeSize.Length == 2);
+
         }
     }
 }

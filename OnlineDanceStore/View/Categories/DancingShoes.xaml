@@ -31,7 +31,7 @@ CommandParameter="Women"/>
  WidthRequest="120"
  HeightRequest="120"
 CornerRadius="60"
- Grid.Column="3"
+ Grid.Column="2"
  Grid.Row="0"
 FontFamily="myfont"
 Text="Men"
@@ -40,6 +40,25 @@ TextColor="Pink"
 Command="{Binding FilterBySizeCommand}"
 CommandParameter="
                 men"/>
+        <Entry
+            Grid.Column="3"
+Grid.Row="0"
+     Margin="0,0"
+     BackgroundColor="AliceBlue" 
+     IsPassword="True"
+     Placeholder="please enter youre shoe size"
+     Text="{Binding ShoeSize}"/>
+        <Button
+            Grid.Row="0" Grid.Column="4"
+     FontFamily="OpenSansRegular"
+      Margin="7,7"
+     TextColor="Pink" 
+      BorderWidth="4"
+     VerticalOptions="Center"     
+     Command="{Binding FilterBySizeCommand}"   
+     IsEnabled="{Binding IsButtonEnabled}"
+            CommandParameter="{Binding ShoeSize}"
+     Text="Enter" />
 
         <ScrollView BackgroundColor="#897099"  Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="1" Grid.RowSpan="9" >
 
