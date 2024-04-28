@@ -13,15 +13,15 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 
-        builder.UseMauiApp<App>()
-            .UseMauiCommunityToolkitMediaElement()
+        _ = builder.UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 fonts.AddFont("clothesfont.ttf", "mayafont");
                 fonts.AddFont("Playlist-Script.otf", "myfont");
-            });
+            }).UseMauiCommunityToolkitMediaElement();
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<Models.ShoppingCart>();
         builder.Services.AddSingleton<MainPageViewModel>();

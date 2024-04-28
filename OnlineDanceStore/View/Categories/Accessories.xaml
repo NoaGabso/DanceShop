@@ -47,7 +47,7 @@ CornerRadius="60"
  Grid.Row="0"
 FontFamily="myfont"
 Text="Large"
-                 BorderColor="#EBE9D9"
+ BorderColor="#EBE9D9"
 TextColor="Pink"
 Command="{Binding FilterBySizeCommand}"
 CommandParameter="Large"/>
@@ -98,14 +98,15 @@ CommandParameter="Large"/>
                                 FontAttributes="Bold"
                                        Text="{Binding Price, StringFormat='  Price: {0}'}" />
 
-                                <Image 
+                                <ImageButton 
                                      Grid.RowSpan="3"
                                     Grid.Row="0"
                                      Grid.Column="1"
                                      Aspect="AspectFit"
                                      HeightRequest="120"
                                      Source="{Binding ItemImage}"
-                                     WidthRequest="120" />
+                                     WidthRequest="120"
+                                   />
 
                                 <Button Grid.RowSpan="2" Grid.Row="3" Grid.Column="1"
                                     Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference colview}}"
@@ -114,7 +115,8 @@ CommandParameter="Large"/>
                                         BackgroundColor="#897099"
                                         HeightRequest="60"
                                         VerticalOptions="Center"
-                                        HorizontalOptions="Center"/>
+                                        HorizontalOptions="Center"
+                                          Clicked="OnButtonClicked"/>
                                 </Grid>
 
                             </Border>

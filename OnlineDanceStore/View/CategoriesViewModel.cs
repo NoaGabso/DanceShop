@@ -11,6 +11,7 @@ using System.Text.Json;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
+using CommunityToolkit.Maui.Views;
 
 namespace OnlineDanceStore.ViewModels
 {
@@ -75,6 +76,7 @@ namespace OnlineDanceStore.ViewModels
         public ICommand AddToCartCommand { get; protected set; }
         public ICommand FilterBySizeCommand { get; protected set; }
         public ICommand FilterByGenderCommand { get; protected set; }
+
         public CategoriesViewModel(OnlineDanceStoreServices service, Models.ShoppingCart cart)
         {
             ShoppingCart = cart;
@@ -168,6 +170,7 @@ namespace OnlineDanceStore.ViewModels
                 ShoppingCart.Cart.Add(item); await AppShell.Current.DisplayAlert("המוצר  נוסף בהצלחה", "", "אישור");
 
             });
+          
 
             FilterBySizeCommand = new Command<string>(async (x) => await FilterBySize(x));
             FilterByGenderCommand = new Command<string>(async (x) => await FilterByGender(x));
@@ -201,5 +204,6 @@ namespace OnlineDanceStore.ViewModels
                 && (ShoeSize.Length == 2);
 
         }
+      
     }
 }

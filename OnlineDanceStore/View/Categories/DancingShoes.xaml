@@ -9,7 +9,7 @@
     x:DataType="viewmodels:CategoriesViewModel">
 
 
-    <Grid ColumnDefinitions="*,3*,3*,3*,*" RowDefinitions="*,*,*,*" RowSpacing="6"
+    <Grid ColumnDefinitions="*,3*,*,3*,*,3*,*" RowDefinitions="*,*,*,*" RowSpacing="6"
 ColumnSpacing="6"
           BackgroundColor="#897099">
 
@@ -31,36 +31,43 @@ CommandParameter="Women"/>
  WidthRequest="120"
  HeightRequest="120"
 CornerRadius="60"
- Grid.Column="2"
+ Grid.Column="3"
  Grid.Row="0"
 FontFamily="myfont"
 Text="Men"
-                 BorderColor="#EBE9D9"
+ BorderColor="#EBE9D9"
 TextColor="Pink"
 Command="{Binding FilterBySizeCommand}"
 CommandParameter="
-                men"/>
+ men"/>
+        <Border Grid.Column="5" Grid.Row="0"   BackgroundColor="#897099" >
+            <Grid ColumnDefinitions="*" RowDefinitions="*,5*,5*,*" >
         <Entry
-            Grid.Column="3"
-Grid.Row="0"
-     Margin="0,0"
-     BackgroundColor="AliceBlue" 
-     IsPassword="True"
-     Placeholder="please enter youre shoe size"
+       Grid.Row="1"
+      
+     BackgroundColor="#EBE9D9"
+     Placeholder="enter size"
      Text="{Binding ShoeSize}"/>
+            
         <Button
-            Grid.Row="0" Grid.Column="4"
-     FontFamily="OpenSansRegular"
-      Margin="7,7"
-     TextColor="Pink" 
-      BorderWidth="4"
-     VerticalOptions="Center"     
+ VerticalOptions="Center"    
+ Grid.Row="2"
+  Grid.Column="1"
+            HeightRequest="80"
+BackgroundColor="#EBE9D9"
+FontFamily="myfont"
+TextColor="Pink"
+            BorderWidth="0"
+            Padding="2"
+            FontSize="20"
+            FontAttributes="Bold"
      Command="{Binding FilterBySizeCommand}"   
      IsEnabled="{Binding IsButtonEnabled}"
             CommandParameter="{Binding ShoeSize}"
      Text="Enter" />
-
-        <ScrollView BackgroundColor="#897099"  Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="1" Grid.RowSpan="9" >
+        </Grid>
+        </Border>
+        <ScrollView BackgroundColor="#897099"  Grid.ColumnSpan="5" Grid.Row="1" Grid.Column="1" Grid.RowSpan="9" >
 
             <CollectionView   Grid.ColumnSpan="3" Grid.Row="1"
  x:Name="colview"

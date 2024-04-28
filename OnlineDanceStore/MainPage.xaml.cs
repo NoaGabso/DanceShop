@@ -16,7 +16,7 @@ public partial class MainPage : ContentPage
     {
 
     }
-
+  
     //   private void loginclicked(object sender, EventArgs e)
     //{
     //       AppShell.Current.GoToAsync("Login");
