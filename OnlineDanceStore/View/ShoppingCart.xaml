@@ -61,7 +61,7 @@
              Grid.Row="1"
              FontAttributes="Bold"
                     FontSize="18"
-             Text="{Binding ItemDescription, StringFormat='  Description:                                        {0}'}" />
+             Text="{Binding ItemDescription, StringFormat='  Description:   {0}'}" />
                                     
            <Label
        Grid.Row="2"

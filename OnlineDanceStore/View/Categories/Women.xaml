@@ -10,76 +10,115 @@
 
 
 
+    <Grid ColumnDefinitions="*,3*,3*,3*,*" RowDefinitions="*,*,*,*" RowSpacing="6"
+ColumnSpacing="6"
+          BackgroundColor="#897099">
 
-    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto">
-        <Button Grid.Column="1" Grid.Row="1"
-Text="get all small size"
+
+        <Button VerticalOptions="Center"    
+ WidthRequest="120"
+ HeightRequest="120"
+CornerRadius="60"
+ Grid.Column="1"
+ Grid.Row="0"
+FontFamily="myfont"
+ BorderColor="#EBE9D9"
+TextColor="Pink"
+Text="Small"
 Command="{Binding FilterBySizeCommand}"
 CommandParameter="Small"/>
-        <Button Grid.Column="2"  Grid.Row="1"
-Text="get all medium size"
+        <Button VerticalOptions="Center"    
+ WidthRequest="120"
+ HeightRequest="120"
+CornerRadius="60"
+ Grid.Column="2"
+ Grid.Row="0"
+FontFamily="myfont"
+Text="Medium"
+                 BorderColor="#EBE9D9"
+TextColor="Pink"
 Command="{Binding FilterBySizeCommand}"
 CommandParameter="Medium"/>
-        <Button Grid.Column="3"  Grid.Row="1"
-Text="get all large size"
+        <Button VerticalOptions="Center"
+ WidthRequest="120"
+ HeightRequest="120"
+CornerRadius="60"
+ Grid.Column="3"
+ Grid.Row="0"
+FontFamily="myfont"
+Text="Large"
+                 BorderColor="#EBE9D9"
+TextColor="Pink"
 Command="{Binding FilterBySizeCommand}"
 CommandParameter="Large"/>
 
-        <ScrollView>
-            <Grid Grid.ColumnSpan="2">
-              
-                <CollectionView
-                x:Name="colview"
-                EmptyView="No Women's Clothes Found"
-                ItemsSource="{Binding Items}">
+        <ScrollView BackgroundColor="#897099"  Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="1" Grid.RowSpan="9" >
+
+            <CollectionView   Grid.ColumnSpan="3" Grid.Row="1"
+ x:Name="colview"
+ EmptyView="No Accessories Found"
+   VerticalOptions="Center"
+  HorizontalOptions="Center"
+ ItemsSource="{Binding Items}">
 
                 <CollectionView.ItemTemplate>
-                    
-                    <DataTemplate x:DataType="models:Item">
-                       
-                        <Border
-                            HorizontalOptions="Center"
-                            Grid.Row="1"
-                         
-                            Padding="3"
-                            
-                            BackgroundColor="#FBEAE6"
-                            HeightRequest="250"
-                            WidthRequest="200">
-                                <VerticalStackLayout HeightRequest="230" HorizontalOptions="Center"    Grid.ColumnSpan="2">
 
-                                    <Image
-                                     Grid.Row="0"
+                    <DataTemplate x:DataType="models:Item" >
+
+                        <Border Grid.ColumnSpan="3" Grid.Row="1"   
+                            BackgroundColor="#FBEAE6" Padding="4">
+                            <Grid  ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*" >
+
+                                <Label  
+                                    TextDecorations="Underline"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                    FontSize="17"
+                                    FontAttributes="Bold"
+                                Text="{Binding ItemName, StringFormat=' Name: {0}'}" />
+                                <Label Grid.Column="0" 
+                                       Grid.Row="1"
+                                   
+                                       FontAttributes="Bold"
+                                       Text="{Binding ItemDescription, StringFormat='  Description:                                        {0}'}" />
+                                <Label
+                                 Grid.Row="2"
+                                 Grid.Column="0"
+                                   
+                            FontAttributes="Bold"
+                                 Text="{Binding SizeItem.SizeName, StringFormat='  Size: {0}'}" />
+                                <Label
+                                 Grid.Row="3"
+                                 Grid.Column="0"
+                              
+                                FontAttributes="Bold"
+                                 Text="{Binding ColorItem.ColorName, StringFormat='  color: {0}'}" />
+                                <Label Grid.Column="0" Grid.Row="4" 
+                                             FontFamily="mayafont"
+                                FontAttributes="Bold"
+                                       Text="{Binding Price, StringFormat='  Price: {0}'}" />
+
+                                <Image 
+                                     Grid.RowSpan="3"
+                                    Grid.Row="0"
                                      Grid.Column="1"
                                      Aspect="AspectFit"
-                                     HeightRequest="80"
+                                     HeightRequest="120"
                                      Source="{Binding ItemImage}"
-                                     WidthRequest="50" />
+                                     WidthRequest="120" />
 
-                                    <Label
-                                    Grid.Row="0"
-                                    Grid.Column="0"
-                                    
-                                    Text="{Binding ItemName, StringFormat='Name: {0}'}" />
-                                <Label
-                                    Grid.Row="1"
-                                    Grid.Column="0"
-                                    Text="{Binding SizeItem.SizeName, StringFormat='Size: {0}'}" />
-                                <Label
-                                    Grid.Row="2"
-                                    Grid.Column="0"
-                                    Text="{Binding ColorItem.ColorName, StringFormat='color: {0}'}" />
-                                <Label Grid.Column="0" Text="{Binding Price, StringFormat='Price: {0}'}" />
-                                <Label Grid.Column="0" Text="{Binding ItemDescription, StringFormat='Description: {0}'}" />
-
-                                <Button
+                                <Button Grid.RowSpan="2" Grid.Row="3" Grid.Column="1"
                                     Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference colview}}"
                                     CommandParameter="{Binding .}"
-                                    Text="Add Item" />
-                            </VerticalStackLayout>
-                 
+                                    Text="Add Item"
+                                        BackgroundColor="#897099"
+                                        HeightRequest="60"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center"/>
+                            </Grid>
+
                         </Border>
-                       
+
                     </DataTemplate>
 
                 </CollectionView.ItemTemplate>
@@ -88,14 +127,7 @@ CommandParameter="Large"/>
 
             </CollectionView>
 
-            
-            </Grid>
-           
         </ScrollView>
-       
-      
-       
+
     </Grid>
-
-
 </ContentPage>

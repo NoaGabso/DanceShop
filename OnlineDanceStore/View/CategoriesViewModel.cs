@@ -46,6 +46,7 @@ namespace OnlineDanceStore.ViewModels
         #endregion
         public ICommand AddToCartCommand { get; protected set; }
         public ICommand FilterBySizeCommand { get; protected set; }
+        public ICommand FilterByGenderCommand { get; protected set; }
         public CategoriesViewModel(OnlineDanceStoreServices service, Models.ShoppingCart cart)
         {
             ShoppingCart = cart;
@@ -141,6 +142,7 @@ namespace OnlineDanceStore.ViewModels
             });
 
             FilterBySizeCommand = new Command<string>(async (x) => await FilterBySize(x));
+            FilterByGenderCommand = new Command<string>(async (x) => await FilterByGender(x));
         }
        private async Task FilterBySize(string size)
         {
@@ -150,6 +152,17 @@ namespace OnlineDanceStore.ViewModels
             foreach (var item in filsterlist)
             {
                Items.Add(item);
+            }
+            OnPropertyChange(nameof(Items));
+        }
+        private async Task FilterByGender(string gender)
+        {
+            filsterlist = listofitems;
+            filsterlist = listofitems.Where(x => x.Gender.GenderName == gender).ToList();
+            Items.Clear();
+            foreach (var item in filsterlist)
+            {
+                Items.Add(item);
             }
             OnPropertyChange(nameof(Items));
         }

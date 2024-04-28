@@ -15,7 +15,7 @@ ColumnSpacing="6"
           BackgroundColor="#897099">
        
 
-        <Button VerticalOptions="Center"    
+        <Button VerticalOptions="Center"  
  WidthRequest="120"
  HeightRequest="120"
 CornerRadius="60"
@@ -57,6 +57,8 @@ CommandParameter="Large"/>
             <CollectionView   Grid.ColumnSpan="3" Grid.Row="1"
  x:Name="colview"
  EmptyView="No Accessories Found"
+   VerticalOptions="Center"
+  HorizontalOptions="Center"
  ItemsSource="{Binding Items}">
 
                 <CollectionView.ItemTemplate>
