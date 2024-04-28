@@ -106,6 +106,7 @@ CommandParameter="Large"/>
                                      HeightRequest="120"
                                      Source="{Binding ItemImage}"
                                      WidthRequest="120"
+                                     Clicked="OnButtonClicked"
                                    />
 
                                 <Button Grid.RowSpan="2" Grid.Row="3" Grid.Column="1"
@@ -116,7 +117,7 @@ CommandParameter="Large"/>
                                         HeightRequest="60"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Center"
-                                          Clicked="OnButtonClicked"/>
+                                         />
                                 </Grid>
 
                             </Border>
