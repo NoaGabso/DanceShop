@@ -52,7 +52,7 @@ TextColor="Pink"
 Command="{Binding FilterBySizeCommand}"
 CommandParameter="Large"/>
 
-        <ScrollView BackgroundColor="#897099"  Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="1" Grid.RowSpan="9" >
+        <ScrollView BackgroundColor="#897099"  Grid.ColumnSpan="3" Grid.Row="1" Grid.Column="1" Grid.RowSpan="9"  >
 
             <CollectionView   Grid.ColumnSpan="3" Grid.Row="1"
  x:Name="colview"
@@ -63,11 +63,11 @@ CommandParameter="Large"/>
 
                 <CollectionView.ItemTemplate>
 
-                    <DataTemplate x:DataType="models:Item" >
+                    <DataTemplate x:DataType="models:Item"  >
 
                         <Border Grid.ColumnSpan="3" Grid.Row="1"   
-                            BackgroundColor="#FBEAE6" Padding="4">
-                            <Grid  ColumnDefinitions="*,8*,8*,*" RowDefinitions="*,8*,8*,4*,4*,4*,*" >
+                            BackgroundColor="#FBEAE6" Padding="6" >
+                            <Grid  ColumnDefinitions="*,8*,8*,*" RowDefinitions="*,10*,8*,4*,4*,4*,*" RowSpacing="2" >
                                  
                                 <Label  
                                         HorizontalOptions="Start"
@@ -99,29 +99,22 @@ CommandParameter="Large"/>
                                        HorizontalTextAlignment="Start"
                                 FontAttributes="Bold"
                                        Text="{Binding Price, StringFormat='  Price: {0}'}" />
-
-                                <ImageButton 
-                                        HorizontalOptions="Center"
-                                     Grid.RowSpan="3"
-                                    Grid.Row="1"
-                                     Grid.Column="2"
+                                <Border BackgroundColor="#FBEAE6" Padding="4"     HorizontalOptions="Center"
+                                 VerticalOptions="Center" Grid.RowSpan="2" Grid.Row="1" Grid.Column="2" HeightRequest="120"  >
+                                    <ImageButton 
                                      Aspect="AspectFit"
-                                     HeightRequest="100"
                                      Source="{Binding ItemImage}"
                                      WidthRequest="120"
                                      Clicked="OnButtonClicked"
                                     CommandParameter="{Binding ItemImage}"
-                                    Margin="7,7"
-                                    Padding="2"
-                                    BorderWidth="5"
-                                    BackgroundColor="#563801"
-                                    
+                            
                                    />
-
+                                </Border>
                                 <Button Grid.RowSpan="2" Grid.Row="4" Grid.Column="2"
                                     Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference colview}}"
                                     CommandParameter="{Binding .}"
                                     Text="Add Item"
+                                       
                                         BackgroundColor="#897099"
                                         HeightRequest="60"
                                         WidthRequest="120"
