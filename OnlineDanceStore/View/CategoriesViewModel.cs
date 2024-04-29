@@ -204,6 +204,7 @@ namespace OnlineDanceStore.ViewModels
                 && (ShoeSize.Length == 2);
 
         }
-      
+       
+
     }
 }

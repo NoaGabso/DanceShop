@@ -17,26 +17,20 @@ public partial class Accessories : ContentPage
         CategoriesViewModel vm= (CategoriesViewModel)BindingContext;    
          vm.GetAllAccessoriesCommand.Execute(null);
     }
-    protected void OnButtonClicked(object sender, EventArgs e)
+    private void OnButtonClicked(object sender, EventArgs e)
     {
-        // Cast the sender back to an ImageButton
-        ImageButton button = (ImageButton)sender;
-
-        // Get the Source of the ImageButton
-        ImageSource imageSource = button.Source;
-
-        if (imageSource != null)
+        if (sender is ImageButton button && button.CommandParameter is string imagePath)
         {
-            // Convert ImageSource to a string representation of the image
-            string imageIdentifier = imageSource.ToString();
-
-            // Show the popup with the image identifier
-            this.ShowPopup(new PopUpPage(imageIdentifier));
-        }
-        else
-        {
-            Console.WriteLine("Image source is not available");
-            // Handle this case accordingly
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                this.ShowPopup(new PopUpPage(imagePath));
+            }
+            else
+            {
+                Console.WriteLine("Image source is not available");
+                // Handle this case accordingly
+            }
         }
     }
+
 }
