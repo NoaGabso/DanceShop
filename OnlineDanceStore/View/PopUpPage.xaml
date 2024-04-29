@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-           xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+           xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
            x:Class="OnlineDanceStore.View.PopUpPage">
-  
-    <mct:Popup.Content>
-        <StackLayout>
-            <Image  Aspect="AspectFit" Source="{Binding ImagePath}" />
-        </StackLayout>
-        
-    </mct:Popup.Content>
+    <Frame>
+        <VerticalStackLayout Spacing="5">
+                <Image  Aspect="AspectFit" Source="{Binding ImagePath}" HeightRequest="80" WidthRequest="80"/>
+            <Image Source="dancestoreimage.png" HeightRequest="80" WidthRequest="80" />
+
+            <Label Text="{Binding ImagePath}"/>
+        </VerticalStackLayout>
+    </Frame>
+    
 
 </mct:Popup>

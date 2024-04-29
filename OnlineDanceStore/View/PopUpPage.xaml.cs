@@ -13,7 +13,6 @@ public partial class PopUpPage:Popup
 
         InitializeComponent();
 
-       
         BindingContext = this;
     }
 }
