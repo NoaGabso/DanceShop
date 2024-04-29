@@ -64,58 +64,66 @@ CommandParameter="Large"/>
                     <DataTemplate x:DataType="models:Item" >
 
                         <Border Grid.ColumnSpan="3" Grid.Row="1"   
-                            BackgroundColor="#FBEAE6" Padding="4">
-                            <Grid  ColumnDefinitions="*,*" RowDefinitions="2*,2*,*,*,*" >
+       BackgroundColor="#FBEAE6" Padding="6" Margin="1,9" >
+                            <Grid  ColumnDefinitions="*,8*,*,8*,*" RowDefinitions="*,10*,8*,4*,4*,4*,*"  >
 
                                 <Label  
-                                    TextDecorations="Underline"
-                                Grid.Row="0"
-                                Grid.Column="0"
-                                    FontSize="17"
-                                    FontAttributes="Bold"
-                                Text="{Binding ItemName, StringFormat=' Name: {0}'}" />
-                                <Label Grid.Column="0" 
-                                       Grid.Row="1"
-                                   
-                                       FontAttributes="Bold"
-                                       Text="{Binding ItemDescription, StringFormat='  Description:                                        {0}'}" />
+                   HorizontalOptions="Start"
+               TextDecorations="Underline"
+           Grid.Row="1"
+           Grid.Column="1"
+               FontSize="23"
+               FontAttributes="Bold"
+               TextColor="#897099"
+           Text="{Binding ItemName, StringFormat='Name:  {0}'}" />
+                                <Label Grid.Column="1" 
+                  Grid.Row="2"
+                   FontSize="19"
+                  HorizontalOptions="Start"
+                  FontAttributes="Bold"
+                  Text="{Binding ItemDescription, StringFormat='Description:  {0}'}" />
                                 <Label
-                                 Grid.Row="2"
-                                 Grid.Column="0"
-                                   
-                            FontAttributes="Bold"
-                                 Text="{Binding SizeItem.SizeName, StringFormat='  Size: {0}'}" />
+            Grid.Row="3"
+            Grid.Column="1"
+        HorizontalOptions="Start"
+       FontAttributes="Bold"
+               FontSize="19"
+            Text="{Binding SizeItem.SizeName, StringFormat='Size:  {0}'}" />
                                 <Label
-                                 Grid.Row="3"
-                                 Grid.Column="0"
-                              
-                                FontAttributes="Bold"
-                                 Text="{Binding ColorItem.ColorName, StringFormat='  color: {0}'}" />
-                                <Label Grid.Column="0" Grid.Row="4" 
-              FontFamily="myfont"
- FontAttributes="Bold"
-        Text="{Binding Price, StringFormat='  Price: {0}'}" />
+            Grid.Row="4"
+            Grid.Column="1"
+                FontSize="19"
+         HorizontalOptions="Start"
+           FontAttributes="Bold"
+            Text="{Binding ColorItem.ColorName, StringFormat='color:  {0}'}" />
+                                <Label Grid.Column="1" Grid.Row="5" 
+                        FontFamily="myfont"
+                   FontSize="19"
+                  HorizontalTextAlignment="Start"
+                  
+           FontAttributes="Bold"
+                  Text="{Binding Price, StringFormat='Price:  {0}'}" />
+                                <Border BackgroundColor="#FBEAE6" Padding="4"     HorizontalOptions="Center"
+            VerticalOptions="Center" Grid.RowSpan="2" Grid.Row="1" Grid.Column="3" HeightRequest="120">
+                                    <ImageButton 
+                Aspect="AspectFit"
+                Source="{Binding ItemImage}"
+                WidthRequest="120"
+                Clicked="OnButtonClicked"
+               CommandParameter="{Binding ItemImage}" />
+                                </Border>
 
-                                <ImageButton 
-      Grid.RowSpan="3"
-     Grid.Row="0"
-      Grid.Column="1"
-      Aspect="AspectFit"
-      HeightRequest="120"
-      Source="{Binding ItemImage}"
-      WidthRequest="120"
-      Clicked="OnButtonClicked"
-     CommandParameter="{Binding ItemImage}"
-    />
-
-                                <Button Grid.RowSpan="2" Grid.Row="3" Grid.Column="1"
-                                    Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference colview}}"
-                                    CommandParameter="{Binding .}"
-                                    Text="Add Item"
-                                        BackgroundColor="#897099"
-                                        HeightRequest="60"
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Center"/>
+                                <Button Grid.RowSpan="2" Grid.Row="4" Grid.Column="3"
+               Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference colview}}"
+               CommandParameter="{Binding .}"
+               Text="Add Item"
+                   BackgroundColor="#897099"
+                   HeightRequest="60"
+                   WidthRequest="120"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Padding="2"
+                    />
                             </Grid>
 
                         </Border>
