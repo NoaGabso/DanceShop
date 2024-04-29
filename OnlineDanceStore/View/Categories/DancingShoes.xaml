@@ -76,7 +76,7 @@ TextColor="Pink"
 
             <CollectionView   Grid.ColumnSpan="3" Grid.Row="1"
  x:Name="colview"
- EmptyView="No Accessories Found"
+ EmptyView="No Dancing Shoes Found"
    VerticalOptions="Start"
   HorizontalOptions="Center"
  ItemsSource="{Binding Items}">

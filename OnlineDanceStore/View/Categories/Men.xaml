@@ -54,8 +54,8 @@ CommandParameter="Large"/>
 
             <CollectionView   Grid.ColumnSpan="3" Grid.Row="1"
  x:Name="colview"
- EmptyView="No Accessories Found"
-   VerticalOptions="Center"
+ EmptyView="No Men Items Found"
+   VerticalOptions="Start"
   HorizontalOptions="Center"
  ItemsSource="{Binding Items}">
 
