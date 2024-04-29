@@ -109,18 +109,21 @@ TextColor="Pink"
                                 FontAttributes="Bold"
                                  Text="{Binding ColorItem.ColorName, StringFormat='  color: {0}'}" />
                                 <Label Grid.Column="0" Grid.Row="4" 
-                                             FontFamily="mayafont"
-                                FontAttributes="Bold"
-                                       Text="{Binding Price, StringFormat='  Price: {0}'}" />
+              FontFamily="myfont"
+ FontAttributes="Bold"
+        Text="{Binding Price, StringFormat='  Price: {0}'}" />
 
-                                <Image 
-                                     Grid.RowSpan="3"
-                                    Grid.Row="0"
-                                     Grid.Column="1"
-                                     Aspect="AspectFit"
-                                     HeightRequest="120"
-                                     Source="{Binding ItemImage}"
-                                     WidthRequest="120" />
+                                <ImageButton 
+      Grid.RowSpan="3"
+     Grid.Row="0"
+      Grid.Column="1"
+      Aspect="AspectFit"
+      HeightRequest="120"
+      Source="{Binding ItemImage}"
+      WidthRequest="120"
+      Clicked="OnButtonClicked"
+     CommandParameter="{Binding ItemImage}"
+    />
 
                                 <Button Grid.RowSpan="2" Grid.Row="3" Grid.Column="1"
                                     Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference colview}}"

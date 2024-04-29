@@ -94,7 +94,7 @@ CommandParameter="Large"/>
                                 FontAttributes="Bold"
                                  Text="{Binding ColorItem.ColorName, StringFormat='  color: {0}'}" />
                                 <Label Grid.Column="0" Grid.Row="4" 
-                                             FontFamily="mayafont"
+                                             FontFamily="myfont"
                                 FontAttributes="Bold"
                                        Text="{Binding Price, StringFormat='  Price: {0}'}" />
 
