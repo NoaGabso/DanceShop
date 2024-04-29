@@ -65,7 +65,7 @@ CommandParameter="Large"/>
 
                         <Border Grid.ColumnSpan="3" Grid.Row="1"   
                             BackgroundColor="#FBEAE6" Padding="4">
-                            <Grid  ColumnDefinitions="*,*" RowDefinitions="*,*,*,*,*" >
+                            <Grid  ColumnDefinitions="*,*" RowDefinitions="2*,2*,*,*,*" >
 
                                 <Label  
                                     TextDecorations="Underline"

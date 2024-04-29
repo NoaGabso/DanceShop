@@ -9,7 +9,7 @@
     x:DataType="viewmodels:CategoriesViewModel">
 
 
-    <Grid ColumnDefinitions="*,3*,*,3*,*,3*,*" RowDefinitions="*,*,*,*" RowSpacing="6"
+    <Grid ColumnDefinitions="*,3*,2*,3*,*,4*,*" RowDefinitions="*,*,*,*" RowSpacing="6"
 ColumnSpacing="6"
           BackgroundColor="#897099">
 
@@ -40,32 +40,37 @@ TextColor="Pink"
 Command="{Binding FilterBySizeCommand}"
 CommandParameter="
  men"/>
-        <Border Grid.Column="5" Grid.Row="0"   BackgroundColor="#897099" >
-            <Grid ColumnDefinitions="*" RowDefinitions="*,5*,5*,*" >
-        <Entry
-       Grid.Row="1"
+        <Border  Grid.Column="5" Grid.Row="0" BackgroundColor="#897099" Padding="4" WidthRequest="105" HeightRequest="150">
+        <Border Grid.Column="5" Grid.Row="0" BackgroundColor="#897099" Padding="4">
+           
+            <Grid ColumnDefinitions="*" RowDefinitions="*,5*,*,5*,*" BackgroundColor="#897099" >
+                <Border BackgroundColor="#EBE9D9" Padding="6"  Grid.Row="1" >
+                    <Entry
       
-     BackgroundColor="#EBE9D9"
+     BackgroundColor="#897099"
      Placeholder="enter size"
-     Text="{Binding ShoeSize}"/>
-            
-        <Button
+     Text="{Binding ShoeSize}"
+                        TextColor="#EBE9D9"/>
+                </Border>
+                <Border BackgroundColor="#EBE9D9" Padding="5" Grid.Row="3">
+                    <Button
+                      
  VerticalOptions="Center"    
- Grid.Row="2"
-  Grid.Column="1"
-            HeightRequest="80"
-BackgroundColor="#EBE9D9"
+           
+BackgroundColor="#897099"
 FontFamily="myfont"
 TextColor="Pink"
-            BorderWidth="0"
-            Padding="2"
+          BorderWidth="0"
+                        Padding="4,7"
             FontSize="20"
             FontAttributes="Bold"
      Command="{Binding FilterBySizeCommand}"   
      IsEnabled="{Binding IsButtonEnabled}"
             CommandParameter="{Binding ShoeSize}"
      Text="Enter" />
-        </Grid>
+                </Border>
+            </Grid>
+        </Border>
         </Border>
         <ScrollView BackgroundColor="#897099"  Grid.ColumnSpan="5" Grid.Row="1" Grid.Column="1" Grid.RowSpan="9" >
 
