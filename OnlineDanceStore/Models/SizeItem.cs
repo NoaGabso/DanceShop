@@ -10,5 +10,11 @@ namespace OnlineDanceStore.Models
     {
         public int SizeItemId { get; set; }
         public string SizeName { get; set; }
+
+        public SizeItem() { }
+        //public SizeItem(int id, string name)
+        //{ SizeItemId = id;
+        //    SizeName = name;
+        //}
     }
 }

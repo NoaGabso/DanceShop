@@ -10,5 +10,11 @@ namespace OnlineDanceStore.Models
     {
         public int ColorItemId { get; set; } 
         public string ColorName { get; set; }
+        public ColorItem() { }
+
+        //public ColorItem(int id, string name) 
+        //{ ColorItemId = id;
+        //    ColorName = name;
+        //}  
     }
 }

@@ -157,6 +157,7 @@ namespace OnlineDanceStore.ViewModels
         #endregion
 
         private readonly OnlineDanceStoreServices _service;
+        public ICommand NewItemCommand { get; protected set; }
 
         public bool IsButtonEnabled
         {
@@ -168,17 +169,137 @@ namespace OnlineDanceStore.ViewModels
             _service = service;
             itemname = string.Empty;
             gendername = string.Empty;
-            
 
-            categories = new Categories(categoriesid, categoriesname);
+
+            
             { if (gendername == "men")
                     genderid = 1;
                 else
                     genderid = 2;
             }
-            gender = new Gender(genderid, gendername);
 
-            
+            categories = new Categories();
+            {
+                categories.CategoryId = categoriesid;
+                categories.CategoriesName = categoriesname;
+            }
+
+            gender = new Gender();
+            { gender.GenderId = genderid;
+                gender.GenderName = gendername;
+            }
+
+            switch (sizename)
+            {
+                case "Small":
+                    sizeid = 1; break;
+                case "Medium":
+                    sizeid = 2; break;
+                case "Large":
+                    sizeid = 3; break;
+                case "35":
+                    sizeid = 4; break;
+                case "36":
+                    sizeid = 5; break;
+                case "37":
+                    sizeid = 6; break;
+                case "38":
+                    sizeid = 7; break;
+                case "39":
+                    sizeid = 8; break;
+                case "40":
+                    sizeid = 9; break;
+                case "41":
+                    sizeid = 10; break;
+                case "42":
+                    sizeid = 11; break;
+                case "43":
+                    sizeid = 12; break;
+                case "44":
+                    sizeid = 13; break;
+            }
+
+            size = new SizeItem();
+            {
+                size.SizeItemId = sizeid;
+                size.SizeName=sizename;
+            }
+
+            switch (colorname)
+            {
+                case "Black":
+                    sizeid = 1; break;
+                case "White":
+                    sizeid = 2; break;
+                case "Maroon":
+                    sizeid = 3; break;
+                case "DeepBlue":
+                    sizeid = 4; break;
+                case "Olive":
+                    sizeid = 5; break;
+                case "BabyPink":
+                    sizeid = 6; break;
+                case "LightPurple":
+                    sizeid = 7; break;
+                case "LightBlue":
+                    sizeid = 8; break;
+            }
+
+            color = new ColorItem();
+            { color.ColorName = colorname;
+                color.ColorItemId = colorid;
+            }
+        
+
+            NewItemCommand = new Command(async () =>
+            {
+                try
+                {
+                    #region טעינת מסך ביניים
+                    var lvm = new LoadingPageViewModel() { IsBusy = true };
+                    await AppShell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
+                    #endregion
+                    Item item = new Item();
+                    {
+                        item.ItemName = itemname;
+                        item.ItemDescription = description;
+                        item.Categories = categories;
+                        item.Quantity = quantity;
+                        item.Price = price;
+                        item.ItemImage = image;
+                        item.Gender = gender;
+                        item.SizeItem = size;
+                        item.ColorItem = color;
+                    }
+                   // //var it = await _service.NewItem(item);
+
+                   // lvm.IsBusy = false;
+                   // await Shell.Current.Navigation.PopModalAsync();
+                   //// if (!it.Success)
+                   // {
+                   //     //ShowRegisterError = true;
+                   //     //RegisterErrorMessage = u.Message;
+                   // }
+                   // else
+                   // {
+                   //     await AppShell.Current.DisplayAlert("הוסף", "אישור הכנסת מוצר", "אישור");
+                   //   //  await SecureStorage.Default.SetAsync("RegistedUser", JsonSerializer.Serialize(u.User));
+                   
+                   // }
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    Debug.WriteLine(ex.Message);
+
+                    await AppShell.Current.Navigation.PopModalAsync();
+                }
+
+
+            });
 
 
         }
