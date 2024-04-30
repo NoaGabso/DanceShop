@@ -158,7 +158,7 @@ namespace OnlineDanceStore.ViewModels
         {
             _service = service;
             email = string.Empty;
-            Password = string.Empty;
+            password = string.Empty;
             name = string.Empty;
             lastname = string.Empty;    
 

@@ -64,7 +64,7 @@
          Route="UserInfo" />
         </Tab>
         
-        <Tab Icon="iconsmagnifying_glass" Title="Admin Tab" IsVisible="{Binding IsAdmin}">
+        <Tab Icon="computer" Title="Admin Tab" IsVisible="{Binding IsAdmin}">
             <ShellContent Title="admin info" ContentTemplate="{DataTemplate view:AdminPage}" />
 
 

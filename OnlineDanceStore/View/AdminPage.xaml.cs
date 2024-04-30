@@ -1,9 +1,13 @@
+using OnlineDanceStore.ViewModels;
+
 namespace OnlineDanceStore.View;
 
 public partial class AdminPage : ContentPage
 {
-	public AdminPage()
+    public AdminPage(AdminPageViewModel vm)
 	{
-		InitializeComponent();
+        this.BindingContext = vm;
+
+        InitializeComponent();
 	}
 }

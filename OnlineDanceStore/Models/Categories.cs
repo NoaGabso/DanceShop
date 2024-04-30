@@ -11,6 +11,12 @@ namespace OnlineDanceStore.Models
         public int CategoryId { get; set; }
         public string? CategoriesName { get; set; }
 
-        public Categories() { }     
+        public Categories() { }  
+        public Categories(int categoryid, string categoryname) 
+        {this.CategoriesName= categoryname;
+            this.CategoryId= categoryid;
+        }  
+        
+
     }
 }

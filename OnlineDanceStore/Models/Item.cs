@@ -21,6 +21,20 @@ namespace OnlineDanceStore.Models
         public string ItemImage {  get; set; }
 
         public Item() { }   
+        public Item(string ItemName, string ItemDescription, Categories Categories, int Quantity, 
+            double Price, string ItemImage, Gender Gender, SizeItem SizeItem, ColorItem ColorItem) 
+        {
+            this.ItemName = ItemName;
+            this.ItemDescription = ItemDescription;
+            this.Categories = Categories;
+            this.Quantity = Quantity;
+            this.Price = Price;
+            this.ItemImage = ItemImage;
+            this.Gender = Gender;
+            this.SizeItem = SizeItem;
+            this.ColorItem = ColorItem;
+            this.SubCategory = null;
+        }   
     }
 
 }
