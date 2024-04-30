@@ -88,19 +88,6 @@ namespace OnlineDanceStore.ViewModels
             }
         }
 
-        public int ItemCategoryId
-        {
-            get => categoriesid;
-            set
-            {
-                if (categoriesid != value)
-                {
-                    categoriesid = value;
-                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
-                }
-            }
-        }
-
         public string ItemCategoryName
         {
             get => categoriesname;
@@ -159,10 +146,10 @@ namespace OnlineDanceStore.ViewModels
         private readonly OnlineDanceStoreServices _service;
         public ICommand NewItemCommand { get; protected set; }
 
-        public bool IsButtonEnabled
-        {
-            get { return ValidatePage(); }
-        }
+        //public bool IsButtonEnabled
+        //{
+        //    get { return ValidatePage(); }
+        //}
         public AdminPageViewModel(OnlineDanceStoreServices service)
         {
             Item NewItem = new Item();
@@ -178,7 +165,18 @@ namespace OnlineDanceStore.ViewModels
                     genderid = 2;
             }
 
-            categories = new Categories();
+            switch (categoriesname)
+            {
+                case "Leotards":
+                    categoriesid = 1; break;
+                case "DanceShoes":
+                    categoriesid = 2; break;
+                case "Accessories":
+                    categoriesid = 3; break;
+                case "DanceClothes":
+                    categoriesid = 4; break;
+            }   
+                    categories = new Categories();
             {
                 categories.CategoryId = categoriesid;
                 categories.CategoriesName = categoriesname;
@@ -255,10 +253,10 @@ namespace OnlineDanceStore.ViewModels
             {
                 try
                 {
-                    #region טעינת מסך ביניים
-                    var lvm = new LoadingPageViewModel() { IsBusy = true };
-                    await AppShell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
-                    #endregion
+                    //#region טעינת מסך ביניים
+                    //var lvm = new LoadingPageViewModel() { IsBusy = true };
+                    //await AppShell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
+                    //#endregion
                     Item item = new Item();
                     {
                         item.ItemName = itemname;
@@ -304,24 +302,24 @@ namespace OnlineDanceStore.ViewModels
 
         }
 
-        private bool ValidateUser()
-        {
-            return !(string.IsNullOrEmpty(email) || email.Length < 3);
-        }
-        private bool ValidateName()
-        {
+        //private bool ValidateUser()
+        //{
+        //    return !(string.IsNullOrEmpty(email) || email.Length < 3);
+        //}
+        //private bool ValidateName()
+        //{
 
-            return !(string.IsNullOrEmpty(itemname) || itemname.Length < 3);
-        }
-        private bool ValidatePassWord()
-        {
-            return !(string.IsNullOrEmpty(password) || password.Length < 3);
-        }
+        //    return !(string.IsNullOrEmpty(itemname) || itemname.Length < 3);
+        //}
+        //private bool ValidatePassWord()
+        //{
+        //    return !(string.IsNullOrEmpty(password) || password.Length < 3);
+        //}
 
-        private bool ValidatePage()
-        {
-            return ValidateName() && ValidatePassWord() && ValidateUser();
-        }
+        //private bool ValidatePage()
+        //{
+        //    return ValidateName() && ValidatePassWord() && ValidateUser();
+        //}
 
     }
 }
