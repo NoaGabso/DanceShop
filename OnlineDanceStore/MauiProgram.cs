@@ -45,6 +45,8 @@ public static class MauiProgram
 		builder.Services.AddSingleton<Women>(); 
 		builder.Services.AddSingleton<DancingShoes> (); 
 		builder.Services.AddSingleton<PopUpPage> (); 
+		builder.Services.AddSingleton<AdminPage> (); 
+		builder.Services.AddSingleton<AdminPageViewModel> (); 
 		//
 
 

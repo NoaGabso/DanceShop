@@ -7,6 +7,7 @@
     xmlns:local="clr-namespace:OnlineDanceStore"
     xmlns:view="clr-namespace:OnlineDanceStore.View"
     Shell.FlyoutBehavior="Disabled"
+    
 >
 
     <TabBar Title="Welcome To My Dance Store">
@@ -62,9 +63,15 @@
          ContentTemplate="{DataTemplate view:UserInfoPage}"
          Route="UserInfo" />
         </Tab>
+        
+        <Tab Icon="iconsmagnifying_glass" Title="Admin Tab" IsVisible="{Binding IsAdmin}">
+            <ShellContent Title="admin info" ContentTemplate="{DataTemplate view:AdminPage}" />
 
+
+        </Tab>
     </TabBar>
 
+  
 
 
 
