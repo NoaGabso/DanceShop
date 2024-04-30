@@ -9,8 +9,6 @@ using OnlineDanceStore.View;
 using OnlineDanceStore.Services;
 using System.Text.Json;
 using System.Diagnostics;
-using static Java.Util.Jar.Attributes;
-using Microsoft.Maui.Controls.Compatibility.Platform.Android;
 
 namespace OnlineDanceStore.ViewModels
 {
@@ -44,7 +42,7 @@ namespace OnlineDanceStore.ViewModels
                 if (itemname != value)
                 {
                     itemname = value;
-                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
+                    OnPropertyChange(); /*OnPropertyChange(nameof(IsButtonEnabled));*/
                 }
             }
         }
@@ -57,7 +55,7 @@ namespace OnlineDanceStore.ViewModels
                 if (quantity != value)
                 {
                     quantity = value;
-                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
                 }
             }
         }
@@ -70,7 +68,7 @@ namespace OnlineDanceStore.ViewModels
                 if (price != value)
                 {
                     price = value;
-                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
+                    OnPropertyChange(); /*OnPropertyChange(nameof(IsButtonEnabled));*/
                 }
             }
         }
@@ -83,7 +81,7 @@ namespace OnlineDanceStore.ViewModels
                 if (image != value)
                 {
                     image = value;
-                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
+                    OnPropertyChange(); /*OnPropertyChange(nameof(IsButtonEnabled));*/
                 }
             }
         }
@@ -96,7 +94,7 @@ namespace OnlineDanceStore.ViewModels
                 if (categoriesname != value)
                 {
                     categoriesname = value;
-                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
                 }
             }
         }
@@ -109,7 +107,7 @@ namespace OnlineDanceStore.ViewModels
                 if (gendername != value)
                 {
                     gendername = value;
-                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
                 }
             }
         }
@@ -122,7 +120,7 @@ namespace OnlineDanceStore.ViewModels
                 if (sizename != value)
                 {
                     sizename = value;
-                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
                 }
             }
         }
@@ -135,7 +133,7 @@ namespace OnlineDanceStore.ViewModels
                 if (colorname != value)
                 {
                     colorname = value;
-                    OnPropertyChange(); OnPropertyChange(nameof(IsButtonEnabled));
+                    OnPropertyChange(); /*OnPropertyChange(nameof(IsButtonEnabled));*/
                 }
             }
         }
