@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OnlineDanceStore.View.AdminPage"
+<ContentPage  x:Class="OnlineDanceStore.View.AdminPage"
+ xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+ xmlns:models="clr-namespace:OnlineDanceStore.Models"
+ xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
              Title="AdminPage">
-  
-        <VerticalStackLayout
-          Spacing="25"
-    Padding="50"
-   VerticalOptions="Center"
-  Background="#FBEAE6">
+    <Label
+        Text="adminnnnnnn"/>
+
+    <!--<VerticalStackLayout>
+      
             <Label
-             FontSize="34"
+         FontSize="34"
 Text="Add An Item "
    FontFamily="mayafont"         
  TextColor="#684200"
    HorizontalOptions="Center" />
-            <StackLayout>
-                <Label
+            <Label
                   FontSize="18"
 FontFamily="OpenSansRegular"
    FontAttributes="Italic"
    Text=" Item Name"
    TextColor="#684200"/>
-        
-                <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
+
+            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
                   BackgroundColor="AliceBlue">
                 <Entry
                     Placeholder="please enter item name" 
@@ -31,47 +31,46 @@ FontFamily="OpenSansRegular"
                      BackgroundColor="AliceBlue"/>
             </Grid>
 
-                <Label
+            <Label
             FontSize="18"
 FontFamily="OpenSansRegular"
    FontAttributes="Italic"
    Text=" Description"
    TextColor="#684200"/>
-                <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
+            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
                   BackgroundColor="AliceBlue">
                 <Entry
                     Text="{Binding description}"
                     Placeholder="please enter the description" 
                     BackgroundColor="AliceBlue"/>
             </Grid>
-                
-                <Label
+
+            <Label
                            FontSize="18"
 FontFamily="OpenSansRegular"
    FontAttributes="Italic"
    Text=" Category"
    TextColor="#684200"/>
-                <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
+            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
                   BackgroundColor="AliceBlue">
 
                 <Entry Placeholder="please enter category" 
 BackgroundColor="AliceBlue" Text="{Binding categoriesname}" />
             </Grid>
-                
-                <Label
+
+            <Label
                            FontSize="18"
 FontFamily="OpenSansRegular"
    FontAttributes="Italic"
    Text=" Gender"
    TextColor="#684200" />
 
-                <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
+            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
                   BackgroundColor="AliceBlue">
                 <Entry
                  Placeholder="please enter the gender" 
                     BackgroundColor="AliceBlue"
-                    Text="{Binding gendername}"
-           />
+                    Text="{Binding gendername}" />
             </Grid>
 
             <Label
@@ -161,11 +160,10 @@ FontFamily="OpenSansRegular"
   BorderWidth="4"
  VerticalOptions="Center"   
                 Command="{Binding NewItemCommand}"
-              
                 Text="Enter"/>
 
 
-        </StackLayout>
-        </VerticalStackLayout>
-    
+        
+    </VerticalStackLayout>-->
+
 </ContentPage>

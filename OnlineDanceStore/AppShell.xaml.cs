@@ -8,7 +8,7 @@ namespace OnlineDanceStore;
 public partial class AppShell : Shell, INotifyPropertyChanged
 {
     private bool isAdmin;
-    private User user;
+    
     public event PropertyChangedEventHandler PropertyChanged;
 
     public bool IsAdmin
