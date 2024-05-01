@@ -6,13 +6,10 @@
              xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
              x:DataType="viewmodels:UserInfoViewModel"
              Title="UserInfoPage">
-    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto">
+    <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*" RowSpacing="6"
+ColumnSpacing="6">
         <ScrollView>
-            <Grid>
-              
-      
-
-       
+           
                 <CollectionView
                 x:Name="colview"
                 EmptyView="no orders yet"
@@ -48,7 +45,7 @@
 
 
                 </CollectionView>
-                </Grid>
+              
         </ScrollView>
     </Grid>
      
