@@ -37,7 +37,7 @@ FontFamily="myfont"
 Text="Men"
  BorderColor="#EBE9D9"
 TextColor="Pink"
-Command="{Binding FilterBySizeCommand}"
+Command="{Binding FilterByGenderCommand}"
 CommandParameter="
  men"/>
         <Border  Grid.Column="5" Grid.Row="0" BackgroundColor="#897099" Padding="4" WidthRequest="105" HeightRequest="150">

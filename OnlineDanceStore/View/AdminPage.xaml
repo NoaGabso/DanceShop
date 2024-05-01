@@ -5,73 +5,74 @@
  xmlns:models="clr-namespace:OnlineDanceStore.Models"
  xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
              Title="AdminPage">
-    <Label
-        Text="adminnnnnnn"/>
-
-    <!--<VerticalStackLayout>
-      
-            <Label
-         FontSize="34"
-Text="Add An Item "
-   FontFamily="mayafont"         
- TextColor="#684200"
-   HorizontalOptions="Center" />
-            <Label
+    
+    <StackLayout
+ 
+   VerticalOptions="Center"
+  Background="#FBEAE6">
+ 
+            <Grid RowDefinitions="1" ColumnDefinitions="2">
+                <Label Grid.Row="1" Grid.Column="1"
+   FontSize="18"
+  Text="Add An Item"
+  FontFamily="mayafont"         
+  TextColor="#684200"
+  HorizontalOptions="Center" />
+                <Button Grid.Row="1" Grid.Column="2"
+                FontFamily="OpenSansRegular"
+ Margin="7,7"
+TextColor="Pink" 
+ BorderWidth="4"
+VerticalOptions="Center"   
+               Command="{Binding NewItemCommand}"
+               Text="Enter"/>
+            </Grid>
+            <Label 
                   FontSize="18"
 FontFamily="OpenSansRegular"
    FontAttributes="Italic"
    Text=" Item Name"
    TextColor="#684200"/>
+            <Entry
+Placeholder="please enter item name" 
+Text="{Binding ItemName}"
+ BackgroundColor="AliceBlue"/>
 
-            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
-                  BackgroundColor="AliceBlue">
-                <Entry
-                    Placeholder="please enter item name" 
-                    Text="{Binding ItemName}"
-                     BackgroundColor="AliceBlue"/>
-            </Grid>
-
-            <Label
+            <Label 
             FontSize="18"
 FontFamily="OpenSansRegular"
    FontAttributes="Italic"
    Text=" Description"
    TextColor="#684200"/>
-            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
-                  BackgroundColor="AliceBlue">
-                <Entry
+                           <Entry
                     Text="{Binding description}"
                     Placeholder="please enter the description" 
                     BackgroundColor="AliceBlue"/>
-            </Grid>
 
             <Label
-                           FontSize="18"
+         FontSize="18"
 FontFamily="OpenSansRegular"
    FontAttributes="Italic"
    Text=" Category"
    TextColor="#684200"/>
-            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
-                  BackgroundColor="AliceBlue">
-
+           
                 <Entry Placeholder="please enter category" 
-BackgroundColor="AliceBlue" Text="{Binding categoriesname}" />
-            </Grid>
+BackgroundColor="AliceBlue" 
+                   Text="{Binding categoriesname}" />
 
             <Label
-                           FontSize="18"
+            FontSize="18"
 FontFamily="OpenSansRegular"
    FontAttributes="Italic"
-   Text=" Gender"
+   Text=" Price"
    TextColor="#684200" />
 
-            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
-                  BackgroundColor="AliceBlue">
                 <Entry
-                 Placeholder="please enter the gender" 
+                 Placeholder="please enter the price" 
                     BackgroundColor="AliceBlue"
-                    Text="{Binding gendername}" />
-            </Grid>
+                    Text="{Binding price}"
+           />
+
 
             <Label
                            FontSize="18"
@@ -80,62 +81,48 @@ FontFamily="OpenSansRegular"
    Text=" Size"
    TextColor="#684200" />
 
-            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
-                  BackgroundColor="AliceBlue">
+            
                 <Entry
                  Placeholder="please enter the size" 
                     BackgroundColor="AliceBlue"
-                    Text="{Binding sizename}"
-           />
-            </Grid>
+                    Text="{Binding sizename}" />
 
-            <Label
+            <Label 
                            FontSize="18"
 FontFamily="OpenSansRegular"
    FontAttributes="Italic"
    Text=" Color"
    TextColor="#684200" />
-
-            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
-                  BackgroundColor="AliceBlue">
+           
                 <Entry
                  Placeholder="please enter the color" 
                     BackgroundColor="AliceBlue"
                     Text="{Binding colorname}"
            />
-            </Grid>
 
-            <Label
-                           FontSize="18"
+            <Label 
+             FontSize="18"
 FontFamily="OpenSansRegular"
    FontAttributes="Italic"
-   Text=" Price"
+   Text=" Gender"
    TextColor="#684200" />
-
-            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
-                  BackgroundColor="AliceBlue">
-                <Entry
-                 Placeholder="please enter the price" 
+            <Entry
+                 Placeholder="please enter the gender" 
                     BackgroundColor="AliceBlue"
-                    Text="{Binding price}"
-           />
-            </Grid>
+                    Text="{Binding gendername}" />
 
-            <Label
-                           FontSize="18"
+            <Label 
+             FontSize="18"
 FontFamily="OpenSansRegular"
    FontAttributes="Italic"
    Text=" Quantity"
    TextColor="#684200" />
-
-            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
-                  BackgroundColor="AliceBlue">
+         
                 <Entry
                  Placeholder="please enter the quantity of items" 
                     BackgroundColor="AliceBlue"
                     Text="{Binding quantity}"
            />
-            </Grid>
 
             <Label
                            FontSize="18"
@@ -143,17 +130,153 @@ FontFamily="OpenSansRegular"
    FontAttributes="Italic"
    Text=" Image"
    TextColor="#684200" />
-
-            <Grid Margin="0,0,0,15" RowDefinitions="auto,auto"
-                  BackgroundColor="AliceBlue">
+           
                 <Entry
                  Placeholder="please upload the image" 
                     BackgroundColor="AliceBlue"
                     Text="{Binding image}"
            />
-            </Grid>
+          
 
-            <Button
+     
+    </StackLayout>
+    <!--<Grid BackgroundColor="#FBEAE6" RowDefinitions="*,15*">
+
+        <Label Grid.Row="1"
+         FontSize="18"
+        Text="Add An Item"
+        FontFamily="mayafont"         
+        TextColor="#684200"
+        HorizontalOptions="Start" />
+        <Border Grid.Row="2">-->
+            <!--<Grid RowDefinitions="10" RowSpacing="6" ColumnDefinitions="2">
+
+                <Label Grid.Row="1" Grid.Column="1"
+                  FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Item Name"
+   TextColor="#684200"/>
+                <Border Grid.Row="1" Grid.Column="2">
+                    <Entry
+     Placeholder="please enter item name" 
+     Text="{Binding ItemName}"
+      BackgroundColor="AliceBlue"/>
+                </Border>
+
+                <Label Grid.Row="2" Grid.Column="1"
+            FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Description"
+   TextColor="#684200"/>
+                <Border Grid.Row="2" Grid.Column="2">
+                    <Entry
+                    Text="{Binding description}"
+                    Placeholder="please enter the description" 
+                    BackgroundColor="AliceBlue"/>
+                </Border>
+
+                <Label Grid.Row="3" Grid.Column="1"
+         FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Category"
+   TextColor="#684200"/>
+                <Border Grid.Row="3" Grid.Column="2">
+                    <Entry Placeholder="please enter category" 
+BackgroundColor="AliceBlue" 
+                   Text="{Binding categoriesname}" />
+                </Border>
+
+
+                <Label Grid.Row="4" Grid.Column="1"
+            FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Price"
+   TextColor="#684200" />
+
+                <Border Grid.Row="4" Grid.Column="2">
+                    <Entry
+                 Placeholder="please enter the price" 
+                    BackgroundColor="AliceBlue"
+                    Text="{Binding price}"
+           />
+                </Border>
+
+                <Label Grid.Row="5" Grid.Column="1"
+                           FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Size"
+   TextColor="#684200" />
+
+                <Border Grid.Row="5" Grid.Column="2">
+                    <Entry
+                 Placeholder="please enter the size" 
+                    BackgroundColor="AliceBlue"
+                    Text="{Binding sizename}" />
+                </Border>
+
+                <Label Grid.Row="6" Grid.Column="1"
+                           FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Color"
+   TextColor="#684200" />
+                <Border Grid.Row="6" Grid.Column="2">
+                    <Entry
+                 Placeholder="please enter the color" 
+                    BackgroundColor="AliceBlue"
+                    Text="{Binding colorname}"
+           />
+                </Border>
+
+
+                <Label Grid.Row="7" Grid.Column="1"
+             FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Gender"
+   TextColor="#684200" />
+
+                <Border Grid.Row="7" Grid.Column="2">
+                    <Entry
+                 Placeholder="please enter the gender" 
+                    BackgroundColor="AliceBlue"
+                    Text="{Binding gendername}" />
+                </Border>
+
+                <Label Grid.Row="8" Grid.Column="1"
+             FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Quantity"
+   TextColor="#684200" />
+                <Border Grid.Row="8" Grid.Column="2">
+                    <Entry
+                 Placeholder="please enter the quantity of items" 
+                    BackgroundColor="AliceBlue"
+                    Text="{Binding quantity}"
+           />
+                </Border>
+
+                <Label Grid.Row="9" Grid.Column="1"
+                           FontSize="18"
+FontFamily="OpenSansRegular"
+   FontAttributes="Italic"
+   Text=" Image"
+   TextColor="#684200" />
+                <Border Grid.Row="8" Grid.Column="2">
+                    <Entry
+                 Placeholder="please upload the image" 
+                    BackgroundColor="AliceBlue"
+                    Text="{Binding image}"
+           />
+                </Border>
+
+                <Button Grid.Row="9" Grid.ColumnSpan="2"
                  FontFamily="OpenSansRegular"
   Margin="7,7"
  TextColor="Pink" 
@@ -162,8 +285,9 @@ FontFamily="OpenSansRegular"
                 Command="{Binding NewItemCommand}"
                 Text="Enter"/>
 
-
-        
-    </VerticalStackLayout>-->
-
+            </Grid>-->
+        <!--</Border>
+  
+    </Grid>-->
+  
 </ContentPage>
