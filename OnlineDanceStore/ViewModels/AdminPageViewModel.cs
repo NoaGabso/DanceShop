@@ -163,7 +163,11 @@ namespace OnlineDanceStore.ViewModels
                     else
                         genderid = 2;
                 }
-                OnPropertyChange();
+                if (genderid != value)
+                {
+                    genderid = value;
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
             }
         }
 
@@ -171,7 +175,11 @@ namespace OnlineDanceStore.ViewModels
         { get => gender; set
             {
                 { gender.GenderId = genderid; gender.GenderName = gendername; }
-                OnPropertyChange();
+                if (gender != value)
+                {
+                    gender = value;
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
             }
             }
 
@@ -183,7 +191,8 @@ namespace OnlineDanceStore.ViewModels
                 switch (categoriesname)
                 {
                     case "Leotards":
-                        categoriesid = 1; break;
+                        categoriesid = 1;
+                        OnPropertyChange(); break;
                     case "DanceShoes":
                         categoriesid = 2; break;
                     case "Accessories":
@@ -191,7 +200,12 @@ namespace OnlineDanceStore.ViewModels
                     case "DanceClothes":
                         categoriesid = 4; break;
                 }
-                OnPropertyChange();
+                
+                if (categoriesid != value)
+                {
+                    categoriesid = value;
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
             }
         }
            public Categories ItemCategory
@@ -203,7 +217,11 @@ namespace OnlineDanceStore.ViewModels
                     categories.CategoryId = categoriesid;
                     categories.CategoriesName = categoriesname;
                 }
-                OnPropertyChange();
+                if (categories != value)
+                {
+                    categories = value;
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
             }
             }
 
@@ -241,7 +259,11 @@ namespace OnlineDanceStore.ViewModels
                     case "44":
                         sizeid = 13; break;
                 }
-                OnPropertyChange ();
+                if (sizeid != value)
+                {
+                    sizeid = value;
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
 
             }
         }
@@ -253,7 +275,11 @@ namespace OnlineDanceStore.ViewModels
             {
                 size.SizeItemId = sizeid;
                 size.SizeName = sizename;
-                OnPropertyChange ();
+                if (size != value)
+                {
+                    size = value;
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
             } 
         }
 
@@ -265,23 +291,27 @@ namespace OnlineDanceStore.ViewModels
                 switch (colorname)
                 {
                     case "Black":
-                        sizeid = 1; break;
+                        colorid = 1; break;
                     case "White":
-                        sizeid = 2; break;
+                        colorid = 2; break;
                     case "Maroon":
-                        sizeid = 3; break;
+                        colorid = 3; break;
                     case "DeepBlue":
-                        sizeid = 4; break;
+                        colorid = 4; break;
                     case "Olive":
-                        sizeid = 5; break;
+                        colorid = 5; break;
                     case "BabyPink":
-                        sizeid = 6; break;
+                        colorid = 6; break;
                     case "LightPurple":
-                        sizeid = 7; break;
+                        colorid = 7; break;
                     case "LightBlue":
-                        sizeid = 8; break;
+                        colorid = 8; break;
                 }
-                OnPropertyChange ();
+                if (colorid != value)
+                {
+                    colorid = value;
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
             }
         }
 
@@ -291,7 +321,11 @@ namespace OnlineDanceStore.ViewModels
             {
                 color.ColorName = colorname;
                 color.ColorItemId = colorid;
-                OnPropertyChange();
+                if (color != value)
+                {
+                    color = value;
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
             }
              }
 
