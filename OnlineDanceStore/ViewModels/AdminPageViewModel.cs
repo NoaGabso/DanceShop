@@ -35,6 +35,7 @@ namespace OnlineDanceStore.ViewModels
         private int colorid;
         private string colorname;
 
+        #region רגיל
         public string ItemName
         {
             get => itemname;
@@ -99,7 +100,9 @@ namespace OnlineDanceStore.ViewModels
                 }
             }
         }
+        #endregion
 
+        #region category
         public string ItemCategoryName
         {
             get => categoriesname;
@@ -109,10 +112,44 @@ namespace OnlineDanceStore.ViewModels
                 {
                     categoriesname = value;
                     OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                    ItemCategoryId = GetCategoryIdFromName(categoriesname);
+                    //ItemCategory = GetCategory(categoriesid, categoriesname);
+                }
+            }
+        }
+        public int ItemCategoryId
+        {
+            get => categoriesid;
+            set
+            {
+                if (categoriesid != value)
+                {
+                    categoriesid = value;
+                    OnPropertyChange();
                 }
             }
         }
 
+        public Categories ItemCategory
+        {
+            get => categories;
+            set
+            {
+
+                if (categories != value)
+                {
+                    {
+                        categories.CategoryId = categoriesid;
+                        categories.CategoriesName = categoriesname;
+                    }
+                    categories = value;
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
+            }
+        }
+
+        #endregion
+        #region gender
         public string ItemGenderName
         {
             get => gendername;
@@ -122,10 +159,38 @@ namespace OnlineDanceStore.ViewModels
                 {
                     gendername = value;
                     OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                    ItemGenderId = GetGenderIdFromName(value);
+                }
+            }
+        }
+        public int ItemGenderId
+        {
+            get => genderid;
+            set
+            {
+                if (genderid != value)
+                {
+                    genderid = value;
+                    OnPropertyChange();
                 }
             }
         }
 
+        public Gender ItemGender
+        {
+            get => gender; set
+            {
+               
+                if (gender != value)
+                {
+                    { gender.GenderId = genderid; gender.GenderName = gendername; }
+                    gender = value;
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
+            }
+        }
+        #endregion
+        #region size
         public string ItemSizeName
         {
             get => sizename;
@@ -135,10 +200,42 @@ namespace OnlineDanceStore.ViewModels
                 {
                     sizename = value;
                     OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                    ItemSizeId = GetSizeIdFromName(value);
                 }
             }
         }
+        public int ItemSizeId
+        {
+            get => sizeid;
+            set
+            {
+                if (sizeid != value)
+                {
+                    sizeid = value;
+                    /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                    OnPropertyChange();
+                }
+            }
+        }
+    
 
+        public SizeItem ItemSize
+        {
+            get => size;
+            set
+            {
+                
+                if (size != value)
+                {
+                    size.SizeItemId = sizeid;
+                    size.SizeName = sizename;
+                    size = value;
+                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
+            }
+        }
+        #endregion
+        #region color
         public string ItemColorName
         {
             get => colorname;
@@ -148,169 +245,20 @@ namespace OnlineDanceStore.ViewModels
                 {
                     colorname = value;
                     OnPropertyChange(); /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                    ItemColorId = GetColorIdFromName(value);
                 }
             }
         }
-
-        
-          public int ItemGenderId
-        { get => genderid;
-            set
-            {
-                {
-                    if (gendername == "men")
-                        genderid = 1;
-                    else
-                        genderid = 2;
-                }
-                if (genderid != value)
-                {
-                    genderid = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                }
-            }
-        }
-
-        public Gender ItemGender
-        { get => gender; set
-            {
-                { gender.GenderId = genderid; gender.GenderName = gendername; }
-                if (gender != value)
-                {
-                    gender = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                }
-            }
-            }
-
-        public int ItemCategortId
-        {
-            get => categoriesid;
-            set
-            {
-                switch (categoriesname)
-                {
-                    case "Leotards":
-                        categoriesid = 1;
-                        OnPropertyChange(); break;
-                    case "DanceShoes":
-                        categoriesid = 2; break;
-                    case "Accessories":
-                        categoriesid = 3; break;
-                    case "DanceClothes":
-                        categoriesid = 4; break;
-                }
-                
-                if (categoriesid != value)
-                {
-                    categoriesid = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                }
-            }
-        }
-           public Categories ItemCategory
-        {
-            get => categories;
-            set
-            {
-                {
-                    categories.CategoryId = categoriesid;
-                    categories.CategoriesName = categoriesname;
-                }
-                if (categories != value)
-                {
-                    categories = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                }
-            }
-            }
-
-        public int ItemSizeId
-        {
-            get => sizeid;
-            set
-            {
-                switch (sizename)
-                {
-                    case "Small":
-                        sizeid = 1; break;
-                    case "Medium":
-                        sizeid = 2; break;
-                    case "Large":
-                        sizeid = 3; break;
-                    case "35":
-                        sizeid = 4; break;
-                    case "36":
-                        sizeid = 5; break;
-                    case "37":
-                        sizeid = 6; break;
-                    case "38":
-                        sizeid = 7; break;
-                    case "39":
-                        sizeid = 8; break;
-                    case "40":
-                        sizeid = 9; break;
-                    case "41":
-                        sizeid = 10; break;
-                    case "42":
-                        sizeid = 11; break;
-                    case "43":
-                        sizeid = 12; break;
-                    case "44":
-                        sizeid = 13; break;
-                }
-                if (sizeid != value)
-                {
-                    sizeid = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                }
-
-            }
-        }
-
-        public SizeItem ItemSize
-        {
-            get=> size;
-            set
-            {
-                size.SizeItemId = sizeid;
-                size.SizeName = sizename;
-                if (size != value)
-                {
-                    size = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                }
-            } 
-        }
-
         public int ItemColorId
         {
             get => colorid;
             set
             {
-                switch (colorname)
-                {
-                    case "Black":
-                        colorid = 1; break;
-                    case "White":
-                        colorid = 2; break;
-                    case "Maroon":
-                        colorid = 3; break;
-                    case "DeepBlue":
-                        colorid = 4; break;
-                    case "Olive":
-                        colorid = 5; break;
-                    case "BabyPink":
-                        colorid = 6; break;
-                    case "LightPurple":
-                        colorid = 7; break;
-                    case "LightBlue":
-                        colorid = 8; break;
-                }
                 if (colorid != value)
                 {
                     colorid = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                    // Add logic to set colorname based on colorid, similar to other properties
+                    OnPropertyChange();
                 }
             }
         }
@@ -319,20 +267,119 @@ namespace OnlineDanceStore.ViewModels
         { get => color;
         set
             {
-                color.ColorName = colorname;
-                color.ColorItemId = colorid;
+               
                 if (color != value)
                 {
+                    color.ColorName = colorname;
+                    color.ColorItemId = colorid;
                     color = value;
                     OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
                 }
             }
              }
+        #endregion
 
+        #endregion
+        #region פעולות עזר
+        private int GetGenderIdFromName(string name)
+        {
+            // Implement logic to map gender name to id
+            // For example:
+            switch (name.ToLower())
+            {
+                case "men":
+                    return 1;
+                case "women":
+                    return 2;
+                default:
+                    return 0; // Default value or handle invalid name
+            }
+        }
 
-#endregion
+        private int GetCategoryIdFromName(string name)
+        {
+            // Implement logic to map category name to id
+            // For example:
+            switch (name.ToLower())
+            {
+                case "leotards":
+                    return 1;
+                case "danceshoes":
+                    return 2;
+                case "accessories":
+                    return 3;
+                case "danceclothes":
+                    return 4;
+                default:
+                    return 0; // Default value or handle invalid name
+            }
+        }
+        private int GetSizeIdFromName(string name)
+        {
+            // Implement logic to map size name to id
+            // For example:
+            switch (name.ToLower())
+            {
+                case "small":
+                    return 1;
+                case "medium":
+                    return 2;
+                case "large":
+                    return 3;
+                case "35":
+                    return 4;
+                case "36":
+                    return 5;
+                case "37":
+                    return 6;
+                case "38":
+                    return 7;
+                case "39":
+                    return 8;
+                case "40":
+                    return 9;
+                case "41":
+                    return 10;
+                case "42":
+                    return 11;
+                case "43":
+                    return 12;
+                case "44":
+                    return 13;
+                default:
+                    return 0; // Default value or handle invalid name
+            }
+        }
 
-private readonly OnlineDanceStoreServices _service;
+        private int GetColorIdFromName(string name)
+        {
+            // Implement logic to map color name to id
+            // For example:
+            switch (name.ToLower())
+            {
+                case "black":
+                    return 1;
+                case "white":
+                    return 2;
+                case "maroon":
+                    return 3;
+                case "deepblue":
+                    return 4;
+                case "olive":
+                    return 5;
+                case "babypink":
+                    return 6;
+                case "lightpurple":
+                    return 7;
+                case "lightblue":
+                    return 8;
+                default:
+                    return 0; // Default value or handle invalid name
+            }
+        }
+        #endregion
+
+        private readonly OnlineDanceStoreServices _service;
         public ICommand NewItemCommand { get; protected set; }
 
         //public bool IsButtonEnabled
