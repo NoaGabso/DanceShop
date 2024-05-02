@@ -22,7 +22,7 @@ namespace OnlineDanceStore.ViewModels
         private int quantity;
         private double price;
         private string image;
-        private Categories categories;
+        //private Categories categories;
         private int categoriesid;
         private string categoriesname;
         private Gender gender;
@@ -130,23 +130,25 @@ namespace OnlineDanceStore.ViewModels
             }
         }
 
-        public Categories ItemCategory
-        {
-            get => categories;
-            set
-            {
+        //public Categories ItemCategory
+        //{
+          
+        //    get => categories;
+        //    set
+        //    {
 
-                if (categories != value)
-                {
-                    {
-                        categories.CategoryId = categoriesid;
-                        categories.CategoriesName = categoriesname;
-                    }
-                    categories = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                }
-            }
-        }
+        //        if (categories != value)
+        //        {
+        //            {
+        //                categories = new Categories();
+        //                categories.CategoryId = categoriesid;
+        //                categories.CategoriesName = categoriesname;
+        //            }
+        //            categories = value;
+        //            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        //        }
+        //    }
+        //}
 
         #endregion
         #region gender
@@ -408,10 +410,16 @@ namespace OnlineDanceStore.ViewModels
                     //var lvm = new LoadingPageViewModel() { IsBusy = true };
                     //await AppShell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
                     //#endregion
-                    Item NewItem = new Item();
+
+                    Categories category = new Categories();
+                    {
+                        category.CategoryId = categoriesid;
+                        category.CategoriesName = categoriesname;}
+
+                        Item NewItem = new Item();
                     { NewItem.ItemName = itemname;
                         NewItem.ItemDescription = description;
-                        NewItem.Categories = categories;
+                        NewItem.Categories = category;
                         NewItem.Quantity = quantity;
                         NewItem.Price = price;
                         NewItem.ItemImage = image;
