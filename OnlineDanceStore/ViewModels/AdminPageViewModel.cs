@@ -46,6 +46,19 @@ namespace OnlineDanceStore.ViewModels
                 }
             }
         }
+        public string ItemDescription
+        {
+            get => description;
+            set
+            {
+                if (description != value)
+                {
+                    description = value;
+                    OnPropertyChange(); /*OnPropertyChange(nameof(IsButtonEnabled));*/
+                }
+            }
+        }
+
 
         public int ItemQuantity
         {
@@ -151,7 +164,7 @@ namespace OnlineDanceStore.ViewModels
         //public AdminPageViewModel() { }
         public AdminPageViewModel(OnlineDanceStoreServices service)
         {
-            Item NewItem = new Item();
+
             _service = service;
             itemname = string.Empty;
             gendername = string.Empty;
@@ -259,43 +272,41 @@ namespace OnlineDanceStore.ViewModels
                     //var lvm = new LoadingPageViewModel() { IsBusy = true };
                     //await AppShell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
                     //#endregion
-                    Item item = new Item();
-                    {
-                        item.ItemName = itemname;
-                        item.ItemDescription = description;
-                        item.Categories = categories;
-                        item.Quantity = quantity;
-                        item.Price = price;
-                        item.ItemImage = image;
-                        item.Gender = gender;
-                        item.SizeItem = size;
-                        item.ColorItem = color;
-                    }
-                    // //var it = await _service.NewItem(item);
-
-                    // lvm.IsBusy = false;
-                    // await Shell.Current.Navigation.PopModalAsync();
-                    //// if (!it.Success)
-                    // {
-                    //     //ShowRegisterError = true;
-                    //     //RegisterErrorMessage = u.Message;
-                    // }
-                    // else
-                    // {
-                    //     await AppShell.Current.DisplayAlert("הוסף", "אישור הכנסת מוצר", "אישור");
-                    //   //  await SecureStorage.Default.SetAsync("RegistedUser", JsonSerializer.Serialize(u.User));
-
-                    // }
-
-
-
+                    Item NewItem = new Item();
+                    { NewItem.ItemName = itemname;
+                        NewItem.ItemDescription = description;
+                        NewItem.Categories = categories;
+                        NewItem.Quantity = quantity;
+                        NewItem.Price = price;
+                        NewItem.ItemImage = image;
+                        NewItem.Gender = gender;
+                        NewItem.SizeItem = size;
+                        NewItem.ColorItem = color;
                 }
+               
+                }
+                // //var it = await _service.NewItem(item);
+
+                // lvm.IsBusy = false;
+                // await Shell.Current.Navigation.PopModalAsync();
+                //// if (!it.Success)
+                // {
+                //     //ShowRegisterError = true;
+                //     //RegisterErrorMessage = u.Message;
+                // }
+                // else
+                // {
+                //     await AppShell.Current.DisplayAlert("הוסף", "אישור הכנסת מוצר", "אישור");
+                //   //  await SecureStorage.Default.SetAsync("RegistedUser", JsonSerializer.Serialize(u.User));
+
+                // }
+
                 catch (Exception ex)
                 {
 
                     Debug.WriteLine(ex.Message);
 
-                    await AppShell.Current.Navigation.PopModalAsync();
+                    //await AppShell.Current.Navigation.PopModalAsync();
                 }
 
 
