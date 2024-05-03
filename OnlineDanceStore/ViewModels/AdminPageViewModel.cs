@@ -25,13 +25,13 @@ namespace OnlineDanceStore.ViewModels
         //private Categories categories;
         private int categoriesid;
         private string categoriesname;
-        private Gender gender;
+        //private Gender gender;
         private int genderid;
         private string gendername;
-        private SizeItem size;
+        //private SizeItem size;
         private int sizeid;
         private string sizename;
-        private ColorItem color;
+        //private ColorItem color;
         private int colorid;
         private string colorname;
 
@@ -178,19 +178,19 @@ namespace OnlineDanceStore.ViewModels
             }
         }
 
-        public Gender ItemGender
-        {
-            get => gender; set
-            {
+        //public Gender ItemGender
+        //{
+        //    get => gender; set
+        //    {
                
-                if (gender != value)
-                {
-                    { gender.GenderId = genderid; gender.GenderName = gendername; }
-                    gender = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                }
-            }
-        }
+        //        if (gender != value)
+        //        {
+        //            { gender.GenderId = genderid; gender.GenderName = gendername; }
+        //            gender = value;
+        //            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        //        }
+        //    }
+        //}
         #endregion
         #region size
         public string ItemSizeName
@@ -221,21 +221,21 @@ namespace OnlineDanceStore.ViewModels
         }
     
 
-        public SizeItem ItemSize
-        {
-            get => size;
-            set
-            {
+        //public SizeItem ItemSize
+        //{
+        //    get => size;
+        //    set
+        //    {
                 
-                if (size != value)
-                {
-                    size.SizeItemId = sizeid;
-                    size.SizeName = sizename;
-                    size = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                }
-            }
-        }
+        //        if (size != value)
+        //        {
+        //            size.SizeItemId = sizeid;
+        //            size.SizeName = sizename;
+        //            size = value;
+        //            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        //        }
+        //    }
+        //}
         #endregion
         #region color
         public string ItemColorName
@@ -265,20 +265,20 @@ namespace OnlineDanceStore.ViewModels
             }
         }
 
-        public ColorItem ItemColor
-        { get => color;
-        set
-            {
-               
-                if (color != value)
-                {
-                    color.ColorName = colorname;
-                    color.ColorItemId = colorid;
-                    color = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                }
-            }
-             }
+        //public ColorItem ItemColor
+        //{ get => color;
+        //set
+        //    {
+
+        //        if (color != value)
+        //        {
+        //            color.ColorName = colorname;
+        //            color.ColorItemId = colorid;
+        //            color = value;
+        //            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        //        }
+        //    }
+        //     }
         #endregion
 
         #endregion
@@ -415,6 +415,19 @@ namespace OnlineDanceStore.ViewModels
                     {
                         category.CategoryId = categoriesid;
                         category.CategoriesName = categoriesname;}
+
+                    Gender gender = new Gender();
+                    { gender.GenderId = genderid; gender.GenderName = gendername; }
+
+                    SizeItem size= new SizeItem();
+                    {
+                        size.SizeItemId = sizeid;
+                        size.SizeName = sizename;}
+
+                    ColorItem color= new ColorItem();
+                    {
+                        color.ColorName = colorname;
+                       color.ColorItemId = colorid;}
 
                         Item NewItem = new Item();
                     { NewItem.ItemName = itemname;
