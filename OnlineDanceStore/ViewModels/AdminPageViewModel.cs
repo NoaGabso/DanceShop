@@ -10,13 +10,14 @@ using OnlineDanceStore.Services;
 using System.Text.Json;
 using System.Diagnostics;
 using System.Reflection;
+using Plugin.Media;
 
 namespace OnlineDanceStore.ViewModels
 {
     public class AdminPageViewModel : ViewModel
     {
         #region Fields
-
+        private Item NewItem;
         private string itemname;
         private string description;
         private int quantity;
@@ -34,6 +35,9 @@ namespace OnlineDanceStore.ViewModels
         //private ColorItem color;
         private int colorid;
         private string colorname;
+        public string ImageLocation { get => image; set { if (value != image) { image = value; OnPropertyChange(); } } }
+        public ImageSource PhotoImageSource { get; set; }
+
 
         #region רגיל
         public string ItemName
@@ -88,20 +92,9 @@ namespace OnlineDanceStore.ViewModels
             }
         }
 
-        public string ItemImage
-        {
-            get => image;
-            set
-            {
-                if (image != value)
-                {
-                    image = value;
-                    OnPropertyChange(); /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                }
-            }
-        }
+       
         #endregion
-
+        #region מיוחדים
         #region category
         public string ItemCategoryName
         {
@@ -280,7 +273,7 @@ namespace OnlineDanceStore.ViewModels
         //    }
         //     }
         #endregion
-
+        #endregion
         #endregion
         #region פעולות עזר
         private int GetGenderIdFromName(string name)
@@ -383,6 +376,10 @@ namespace OnlineDanceStore.ViewModels
 
         private readonly OnlineDanceStoreServices _service;
         public ICommand NewItemCommand { get; protected set; }
+        public ICommand UploadPhoto { get; protected set; }
+        public ICommand TakePictureCommand { get; protected set; }
+        public ICommand PickPhotoCommand { get; }
+        public ICommand ChangePhoto { get; protected set; }
 
         //public bool IsButtonEnabled
         //{
@@ -391,7 +388,7 @@ namespace OnlineDanceStore.ViewModels
         //public AdminPageViewModel() { }
         public AdminPageViewModel(OnlineDanceStoreServices service)
         {
-
+            
             _service = service;
             itemname = string.Empty;
             description = string.Empty;
@@ -400,6 +397,12 @@ namespace OnlineDanceStore.ViewModels
             sizename = string.Empty;
             colorname = string.Empty;
             image = string.Empty;
+
+            UploadPhoto = new Command(async () => { await Shell.Current.DisplayAlert("g", "g", "ok"); });
+            TakePictureCommand = new Command(TakePicture);
+            ChangePhoto = new Command(TakePicture);
+            PickPhotoCommand = new Command(async () => await PickPhoto());
+
 
 
             NewItemCommand = new Command(async () =>
@@ -429,7 +432,7 @@ namespace OnlineDanceStore.ViewModels
                         color.ColorName = colorname;
                        color.ColorItemId = colorid;}
 
-                        Item NewItem = new Item();
+                         NewItem = new Item();
                     { NewItem.ItemName = itemname;
                         NewItem.ItemDescription = description;
                         NewItem.Categories = category;
@@ -469,26 +472,122 @@ namespace OnlineDanceStore.ViewModels
 
             });
         }
+        private async Task PickPhoto()
+        {
+            await CrossMedia.Current.Initialize();
 
-        //    //private bool ValidateUser()
-        //    //{
-        //    //    return !(string.IsNullOrEmpty(email) || email.Length < 3);
-        //    //}
-        //    //private bool ValidateName()
-        //    //{
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                // Display an error message or handle the case where picking a photo is not supported
+                return;
+            }
 
-        //    //    return !(string.IsNullOrEmpty(itemname) || itemname.Length < 3);
-        //    //}
-        //    //private bool ValidatePassWord()
-        //    //{
-        //    //    return !(string.IsNullOrEmpty(password) || password.Length < 3);
-        //    //}
+            var file = await CrossMedia.Current.PickPhotoAsync();
 
-        //    //private bool ValidatePage()
-        //    //{
-        //    //    return ValidateName() && ValidatePassWord() && ValidateUser();
-        //    //}
+            if (file == null)
+                return;
 
-        //}
+            // Save the file path or do something with the image
+            string filePath = file.Path;
+        }
+        private async void TakePicture()
+        {
+            try
+            {
+                FileResult photo=null;
+
+                //אם יש תמיכה במצלמה
+                //יש לשים לב שעל מנת שיהיה ניתן להשתמש במצלמה צריך לתת הרשאות
+                //https://learn.microsoft.com/en-us/dotnet/maui/platform-integration/device-media/picker?tabs=android#tabpanel_1_android
+
+                if (MediaPicker.Default.IsCaptureSupported)
+                {
+                    //חייבים להריץ ב
+                    //UI
+                    MainThread.BeginInvokeOnMainThread(async () =>
+                    {
+                        photo = await MediaPicker.Default.CapturePhotoAsync();
+                       
+                        #region מסך טעינה
+                        var lvm = new LoadingPageViewModel() { IsBusy = true };
+                        await Task.Delay(1000);
+                        await Shell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
+                        #endregion
+
+                        //הצגת התמונה במסך ושליחתה לממשק.
+                        await LoadPhoto(photo);
+
+                        #region סגירת מסך טעינה
+                        lvm.IsBusy = false;
+                        await Shell.Current.Navigation.PopModalAsync();
+                        #endregion
+
+                    });
+                }
+
+            }
+            catch(Exception ex) { }
+
+              Shell.Current.DisplayAlert("לא נתמך", "כרגע לא ניתן להשתמש", "אישור");
+
+        }
+
+        private async Task LoadPhoto(FileResult photo)
+        {
+            try
+            { 
+                var stream = await photo.OpenReadAsync();
+                PhotoImageSource = ImageSource.FromStream(() => stream);
+                OnPropertyChange(nameof(PhotoImageSource));
+                await Upload(photo);
+
+
+            }
+            catch (Exception ex) { }
+        }
+        private async Task Upload(FileResult file)
+        {
+
+            try
+            { //bool success = await _service.UploadPhoto(file);
+                 bool success = await _service.UploadFile(file, NewItem);
+                if (success)
+                {
+                    var u = JsonSerializer.Deserialize<User>(await SecureStorage.Default.GetAsync("LoggedUser"));
+                    ImageLocation = await _service.GetImage() + $"{NewItem.ItemName}.jpg";
+                }
+                else
+                    Shell.Current.DisplayAlert("אין קשר לשרת", "לא הצלחתי להעלות את התמונה. נסה שוב", "אישור");
+            }
+            catch (Exception ex) { }
+
+        }
+
+
     }
+
+
+    #region validate
+    //    //private bool ValidateUser()
+    //    //{
+    //    //    return !(string.IsNullOrEmpty(email) || email.Length < 3);
+    //    //}
+    //    //private bool ValidateName()
+    //    //{
+
+    //    //    return !(string.IsNullOrEmpty(itemname) || itemname.Length < 3);
+    //    //}
+    //    //private bool ValidatePassWord()
+    //    //{
+    //    //    return !(string.IsNullOrEmpty(password) || password.Length < 3);
+    //    //}
+
+    //    //private bool ValidatePage()
+    //    //{
+    //    //    return ValidateName() && ValidatePassWord() && ValidateUser();
+    //    //}
+
+    //}
+    #endregion
+
 }

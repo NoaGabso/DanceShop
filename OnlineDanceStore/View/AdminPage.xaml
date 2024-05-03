@@ -5,13 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:OnlineDanceStore.Models"
     xmlns:viewmodels="clr-namespace:OnlineDanceStore.ViewModels"
-    Title="AdminPage1"
+    Title="AdminPage"
     x:DataType="viewmodels:AdminPageViewModel">
 
     <Grid
         BackgroundColor="#FBEAE6"
         ColumnDefinitions="*,*"
-        RowDefinitions="3*,20*">
+        RowDefinitions="3*,30*">
 
         <Border
             Grid.Row="0"
@@ -143,10 +143,18 @@
                     Text=" Image"
                     TextColor="#684200" />
 
-                <Entry
-                    BackgroundColor="AliceBlue"
-                    Placeholder="please upload the image"
-                    Text="{Binding ItemImage}" />
+                <Image
+            Aspect="AspectFit"
+       
+            Source="{Binding PhotoImageSource}"
+            >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Buttons="Primary" Command="{Binding ChangePhoto}" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Button Command="{Binding PickPhotoCommand}" Text="צלם תמונה" />
+
             </StackLayout>
         </Border>
         <!--<Label

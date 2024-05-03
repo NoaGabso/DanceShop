@@ -315,6 +315,54 @@ namespace OnlineDanceStore.Services;
         catch (Exception ex) { Console.WriteLine(ex.Message); }
         return null;
     }
+
+
+    public async Task<string> GetImage() { return $"{IMAGE_URL}images/"; }
+    public async Task<bool> UploadFile(FileResult file, Item item)
+    {
+
+        try
+        {   //נדרש להמיר אותו למערך של בייטים על מנת שיוכל לעבור ברשת
+            byte[] bytes;
+
+            #region המרה של הקובץ
+            using (MemoryStream ms = new MemoryStream())
+            {
+                //קריאה את אוסף הנתונים בקובץ
+                var stream = await file.OpenReadAsync();
+                //העתקת רצף הבייטים למקום זמני בזיכרון
+                stream.CopyTo(ms);
+                //המרה למערך
+                bytes = ms.ToArray();
+            }
+            #endregion
+
+            //אובייקט המאפשר לשמור אוסף של קבצים שנוכל לצרף אותו לבקשה לשרת
+            var multipartFormDataContent = new MultipartFormDataContent();
+
+            //תוכן של בקשה המבוסס על מערך בתים
+            //פרמטר הראשון הוא התוכן
+            //פרמטר השני - זהה לשם הפרמטר של הפרמטר כפי שמופיע בחתימת הפעולה בשרת
+            //הפרמטר השלישי הוא שם הקובץ עצמו
+            var content = new ByteArrayContent(bytes);
+            multipartFormDataContent.Add(content, "file", "item.jpg");
+            //ניתן לחזור על הפעולה אם נרצה קובץ נוסף או במקרה הזה
+            //אובייקט
+            var itemContent = JsonSerializer.Serialize(item);
+            //הפרמטר הראשון הוא התוכן
+            //הפרמטר השני זה שם הפרמטר כפי שמופיע בחתימת הפעולה בשרת
+            multipartFormDataContent.Add(new StringContent(itemContent, Encoding.UTF8, "application/json"), "item");
+
+            // Send POST request
+            var response = await _httpClient.PostAsync($@"{URL}AddAnItem", multipartFormDataContent);
+            if (response.IsSuccessStatusCode) { return true; }
+        }
+        catch (System.Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        return false;
+    }
     #region TestData
     //public async Task<List<Item>> GetAllLeotards()
     //{
