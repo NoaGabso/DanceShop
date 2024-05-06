@@ -145,7 +145,6 @@
 
                 <Image
             Aspect="AspectFit"
-       
             Source="{Binding PhotoImageSource}"
             >
                     <Image.GestureRecognizers>
@@ -153,7 +152,7 @@
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Button Command="{Binding PickPhotoCommand}" Text="צלם תמונה" />
+                <Button Command="{Binding PickPhotoCommand}" Text="אעלה תמונה" />
 
             </StackLayout>
         </Border>

@@ -562,7 +562,7 @@ namespace OnlineDanceStore.ViewModels
             catch (Exception ex) { }
 
         }
-
+      
 
     }
 

@@ -18,7 +18,7 @@ ColumnSpacing="6">
                     <CollectionView.ItemTemplate>
 
                         <DataTemplate x:DataType="models:Order">
-
+                        <StackLayout>
                             <Border
                             HorizontalOptions="CenterAndExpand"
                             Grid.Row="1"
@@ -30,15 +30,29 @@ ColumnSpacing="6">
                                     Grid.Row="0"
                                     Grid.Column="0"
                                     Text="{Binding OrderDate, StringFormat='Date: {0}'}" />
-                                    <Label
+                                <Label
                                     Grid.Row="1"
                                       Grid.Column="0"
                                      Text="{Binding TotalPrice, StringFormat='TotalPrice: {0}'}" />
-      </VerticalStackLayout>
+                            </VerticalStackLayout>
 
                             </Border>
-
-                        </DataTemplate>
+                            
+                            
+                            <!--<CollectionView ItemsSource="{Binding Items}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate x:DataType="models:Item">
+                                        --><!-- Define the layout for each item here -->
+                                        <!-- Example: --><!--
+                                        <StackLayout>
+                                            <Label Text="{Binding ItemName}" />
+                                            --><!-- Add more bindings for other properties --><!--
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>-->
+                        </StackLayout>
+                    </DataTemplate>
 
                     </CollectionView.ItemTemplate>
 

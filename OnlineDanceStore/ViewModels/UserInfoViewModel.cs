@@ -21,7 +21,7 @@ namespace OnlineDanceStore.ViewModels
         #endregion
         #region Properties
 
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<List<Item>> Items { get; set; }
         public ObservableCollection<Order> Orders { get; set; }
         #endregion
         #region Commands
@@ -35,12 +35,16 @@ namespace OnlineDanceStore.ViewModels
             _service = service;
            
             GetOrdersByUserCommand = new Command(async () =>
-            {
+            { 
                 try
                 {
                     var listoforders = await _service.GetUserOrders(((App)(Application.Current)).UserinApp.Id);
-
                     Orders = new ObservableCollection<Order>(listoforders);
+                    foreach(var order in Orders)
+                    {
+                        Items.Add(order.OrderItems);
+                       
+                    }
                     OnPropertyChange(nameof(Orders));
                 }
                 catch (Exception ex) { }
