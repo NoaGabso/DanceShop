@@ -39,6 +39,9 @@ namespace OnlineDanceStore.ViewModels
         public ImageSource PhotoImageSource { get; set; }
 
 
+       
+        
+
         #region רגיל
         public string ItemName
         {
@@ -378,14 +381,13 @@ namespace OnlineDanceStore.ViewModels
         public ICommand NewItemCommand { get; protected set; }
         public ICommand UploadPhoto { get; protected set; }
         public ICommand TakePictureCommand { get; protected set; }
-        public ICommand PickPhotoCommand { get; }
         public ICommand ChangePhoto { get; protected set; }
 
         //public bool IsButtonEnabled
         //{
         //    get { return ValidatePage(); }
         //}
-        //public AdminPageViewModel() { }
+      
         public AdminPageViewModel(OnlineDanceStoreServices service)
         {
             
@@ -401,7 +403,6 @@ namespace OnlineDanceStore.ViewModels
             UploadPhoto = new Command(async () => { await Shell.Current.DisplayAlert("g", "g", "ok"); });
             TakePictureCommand = new Command(TakePicture);
             ChangePhoto = new Command(TakePicture);
-            PickPhotoCommand = new Command(async () => await PickPhoto());
 
 
 
@@ -553,7 +554,6 @@ namespace OnlineDanceStore.ViewModels
                  bool success = await _service.UploadFile(file, NewItem);
                 if (success)
                 {
-                    var u = JsonSerializer.Deserialize<User>(await SecureStorage.Default.GetAsync("LoggedUser"));
                     ImageLocation = await _service.GetImage() + $"{NewItem.ItemName}.jpg";
                 }
                 else

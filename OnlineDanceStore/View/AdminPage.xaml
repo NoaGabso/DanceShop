@@ -145,14 +145,18 @@
 
                 <Image
             Aspect="AspectFit"
+            HeightRequest="20"
             Source="{Binding PhotoImageSource}"
-            >
+            WidthRequest="80">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Buttons="Primary" Command="{Binding ChangePhoto}" />
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Button Command="{Binding PickPhotoCommand}" Text="אעלה תמונה" />
+                <Button Command="{Binding TakePictureCommand}" Text="צלם תמונה" />
+
+                
+
 
             </StackLayout>
         </Border>
