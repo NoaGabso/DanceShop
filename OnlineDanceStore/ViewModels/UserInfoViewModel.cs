@@ -40,11 +40,11 @@ namespace OnlineDanceStore.ViewModels
                 {
                     var listoforders = await _service.GetUserOrders(((App)(Application.Current)).UserinApp.Id);
                     Orders = new ObservableCollection<Order>(listoforders);
-                    foreach(var order in Orders)
-                    {
-                        Items.Add(order.OrderItems);
+                    //foreach(var order in Orders)
+                    //{
+                    //    Items.Add(order.OrderItems);
                        
-                    }
+                    //}
                     OnPropertyChange(nameof(Orders));
                 }
                 catch (Exception ex) { }

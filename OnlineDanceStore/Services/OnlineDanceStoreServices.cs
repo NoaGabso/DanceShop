@@ -276,14 +276,14 @@ namespace OnlineDanceStore.Services;
 
                 var jsonContent = await response.Content.ReadAsStringAsync();
                 orders = JsonSerializer.Deserialize<List<Order>>(jsonContent, _serializerOptions);
-                
+
                 foreach (var order in orders)
                 {
                     List<Item> items = new List<Item>();
                     items = order.OrderItems;
                     foreach (var item in items)
                     { item.ItemImage = $"{IMAGE_URL}{item.ItemImage}"; }
-                    
+
                 }
                 return orders;
             }
@@ -316,9 +316,21 @@ namespace OnlineDanceStore.Services;
         return null;
     }
 
+    public async Task<SetUpData> GetSetUpData()
+    {
+        SetUpData setup=null;
+        var response = await _httpClient.GetAsync($"{URL}GetSetUpData");
+        if (response.StatusCode == HttpStatusCode.OK)
+        {
 
+            var jsonContent = await response.Content.ReadAsStringAsync();
+             setup = JsonSerializer.Deserialize<SetUpData>(jsonContent, _serializerOptions);
+
+        }
+        return setup;
+    }
     public async Task<string> GetImage() { return $"{IMAGE_URL}images/"; }
-    public async Task<bool> UploadFile(FileResult file, Item item)
+    public async Task<Item> UploadFile(FileResult file, Item item)
     {
 
         try
@@ -355,13 +367,18 @@ namespace OnlineDanceStore.Services;
 
             // Send POST request
             var response = await _httpClient.PostAsync($@"{URL}AddAnItem", multipartFormDataContent);
-            if (response.IsSuccessStatusCode) { return true; }
+            if (response.IsSuccessStatusCode)
+            {
+                string stringContent = await response.Content.ReadAsStringAsync();
+                var returnItem = JsonSerializer.Deserialize<Item>(stringContent, _serializerOptions);
+               return returnItem;
+            }
         }
         catch (System.Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
-        return false;
+        return null;
     }
     #region TestData
     //public async Task<List<Item>> GetAllLeotards()

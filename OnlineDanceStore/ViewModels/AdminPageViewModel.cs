@@ -11,6 +11,8 @@ using System.Text.Json;
 using System.Diagnostics;
 using System.Reflection;
 using Plugin.Media;
+using Android.App;
+using System.Collections.ObjectModel;
 
 namespace OnlineDanceStore.ViewModels
 {
@@ -35,9 +37,17 @@ namespace OnlineDanceStore.ViewModels
         //private ColorItem color;
         private int colorid;
         private string colorname;
+        private ObservableCollection<Categories> categories;
+        private ObservableCollection<SubCategory> subCategories;
+        private ObservableCollection<ColorItem> colors;
+        private ObservableCollection<SizeItem> sizeitem;
+        private ObservableCollection<Gender> gender;
+
+        private FileResult photo;
         public string ImageLocation { get => image; set { if (value != image) { image = value; OnPropertyChange(); } } }
         public ImageSource PhotoImageSource { get; set; }
 
+        public ObservableCollection<Categories> Categories { get; set; }
 
        
         
@@ -312,6 +322,23 @@ namespace OnlineDanceStore.ViewModels
                     return 0; // Default value or handle invalid name
             }
         }
+
+        public async Task GetSetUpData()
+        {
+            try
+            {
+                var setup = await _service.GetSetUpData();
+                categories = new ObservableCollection<Categories>(setup.Categories);
+                subCategories = new ObservableCollection<SubCategory>(setup.SubCategories);
+                colors = new ObservableCollection<ColorItem>(setup.ColorItems);
+                sizeitem = new ObservableCollection<SizeItem>(setup.SizeItems);
+                gender = new ObservableCollection<Gender>(setup.Genders);
+                //להכניס לאובסרבסל
+
+            }
+            catch (Exception ex)
+            { await Shell.Current.DisplayAlert("something went wrong", "Unable to get setup Data", "Ok"); }
+        }
         private int GetSizeIdFromName(string name)
         {
             // Implement logic to map size name to id
@@ -444,9 +471,10 @@ namespace OnlineDanceStore.ViewModels
                         NewItem.SizeItem = size;
                         NewItem.ColorItem = color;
                 }
+                    await Upload(photo);
                
                 }
-                // //var it = await _service.NewItem(item);
+                // //var it = await _service.NewItem(item,photo);
 
                 // lvm.IsBusy = false;
                 // await Shell.Current.Navigation.PopModalAsync();
@@ -495,7 +523,7 @@ namespace OnlineDanceStore.ViewModels
         {
             try
             {
-                FileResult photo=null;
+                
 
                 //אם יש תמיכה במצלמה
                 //יש לשים לב שעל מנת שיהיה ניתן להשתמש במצלמה צריך לתת הרשאות
@@ -525,11 +553,13 @@ namespace OnlineDanceStore.ViewModels
 
                     });
                 }
+                else
+                    Shell.Current.DisplayAlert("לא נתמך", "כרגע לא ניתן להשתמש", "אישור");
 
             }
-            catch(Exception ex) { }
+            catch(Exception ex) {  }
 
-              Shell.Current.DisplayAlert("לא נתמך", "כרגע לא ניתן להשתמש", "אישור");
+             
 
         }
 
@@ -540,7 +570,7 @@ namespace OnlineDanceStore.ViewModels
                 var stream = await photo.OpenReadAsync();
                 PhotoImageSource = ImageSource.FromStream(() => stream);
                 OnPropertyChange(nameof(PhotoImageSource));
-                await Upload(photo);
+               // await Upload(photo);
 
 
             }
@@ -551,8 +581,8 @@ namespace OnlineDanceStore.ViewModels
 
             try
             { //bool success = await _service.UploadPhoto(file);
-                 bool success = await _service.UploadFile(file, NewItem);
-                if (success)
+                NewItem = await _service.UploadFile(file, NewItem);
+                if (NewItem!=null)
                 {
                     ImageLocation = await _service.GetImage() + $"{NewItem.ItemName}.jpg";
                 }
