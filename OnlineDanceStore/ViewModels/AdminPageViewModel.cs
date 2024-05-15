@@ -11,7 +11,6 @@ using System.Text.Json;
 using System.Diagnostics;
 using System.Reflection;
 using Plugin.Media;
-using Android.App;
 using System.Collections.ObjectModel;
 
 namespace OnlineDanceStore.ViewModels
