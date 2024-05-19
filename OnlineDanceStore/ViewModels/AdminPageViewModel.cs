@@ -41,15 +41,20 @@ namespace OnlineDanceStore.ViewModels
         private ObservableCollection<ColorItem> colors;
         private ObservableCollection<SizeItem> sizeitem;
         private ObservableCollection<Gender> gender;
+      
 
         private FileResult photo;
         public string ImageLocation { get => image; set { if (value != image) { image = value; OnPropertyChange(); } } }
         public ImageSource PhotoImageSource { get; set; }
 
-        public ObservableCollection<Categories> Categories { get; set; }
+        public ObservableCollection<Categories> Categories { get => categories; set { if (value != categories) { categories = value; OnPropertyChange(); } } }
+        public ObservableCollection<SubCategory> SubCategories { get => subCategories; set { if (value != subCategories) { subCategories = value; OnPropertyChange(); } } }
+        public ObservableCollection<ColorItem> ColorItems { get => colors; set { if (value != colors) { colors = value; OnPropertyChange(); } } }
+        public ObservableCollection<SizeItem> SizeItems { get => sizeitem; set { if (value != sizeitem) { sizeitem = value; OnPropertyChange(); } } }
+        public ObservableCollection<Gender> Genders { get => gender; set { if (value != gender) { gender = value; OnPropertyChange(); } } }
+        public SetUpData SetUpData {get; set; }
 
-       
-        
+
 
         #region רגיל
         public string ItemName
@@ -408,6 +413,7 @@ namespace OnlineDanceStore.ViewModels
         public ICommand UploadPhoto { get; protected set; }
         public ICommand TakePictureCommand { get; protected set; }
         public ICommand ChangePhoto { get; protected set; }
+        public ICommand SetUpDataCommand { get; protected set; }
 
         //public bool IsButtonEnabled
         //{
@@ -430,7 +436,22 @@ namespace OnlineDanceStore.ViewModels
             TakePictureCommand = new Command(TakePicture);
             ChangePhoto = new Command(TakePicture);
 
-
+            SetUpDataCommand = new Command(async () =>
+            {
+                try
+                {
+                    SetUpData = await _service.GetSetUpData();
+                    categories = new ObservableCollection<Categories>(SetUpData.Categories);
+                    subCategories = new ObservableCollection<SubCategory>(SetUpData.SubCategories);
+                    colors = new ObservableCollection<ColorItem>(SetUpData.ColorItems);
+                    sizeitem = new ObservableCollection<SizeItem>(SetUpData.SizeItems);
+                    gender = new ObservableCollection<Gender>(SetUpData.Genders);
+                }
+                catch (Exception ex) { }
+            });
+           
+          
+          
 
             NewItemCommand = new Command(async () =>
             {
