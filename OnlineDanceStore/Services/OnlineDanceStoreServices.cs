@@ -123,7 +123,8 @@ namespace OnlineDanceStore.Services;
                             User u;
                             jsonContent = await response.Content.ReadAsStringAsync();
                             u = JsonSerializer.Deserialize<User>(jsonContent, _serializerOptions);
-                            return new UserDto { Success = true, Message = null, User = u };
+                      
+                        return new UserDto { Success = true, Message = null, User = u };
 
                         }
                     case (HttpStatusCode.Conflict):

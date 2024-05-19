@@ -189,8 +189,9 @@ namespace OnlineDanceStore.ViewModels
                     }
                     else
                     {
+                        ((App)(Application.Current)).UserinApp = u.User;
                         await AppShell.Current.DisplayAlert("התחברת", "אישור כניסה לאתר", "אישור");
-                        await SecureStorage.Default.SetAsync("RegistedUser", JsonSerializer.Serialize(u.User));
+                        await SecureStorage.Default.SetAsync("LoggedUser", JsonSerializer.Serialize(u.User));
                         await AppShell.Current.GoToAsync("HomePage");
                     }
 

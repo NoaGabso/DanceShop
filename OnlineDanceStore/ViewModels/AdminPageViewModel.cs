@@ -24,18 +24,19 @@ namespace OnlineDanceStore.ViewModels
         private int quantity;
         private double price;
         private string image;
-        //private Categories categories;
-        private int categoriesid;
-        private string categoriesname;
-        //private Gender gender;
-        private int genderid;
-        private string gendername;
-        //private SizeItem size;
-        private int sizeid;
-        private string sizename;
-        //private ColorItem color;
-        private int colorid;
-        private string colorname;
+        private Categories categories1;
+        private SubCategory subcategory1;
+        private Gender gender1;
+        private SizeItem size1;
+        private ColorItem color1;
+        //private int categoriesid;
+        //private string categoriesname
+        //private int genderid;
+        //private string gendername;
+        //private int sizeid;
+        //private string sizename;
+        //private int colorid;
+        //private string colorname;
         private ObservableCollection<Categories> categories;
         private ObservableCollection<SubCategory> subCategories;
         private ObservableCollection<ColorItem> colors;
@@ -47,12 +48,17 @@ namespace OnlineDanceStore.ViewModels
         public string ImageLocation { get => image; set { if (value != image) { image = value; OnPropertyChange(); } } }
         public ImageSource PhotoImageSource { get; set; }
 
-        public ObservableCollection<Categories> Categories { get => categories; set { if (value != categories) { categories = value; OnPropertyChange(); } } }
-        public ObservableCollection<SubCategory> SubCategories { get => subCategories; set { if (value != subCategories) { subCategories = value; OnPropertyChange(); } } }
-        public ObservableCollection<ColorItem> ColorItems { get => colors; set { if (value != colors) { colors = value; OnPropertyChange(); } } }
-        public ObservableCollection<SizeItem> SizeItems { get => sizeitem; set { if (value != sizeitem) { sizeitem = value; OnPropertyChange(); } } }
-        public ObservableCollection<Gender> Genders { get => gender; set { if (value != gender) { gender = value; OnPropertyChange(); } } }
+        public ObservableCollection<Categories> Categories1 { get => categories; set { if (value != categories) { categories = value; OnPropertyChange(); } } }
+        public ObservableCollection<SubCategory> SubCategories1 { get => subCategories; set { if (value != subCategories) { subCategories = value; OnPropertyChange(); } } }
+        public ObservableCollection<ColorItem> ColorItems1 { get => colors; set { if (value != colors) { colors = value; OnPropertyChange(); } } }
+        public ObservableCollection<SizeItem> SizeItems1 { get => sizeitem; set { if (value != sizeitem) { sizeitem = value; OnPropertyChange(); } } }
+        public ObservableCollection<Gender> Genders1 { get => gender; set { if (value != gender) { gender = value; OnPropertyChange(); } } }
         public SetUpData SetUpData {get; set; }
+        public Categories newCategory { get => categories1; set { if (value != categories1) { categories1 = value; OnPropertyChange(); } } }
+        public SubCategory newSubCategory { get => subcategory1; set { if (value != subcategory1) { subcategory1 = value; OnPropertyChange(); } } }
+        public ColorItem newColor { get => color1; set { if (value != color1) { color1 = value; OnPropertyChange(); } } }
+        public SizeItem newSize { get => size1; set { if (value != size1) { size1 = value; OnPropertyChange(); } } }
+        public Gender newGender { get => gender1; set { if (value != gender1) { gender1 = value; OnPropertyChange(); } } }
 
 
 
@@ -109,224 +115,6 @@ namespace OnlineDanceStore.ViewModels
             }
         }
 
-       
-        #endregion
-        #region מיוחדים
-        #region category
-        public string ItemCategoryName
-        {
-            get => categoriesname;
-            set
-            {
-                if (categoriesname != value)
-                {
-                    categoriesname = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                    ItemCategoryId = GetCategoryIdFromName(categoriesname);
-                    //ItemCategory = GetCategory(categoriesid, categoriesname);
-                }
-            }
-        }
-        public int ItemCategoryId
-        {
-            get => categoriesid;
-            set
-            {
-                if (categoriesid != value)
-                {
-                    categoriesid = value;
-                    OnPropertyChange();
-                }
-            }
-        }
-
-        //public Categories ItemCategory
-        //{
-          
-        //    get => categories;
-        //    set
-        //    {
-
-        //        if (categories != value)
-        //        {
-        //            {
-        //                categories = new Categories();
-        //                categories.CategoryId = categoriesid;
-        //                categories.CategoriesName = categoriesname;
-        //            }
-        //            categories = value;
-        //            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-        //        }
-        //    }
-        //}
-
-        #endregion
-        #region gender
-        public string ItemGenderName
-        {
-            get => gendername;
-            set
-            {
-                if (gendername != value)
-                {
-                    gendername = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                    ItemGenderId = GetGenderIdFromName(value);
-                }
-            }
-        }
-        public int ItemGenderId
-        {
-            get => genderid;
-            set
-            {
-                if (genderid != value)
-                {
-                    genderid = value;
-                    OnPropertyChange();
-                }
-            }
-        }
-
-        //public Gender ItemGender
-        //{
-        //    get => gender; set
-        //    {
-               
-        //        if (gender != value)
-        //        {
-        //            { gender.GenderId = genderid; gender.GenderName = gendername; }
-        //            gender = value;
-        //            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-        //        }
-        //    }
-        //}
-        #endregion
-        #region size
-        public string ItemSizeName
-        {
-            get => sizename;
-            set
-            {
-                if (sizename != value)
-                {
-                    sizename = value;
-                    OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                    ItemSizeId = GetSizeIdFromName(value);
-                }
-            }
-        }
-        public int ItemSizeId
-        {
-            get => sizeid;
-            set
-            {
-                if (sizeid != value)
-                {
-                    sizeid = value;
-                    /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                    OnPropertyChange();
-                }
-            }
-        }
-    
-
-        //public SizeItem ItemSize
-        //{
-        //    get => size;
-        //    set
-        //    {
-                
-        //        if (size != value)
-        //        {
-        //            size.SizeItemId = sizeid;
-        //            size.SizeName = sizename;
-        //            size = value;
-        //            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-        //        }
-        //    }
-        //}
-        #endregion
-        #region color
-        public string ItemColorName
-        {
-            get => colorname;
-            set
-            {
-                if (colorname != value)
-                {
-                    colorname = value;
-                    OnPropertyChange(); /*OnPropertyChange(nameof(IsButtonEnabled));*/
-                    ItemColorId = GetColorIdFromName(value);
-                }
-            }
-        }
-        public int ItemColorId
-        {
-            get => colorid;
-            set
-            {
-                if (colorid != value)
-                {
-                    colorid = value;
-                    // Add logic to set colorname based on colorid, similar to other properties
-                    OnPropertyChange();
-                }
-            }
-        }
-
-        //public ColorItem ItemColor
-        //{ get => color;
-        //set
-        //    {
-
-        //        if (color != value)
-        //        {
-        //            color.ColorName = colorname;
-        //            color.ColorItemId = colorid;
-        //            color = value;
-        //            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
-        //        }
-        //    }
-        //     }
-        #endregion
-        #endregion
-        #endregion
-        #region פעולות עזר
-        private int GetGenderIdFromName(string name)
-        {
-            // Implement logic to map gender name to id
-            // For example:
-            switch (name.ToLower())
-            {
-                case "men":
-                    return 1;
-                case "women":
-                    return 2;
-                default:
-                    return 0; // Default value or handle invalid name
-            }
-        }
-
-        private int GetCategoryIdFromName(string name)
-        {
-            // Implement logic to map category name to id
-            // For example:
-            switch (name.ToLower())
-            {
-                case "leotards":
-                    return 1;
-                case "danceshoes":
-                    return 2;
-                case "accessories":
-                    return 3;
-                case "danceclothes":
-                    return 4;
-                default:
-                    return 0; // Default value or handle invalid name
-            }
-        }
-
         public async Task GetSetUpData()
         {
             try
@@ -343,70 +131,286 @@ namespace OnlineDanceStore.ViewModels
             catch (Exception ex)
             { await Shell.Current.DisplayAlert("something went wrong", "Unable to get setup Data", "Ok"); }
         }
-        private int GetSizeIdFromName(string name)
-        {
-            // Implement logic to map size name to id
-            // For example:
-            switch (name.ToLower())
-            {
-                case "small":
-                    return 1;
-                case "medium":
-                    return 2;
-                case "large":
-                    return 3;
-                case "35":
-                    return 4;
-                case "36":
-                    return 5;
-                case "37":
-                    return 6;
-                case "38":
-                    return 7;
-                case "39":
-                    return 8;
-                case "40":
-                    return 9;
-                case "41":
-                    return 10;
-                case "42":
-                    return 11;
-                case "43":
-                    return 12;
-                case "44":
-                    return 13;
-                default:
-                    return 0; // Default value or handle invalid name
-            }
-        }
-
-        private int GetColorIdFromName(string name)
-        {
-            // Implement logic to map color name to id
-            // For example:
-            switch (name.ToLower())
-            {
-                case "black":
-                    return 1;
-                case "white":
-                    return 2;
-                case "maroon":
-                    return 3;
-                case "deepblue":
-                    return 4;
-                case "olive":
-                    return 5;
-                case "babypink":
-                    return 6;
-                case "lightpurple":
-                    return 7;
-                case "lightblue":
-                    return 8;
-                default:
-                    return 0; // Default value or handle invalid name
-            }
-        }
         #endregion
+        //#region מיוחדים
+        ////#region category
+        ////public string ItemCategoryName
+        ////{
+        ////    get => categoriesname;
+        ////    set
+        ////    {
+        ////        if (categoriesname != value)
+        ////        {
+        ////            categoriesname = value;
+        ////            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        ////            ItemCategoryId = GetCategoryIdFromName(categoriesname);
+        ////            //ItemCategory = GetCategory(categoriesid, categoriesname);
+        ////        }
+        ////    }
+        ////}
+        ////public int ItemCategoryId
+        ////{
+        ////    get => categoriesid;
+        ////    set
+        ////    {
+        ////        if (categoriesid != value)
+        ////        {
+        ////            categoriesid = value;
+        ////            OnPropertyChange();
+        ////        }
+        ////    }
+        ////}
+
+        //////public Categories ItemCategory
+        //////{
+
+        //////    get => categories;
+        //////    set
+        //////    {
+
+        //////        if (categories != value)
+        //////        {
+        //////            {
+        //////                categories = new Categories();
+        //////                categories.CategoryId = categoriesid;
+        //////                categories.CategoriesName = categoriesname;
+        //////            }
+        //////            categories = value;
+        //////            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        //////        }
+        //////    }
+        //////}
+
+        ////#endregion
+        //#region gender
+        //public string ItemGenderName
+        //{
+        //    get => gendername;
+        //    set
+        //    {
+        //        if (gendername != value)
+        //        {
+        //            gendername = value;
+        //            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        //            ItemGenderId = GetGenderIdFromName(value);
+        //        }
+        //    }
+        //}
+        //public int ItemGenderId
+        //{
+        //    get => genderid;
+        //    set
+        //    {
+        //        if (genderid != value)
+        //        {
+        //            genderid = value;
+        //            OnPropertyChange();
+        //        }
+        //    }
+        //}
+
+        ////public Gender ItemGender
+        ////{
+        ////    get => gender; set
+        ////    {
+
+        ////        if (gender != value)
+        ////        {
+        ////            { gender.GenderId = genderid; gender.GenderName = gendername; }
+        ////            gender = value;
+        ////            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        ////        }
+        ////    }
+        ////}
+        //#endregion
+        //#region size
+        //public string ItemSizeName
+        //{
+        //    get => sizename;
+        //    set
+        //    {
+        //        if (sizename != value)
+        //        {
+        //            sizename = value;
+        //            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        //            ItemSizeId = GetSizeIdFromName(value);
+        //        }
+        //    }
+        //}
+        //public int ItemSizeId
+        //{
+        //    get => sizeid;
+        //    set
+        //    {
+        //        if (sizeid != value)
+        //        {
+        //            sizeid = value;
+        //            /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        //            OnPropertyChange();
+        //        }
+        //    }
+        //}
+
+
+        ////public SizeItem ItemSize
+        ////{
+        ////    get => size;
+        ////    set
+        ////    {
+
+        ////        if (size != value)
+        ////        {
+        ////            size.SizeItemId = sizeid;
+        ////            size.SizeName = sizename;
+        ////            size = value;
+        ////            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        ////        }
+        ////    }
+        ////}
+        //#endregion
+        //#region color
+        //public string ItemColorName
+        //{
+        //    get => colorname;
+        //    set
+        //    {
+        //        if (colorname != value)
+        //        {
+        //            colorname = value;
+        //            OnPropertyChange(); /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        //            ItemColorId = GetColorIdFromName(value);
+        //        }
+        //    }
+        //}
+        //public int ItemColorId
+        //{
+        //    get => colorid;
+        //    set
+        //    {
+        //        if (colorid != value)
+        //        {
+        //            colorid = value;
+        //            // Add logic to set colorname based on colorid, similar to other properties
+        //            OnPropertyChange();
+        //        }
+        //    }
+        //}
+
+        ////public ColorItem ItemColor
+        ////{ get => color;
+        ////set
+        ////    {
+
+        ////        if (color != value)
+        ////        {
+        ////            color.ColorName = colorname;
+        ////            color.ColorItemId = colorid;
+        ////            color = value;
+        ////            OnPropertyChange();  /*OnPropertyChange(nameof(IsButtonEnabled));*/
+        ////        }
+        ////    }
+        ////     }
+        //#endregion
+        //#endregion
+        #endregion
+        //#region פעולות עזר
+        //private int GetGenderIdFromName(string name)
+        //{
+        //    // Implement logic to map gender name to id
+        //    // For example:
+        //    switch (name.ToLower())
+        //    {
+        //        case "men":
+        //            return 1;
+        //        case "women":
+        //            return 2;
+        //        default:
+        //            return 0; // Default value or handle invalid name
+        //    }
+        //}
+
+        //private int GetCategoryIdFromName(string name)
+        //{
+        //    // Implement logic to map category name to id
+        //    // For example:
+        //    switch (name.ToLower())
+        //    {
+        //        case "leotards":
+        //            return 1;
+        //        case "danceshoes":
+        //            return 2;
+        //        case "accessories":
+        //            return 3;
+        //        case "danceclothes":
+        //            return 4;
+        //        default:
+        //            return 0; // Default value or handle invalid name
+        //    }
+        //}
+        //private int GetSizeIdFromName(string name)
+        //{
+        //    // Implement logic to map size name to id
+        //    // For example:
+        //    switch (name.ToLower())
+        //    {
+        //        case "small":
+        //            return 1;
+        //        case "medium":
+        //            return 2;
+        //        case "large":
+        //            return 3;
+        //        case "35":
+        //            return 4;
+        //        case "36":
+        //            return 5;
+        //        case "37":
+        //            return 6;
+        //        case "38":
+        //            return 7;
+        //        case "39":
+        //            return 8;
+        //        case "40":
+        //            return 9;
+        //        case "41":
+        //            return 10;
+        //        case "42":
+        //            return 11;
+        //        case "43":
+        //            return 12;
+        //        case "44":
+        //            return 13;
+        //        default:
+        //            return 0; // Default value or handle invalid name
+        //    }
+        //}
+
+        //private int GetColorIdFromName(string name)
+        //{
+        //    // Implement logic to map color name to id
+        //    // For example:
+        //    switch (name.ToLower())
+        //    {
+        //        case "black":
+        //            return 1;
+        //        case "white":
+        //            return 2;
+        //        case "maroon":
+        //            return 3;
+        //        case "deepblue":
+        //            return 4;
+        //        case "olive":
+        //            return 5;
+        //        case "babypink":
+        //            return 6;
+        //        case "lightpurple":
+        //            return 7;
+        //        case "lightblue":
+        //            return 8;
+        //        default:
+        //            return 0; // Default value or handle invalid name
+        //    }
+        //}
+        //#endregion
 
         private readonly OnlineDanceStoreServices _service;
         public ICommand NewItemCommand { get; protected set; }
@@ -426,29 +430,26 @@ namespace OnlineDanceStore.ViewModels
             _service = service;
             itemname = string.Empty;
             description = string.Empty;
-            categoriesname = string.Empty;
-            gendername = string.Empty;
-            sizename = string.Empty;
-            colorname = string.Empty;
             image = string.Empty;
 
             UploadPhoto = new Command(async () => { await Shell.Current.DisplayAlert("g", "g", "ok"); });
             TakePictureCommand = new Command(TakePicture);
             ChangePhoto = new Command(TakePicture);
 
-            SetUpDataCommand = new Command(async () =>
-            {
-                try
-                {
-                    SetUpData = await _service.GetSetUpData();
-                    categories = new ObservableCollection<Categories>(SetUpData.Categories);
-                    subCategories = new ObservableCollection<SubCategory>(SetUpData.SubCategories);
-                    colors = new ObservableCollection<ColorItem>(SetUpData.ColorItems);
-                    sizeitem = new ObservableCollection<SizeItem>(SetUpData.SizeItems);
-                    gender = new ObservableCollection<Gender>(SetUpData.Genders);
-                }
-                catch (Exception ex) { }
-            });
+    
+            //SetUpDataCommand = new Command(async () =>
+            //{
+            //    try
+            //    {
+            //        SetUpData = await _service.GetSetUpData();
+            //        categories = new ObservableCollection<Categories>(SetUpData.Categories);
+            //        subCategories = new ObservableCollection<SubCategory>(SetUpData.SubCategories);
+            //        colors = new ObservableCollection<ColorItem>(SetUpData.ColorItems);
+            //        sizeitem = new ObservableCollection<SizeItem>(SetUpData.SizeItems);
+            //        gender = new ObservableCollection<Gender>(SetUpData.Genders);
+            //    }
+            //    catch (Exception ex) { }
+            //});
            
           
           
@@ -462,34 +463,19 @@ namespace OnlineDanceStore.ViewModels
                     //await AppShell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
                     //#endregion
 
-                    Categories category = new Categories();
-                    {
-                        category.CategoryId = categoriesid;
-                        category.CategoriesName = categoriesname;}
-
-                    Gender gender = new Gender();
-                    { gender.GenderId = genderid; gender.GenderName = gendername; }
-
-                    SizeItem size= new SizeItem();
-                    {
-                        size.SizeItemId = sizeid;
-                        size.SizeName = sizename;}
-
-                    ColorItem color= new ColorItem();
-                    {
-                        color.ColorName = colorname;
-                       color.ColorItemId = colorid;}
+             
 
                          NewItem = new Item();
                     { NewItem.ItemName = itemname;
                         NewItem.ItemDescription = description;
-                        NewItem.Categories = category;
+                        NewItem.Categories = newCategory;
+                        NewItem.SubCategory= newSubCategory;
                         NewItem.Quantity = quantity;
                         NewItem.Price = price;
                         NewItem.ItemImage = image;
-                        NewItem.Gender = gender;
-                        NewItem.SizeItem = size;
-                        NewItem.ColorItem = color;
+                        NewItem.Gender = newGender;
+                        NewItem.SizeItem = newSize;
+                        NewItem.ColorItem = newColor;
                 }
                     await Upload(photo);
                

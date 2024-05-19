@@ -46,12 +46,12 @@ public static class MauiProgram
 		builder.Services.AddSingleton<DancingShoes> (); 
 		builder.Services.AddSingleton<PopUpPage> (); 
 		builder.Services.AddSingleton<AdminPage> (); 
-		builder.Services.AddSingleton<AdminPageViewModel> (); 
+		builder.Services.AddSingleton<AdminPageViewModel> ();
 		//
 
 
-        
 
+		
 
 
         return builder.Build();

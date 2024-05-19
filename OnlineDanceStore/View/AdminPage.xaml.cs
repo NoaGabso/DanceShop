@@ -11,4 +11,10 @@ public partial class AdminPage : ContentPage
 
         InitializeComponent();
 	}
+      protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+       AdminPageViewModel vm = (AdminPageViewModel)BindingContext;
+        await vm.GetSetUpData();
+    }
 }

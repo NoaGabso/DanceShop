@@ -41,13 +41,17 @@
             Grid.ColumnSpan="2"
             Margin="4">
             <StackLayout>
-                <!--<Picker  Title="Select a Category"
-     ItemsSource="{Binding Categories}"
-     x:DataType="models:Categories"
-     ItemDisplayBinding="{Binding CategoriesName}">
-
-                </Picker>-->
-                <!--<Label
+                <Picker Title="Select a Category"
+        ItemsSource="{Binding Categories1}"
+        SelectedItem="{Binding newCategory}"
+                        ItemDisplayBinding="{Binding CategoriesName}">
+                </Picker>
+                <Picker Title="Select a Color"
+ItemsSource="{Binding SubCategories1}"
+SelectedItem="{Binding newSubCategory}"
+                ItemDisplayBinding="{Binding ColorName}">
+                </Picker>
+                <Label
                     FontAttributes="Italic"
                     FontFamily="OpenSansRegular"
                     FontSize="18"
@@ -56,7 +60,7 @@
                 <Entry
                     BackgroundColor="AliceBlue"
                     Placeholder="please enter item name"
-                    Text="{Binding ItemName}" />-->
+                    Text="{Binding ItemName}" />
 
                 <Label
                     FontAttributes="Italic"
@@ -76,12 +80,12 @@
                     Text=" Category"
                     TextColor="#684200" />
 
-                <Entry
+                <!--<Entry
                     BackgroundColor="AliceBlue"
                     Placeholder="please enter category"
-                    Text="{Binding ItemCategoryName}" />
+                    Text="{Binding ItemCategoryName}" />-->
 
-                <Label
+                <!--<Label
                     FontAttributes="Italic"
                     FontFamily="OpenSansRegular"
                     FontSize="18"
@@ -147,7 +151,7 @@
                     FontFamily="OpenSansRegular"
                     FontSize="18"
                     Text=" Image"
-                    TextColor="#684200" />
+                    TextColor="#684200" />-->
 
                 <Image
             Aspect="AspectFit"
