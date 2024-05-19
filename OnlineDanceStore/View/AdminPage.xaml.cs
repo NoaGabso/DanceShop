@@ -6,15 +6,14 @@ namespace OnlineDanceStore.View;
 public partial class AdminPage : ContentPage
 {
     public AdminPage(AdminPageViewModel vm)
-	{
-        this.BindingContext = vm;
-
-        InitializeComponent();
-	}
-      protected override async void OnAppearing()
     {
-        base.OnAppearing();
-       AdminPageViewModel vm = (AdminPageViewModel)BindingContext;
+        InitializeComponent();
+        BindingContext = vm;
+        InitializeAsync(vm);
+    }
+
+    private async Task InitializeAsync(AdminPageViewModel vm) // Changed from void to Task
+    {
         await vm.GetSetUpData();
     }
 }

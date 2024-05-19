@@ -463,9 +463,9 @@ namespace OnlineDanceStore.ViewModels
                     //await AppShell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
                     //#endregion
 
-             
+                   
 
-                         NewItem = new Item();
+                    NewItem = new Item();
                     { NewItem.ItemName = itemname;
                         NewItem.ItemDescription = description;
                         NewItem.Categories = newCategory;

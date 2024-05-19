@@ -11,7 +11,7 @@
     <Grid
         BackgroundColor="#FBEAE6"
         ColumnDefinitions="*,*"
-        RowDefinitions="3*,30*">
+        RowDefinitions="5*,20*">
 
         <Border
             Grid.Row="0"
@@ -38,19 +38,12 @@
 
         <Border
             Grid.Row="1"
+            Grid.RowSpan="2"
             Grid.ColumnSpan="2"
             Margin="4">
             <StackLayout>
-                <Picker Title="Select a Category"
-        ItemsSource="{Binding Categories1}"
-        SelectedItem="{Binding newCategory}"
-                        ItemDisplayBinding="{Binding CategoriesName}">
-                </Picker>
-                <Picker Title="Select a Color"
-ItemsSource="{Binding SubCategories1}"
-SelectedItem="{Binding newSubCategory}"
-                ItemDisplayBinding="{Binding ColorName}">
-                </Picker>
+               
+              
                 <Label
                     FontAttributes="Italic"
                     FontFamily="OpenSansRegular"
@@ -73,12 +66,40 @@ SelectedItem="{Binding newSubCategory}"
                     Placeholder="please enter the description"
                     Text="{Binding ItemDescription}" />
 
-                <Label
-                    FontAttributes="Italic"
-                    FontFamily="OpenSansRegular"
-                    FontSize="18"
-                    Text=" Category"
-                    TextColor="#684200" />
+                <Picker BackgroundColor="AliceBlue " 
+                        Title="Select a Category"
+ItemsSource="{Binding Categories1}"
+SelectedItem="{Binding newCategory}"
+                ItemDisplayBinding="{Binding CategoriesName}">
+                </Picker>
+                <Picker BackgroundColor="AliceBlue " 
+                        Title="Select a SubCategory"
+ItemsSource="{Binding SubCategories1}"
+SelectedItem="{Binding SubCategories1}"
+                ItemDisplayBinding="{Binding SubCategoriesName}">
+                    
+                </Picker>
+
+                <Picker BackgroundColor="AliceBlue"
+                    Title="Select a Color"
+ItemsSource="{Binding ColorItems1}"
+SelectedItem="{Binding newSubCategory}"
+                ItemDisplayBinding="{Binding ColorName}">
+                </Picker>
+
+                <Picker BackgroundColor="AliceBlue"
+                    Title="Select a Size"
+ItemsSource="{Binding SizeItems1}"
+SelectedItem="{Binding newSize}"
+                ItemDisplayBinding="{Binding SizeName}">
+                </Picker>
+
+                <Picker BackgroundColor="AliceBlue"
+                    Title="Select a Gender"
+ItemsSource="{Binding Genders1}"
+SelectedItem="{Binding newGender}"
+                ItemDisplayBinding="{Binding Genders1}">
+                </Picker>
 
                 <!--<Entry
                     BackgroundColor="AliceBlue"
@@ -152,12 +173,13 @@ SelectedItem="{Binding newSubCategory}"
                     FontSize="18"
                     Text=" Image"
                     TextColor="#684200" />-->
-
+              
                 <Image
             Aspect="AspectFit"
-            HeightRequest="20"
+      Margin="6"
             Source="{Binding PhotoImageSource}"
-            WidthRequest="80">
+            WidthRequest="120"
+                    HeightRequest="120">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Buttons="Primary" Command="{Binding ChangePhoto}" />
                     </Image.GestureRecognizers>
@@ -165,7 +187,7 @@ SelectedItem="{Binding newSubCategory}"
 
                 <Button Command="{Binding TakePictureCommand}" Text="צלם תמונה" />
 
-               
+
 
 
             </StackLayout>
