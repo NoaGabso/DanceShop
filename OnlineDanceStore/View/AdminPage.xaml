@@ -41,7 +41,13 @@
             Grid.ColumnSpan="2"
             Margin="4">
             <StackLayout>
-                <Label
+                <!--<Picker  Title="Select a Category"
+     ItemsSource="{Binding Categories}"
+     x:DataType="models:Categories"
+     ItemDisplayBinding="{Binding CategoriesName}">
+
+                </Picker>-->
+                <!--<Label
                     FontAttributes="Italic"
                     FontFamily="OpenSansRegular"
                     FontSize="18"
@@ -50,7 +56,7 @@
                 <Entry
                     BackgroundColor="AliceBlue"
                     Placeholder="please enter item name"
-                    Text="{Binding ItemName}" />
+                    Text="{Binding ItemName}" />-->
 
                 <Label
                     FontAttributes="Italic"
@@ -155,7 +161,7 @@
 
                 <Button Command="{Binding TakePictureCommand}" Text="צלם תמונה" />
 
-                
+               
 
 
             </StackLayout>
