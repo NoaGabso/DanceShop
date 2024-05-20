@@ -120,11 +120,11 @@ namespace OnlineDanceStore.ViewModels
             try
             {
                 var setup = await _service.GetSetUpData();
-                categories = new ObservableCollection<Categories>(setup.Categories);
-                subCategories = new ObservableCollection<SubCategory>(setup.SubCategories);
-                colors = new ObservableCollection<ColorItem>(setup.ColorItems);
-                sizeitem = new ObservableCollection<SizeItem>(setup.SizeItems);
-                gender = new ObservableCollection<Gender>(setup.Genders);
+                Categories1 = new ObservableCollection<Categories>(setup.Categories);
+               SubCategories1 = new ObservableCollection<SubCategory>(setup.SubCategories);
+                ColorItems1 = new ObservableCollection<ColorItem>(setup.ColorItems);
+                SizeItems1 = new ObservableCollection<SizeItem>(setup.SizeItems);
+                Genders1 = new ObservableCollection<Gender>(setup.Genders);
                 //להכניס לאובסרבסל
 
             }
@@ -437,23 +437,7 @@ namespace OnlineDanceStore.ViewModels
             ChangePhoto = new Command(TakePicture);
 
     
-            //SetUpDataCommand = new Command(async () =>
-            //{
-            //    try
-            //    {
-            //        SetUpData = await _service.GetSetUpData();
-            //        categories = new ObservableCollection<Categories>(SetUpData.Categories);
-            //        subCategories = new ObservableCollection<SubCategory>(SetUpData.SubCategories);
-            //        colors = new ObservableCollection<ColorItem>(SetUpData.ColorItems);
-            //        sizeitem = new ObservableCollection<SizeItem>(SetUpData.SizeItems);
-            //        gender = new ObservableCollection<Gender>(SetUpData.Genders);
-            //    }
-            //    catch (Exception ex) { }
-            //});
-           
-          
-          
-
+            
             NewItemCommand = new Command(async () =>
             {
                 try

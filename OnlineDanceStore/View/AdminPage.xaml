@@ -15,26 +15,31 @@
 
         <Border
             Grid.Row="0"
-          Grid.ColumnSpan="2"
+            Grid.ColumnSpan="2"
             Margin="4">
-            <Grid RowDefinitions="*" ColumnDefinitions="*,*"  BackgroundColor="#FBEAE6" >
-                <Label 
-                FontFamily="mayafont"
-                FontSize="23"
-                    VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Text="Add An Item"
-                TextColor="#684200" />
-                <Button Grid.Row="0" Grid.Column="1"
-                Margin="7,7"
-                BorderWidth="4"
-                Command="{Binding NewItemCommand}"
-                FontFamily="OpenSansRegular"
-                Text="Enter"
-                TextColor="Pink"
-                VerticalOptions="Center" />
-    </Grid>
-    </Border>
+            <Grid
+                BackgroundColor="#FBEAE6"
+                ColumnDefinitions="*,*"
+                RowDefinitions="*">
+                <Label
+                    FontFamily="mayafont"
+                    FontSize="23"
+                    HorizontalOptions="Center"
+                    Text="Add An Item"
+                    TextColor="#684200"
+                    VerticalOptions="Center" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="7,7"
+                    BorderWidth="4"
+                    Command="{Binding NewItemCommand}"
+                    FontFamily="OpenSansRegular"
+                    Text="Enter"
+                    TextColor="Pink"
+                    VerticalOptions="Center" />
+            </Grid>
+        </Border>
 
         <Border
             Grid.Row="1"
@@ -42,8 +47,8 @@
             Grid.ColumnSpan="2"
             Margin="4">
             <StackLayout>
-               
-              
+
+
                 <Label
                     FontAttributes="Italic"
                     FontFamily="OpenSansRegular"
@@ -66,40 +71,40 @@
                     Placeholder="please enter the description"
                     Text="{Binding ItemDescription}" />
 
-                <Picker BackgroundColor="AliceBlue " 
-                        Title="Select a Category"
-ItemsSource="{Binding Categories1}"
-SelectedItem="{Binding newCategory}"
-                ItemDisplayBinding="{Binding CategoriesName}">
-                </Picker>
-                <Picker BackgroundColor="AliceBlue " 
-                        Title="Select a SubCategory"
-ItemsSource="{Binding SubCategories1}"
-SelectedItem="{Binding SubCategories1}"
-                ItemDisplayBinding="{Binding SubCategoriesName}">
+                <Picker
+                    Title="Select a Category"
                     
-                </Picker>
+                    BackgroundColor="AliceBlue "
+                    ItemDisplayBinding="{Binding CategoriesName}"
+                    ItemsSource="{Binding Categories1}"
+                    SelectedItem="{Binding newCategory}" />
+                <Picker
+                    Title="Select a SubCategory"
+                    BackgroundColor="AliceBlue "
+                    ItemDisplayBinding="{Binding SubCategoriesName}"
+                    ItemsSource="{Binding SubCategories1}"
+                    SelectedItem="{Binding newSubCategory}" />
 
-                <Picker BackgroundColor="AliceBlue"
+                <Picker
                     Title="Select a Color"
-ItemsSource="{Binding ColorItems1}"
-SelectedItem="{Binding newSubCategory}"
-                ItemDisplayBinding="{Binding ColorName}">
-                </Picker>
+                    BackgroundColor="AliceBlue"
+                    ItemDisplayBinding="{Binding ColorName}"
+                    ItemsSource="{Binding ColorItems1}"
+                    SelectedItem="{Binding newColor}" />
 
-                <Picker BackgroundColor="AliceBlue"
+                <Picker
                     Title="Select a Size"
-ItemsSource="{Binding SizeItems1}"
-SelectedItem="{Binding newSize}"
-                ItemDisplayBinding="{Binding SizeName}">
-                </Picker>
+                    BackgroundColor="AliceBlue"
+                    ItemDisplayBinding="{Binding SizeName}"
+                    ItemsSource="{Binding SizeItems1}"
+                    SelectedItem="{Binding newSize}" />
 
-                <Picker BackgroundColor="AliceBlue"
+                <Picker
                     Title="Select a Gender"
-ItemsSource="{Binding Genders1}"
-SelectedItem="{Binding newGender}"
-                ItemDisplayBinding="{Binding Genders1}">
-                </Picker>
+                    BackgroundColor="AliceBlue"
+                    ItemDisplayBinding="{Binding Genders1}"
+                    ItemsSource="{Binding Genders1}"
+                    SelectedItem="{Binding newGender}" />
 
                 <!--<Entry
                     BackgroundColor="AliceBlue"
@@ -173,13 +178,13 @@ SelectedItem="{Binding newGender}"
                     FontSize="18"
                     Text=" Image"
                     TextColor="#684200" />-->
-              
+
                 <Image
-            Aspect="AspectFit"
-      Margin="6"
-            Source="{Binding PhotoImageSource}"
-            WidthRequest="120"
-                    HeightRequest="120">
+                    Margin="6"
+                    Aspect="AspectFit"
+                    HeightRequest="120"
+                    Source="{Binding PhotoImageSource}"
+                    WidthRequest="120">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Buttons="Primary" Command="{Binding ChangePhoto}" />
                     </Image.GestureRecognizers>

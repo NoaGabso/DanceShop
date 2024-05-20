@@ -12,8 +12,14 @@ public partial class AdminPage : ContentPage
         InitializeAsync(vm);
     }
 
-    private async Task InitializeAsync(AdminPageViewModel vm) // Changed from void to Task
+    private async Task InitializeAsync(AdminPageViewModel vm)
     {
         await vm.GetSetUpData();
     }
+    //protected override async void OnAppearing()
+    //{
+    //    base.OnAppearing();
+    //    AdminPageViewModel vm = (AdminPageViewModel)BindingContext;
+    //    vm.GetSetUpData();
+    //}
 }
