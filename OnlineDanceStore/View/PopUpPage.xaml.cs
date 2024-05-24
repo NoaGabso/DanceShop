@@ -12,7 +12,7 @@ public partial class PopUpPage:Popup
         ImagePath = image;
 
         InitializeComponent();
-
+        
         BindingContext = this;
     }
     public async Task ShowAsync()
