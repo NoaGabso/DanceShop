@@ -10,11 +10,13 @@ public partial class AdminPage : ContentPage
         InitializeComponent();
         BindingContext = vm;
         InitializeAsync(vm);
+        ButtonClickedHandler(vm);
     }
 
     private async Task InitializeAsync(AdminPageViewModel vm)
     {
         await vm.GetSetUpData();
+
     }
 
 
