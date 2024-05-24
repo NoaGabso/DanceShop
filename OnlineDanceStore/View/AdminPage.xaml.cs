@@ -12,10 +12,11 @@ public partial class AdminPage : ContentPage
         InitializeAsync(vm);
     }
 
-    private async Task InitializeAsync(AdminPageViewModel vm) // Changed from void to Task
+    private async Task InitializeAsync(AdminPageViewModel vm)
     {
         await vm.GetSetUpData();
     }
+
 
     private async Task OnButtonClickedAsync(AdminPageViewModel vm)
     {
@@ -37,4 +38,5 @@ public partial class AdminPage : ContentPage
     {
         await OnButtonClickedAsync(vm);
     }
+
 }
