@@ -208,7 +208,7 @@ namespace OnlineDanceStore.ViewModels
                 //     else
                 //{
                 //    await AppShell.Current.DisplayAlert("הוסף", "אישור הכנסת מוצר", "אישור");
-                //    //  await SecureStorage.Default.SetAsync("RegistedUser", JsonSerializer.Serialize(u.User));
+                //   
 
                 //}
 
