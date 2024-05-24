@@ -19,6 +19,7 @@ public partial class AdminPage : ContentPage
 
 
 
+
     private async Task OnButtonClickedAsync(AdminPageViewModel vm)
     {
         string imagePath = await vm.ShowImageAsync();
