@@ -10,17 +10,15 @@ public partial class AdminPage : ContentPage
         InitializeComponent();
         BindingContext = vm;
         InitializeAsync(vm);
-        ButtonClickedHandler(vm);
+        
     }
 
     private async Task InitializeAsync(AdminPageViewModel vm)
     {
         await vm.GetSetUpData();
+        await OnButtonClickedAsync(vm);
 
     }
-
-
-
 
     private async Task OnButtonClickedAsync(AdminPageViewModel vm)
     {
@@ -32,15 +30,10 @@ public partial class AdminPage : ContentPage
         }
         else
         {
-            Console.WriteLine("Image source is not available");
+            await DisplayAlert("Error", "Image source is not available", "OK");
             // כאן ניתן לכלול טיפול במקרה שהתמונה לא זמינה
         }
     }
 
-    // דוגמה לקריאה למתודה האסינכרונית (למשל באירוע לחיצה על כפתור)
-    public async Task ButtonClickedHandler(AdminPageViewModel vm)
-    {
-        await OnButtonClickedAsync(vm);
-    }
-
+   
 }
