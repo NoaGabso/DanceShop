@@ -16,24 +16,23 @@ public partial class AdminPage : ContentPage
     private async Task InitializeAsync(AdminPageViewModel vm)
     {
         await vm.GetSetUpData();
-        await OnButtonClickedAsync(vm);
+     //   await OnButtonClickedAsync(vm);
 
     }
 
-    private async Task OnButtonClickedAsync(AdminPageViewModel vm)
-    {
-        string imagePath = await vm.ShowImageAsync();
-        if (!string.IsNullOrEmpty(imagePath))
-        {
-            PopUpPage popup = new PopUpPage(imagePath);
-            await popup.ShowAsync();
-        }
-        else
-        {
-            await DisplayAlert("Error", "Image source is not available", "OK");
-            // כאן ניתן לכלול טיפול במקרה שהתמונה לא זמינה
-        }
-    }
-
+    //private async Task OnButtonClickedAsync(AdminPageViewModel vm)
+    //{
+    //    string imagePath = await vm.ShowImageAsync();
+    //    if (!string.IsNullOrEmpty(imagePath))
+    //    {
+    //        PopUpPage popup = new PopUpPage(imagePath);
+    //        await popup.ShowAsync();
+    //    }
+    //    else
+    //    {
+    //        await DisplayAlert("Error", "Image source is not available", "OK");
+    //        // כאן ניתן לכלול טיפול במקרה שהתמונה לא זמינה
+    //    }
+    //}
    
 }
