@@ -34,7 +34,6 @@
                     Margin="7,7"
                     BorderWidth="4"
                     Command="{Binding NewItemCommand}"
-                    Clicked="OnButtonClicked"
                     FontFamily="OpenSansRegular"
                     Text="Enter"
                     TextColor="Pink"
