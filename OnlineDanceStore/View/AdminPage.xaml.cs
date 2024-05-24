@@ -16,7 +16,7 @@ public partial class AdminPage : ContentPage
     private async Task InitializeAsync(AdminPageViewModel vm)
     {
         await vm.GetSetUpData();
-     // await OnButtonClickedAsync(vm);
+        await OnButtonClickedAsync(vm);
 
     }
 
