@@ -42,7 +42,7 @@ namespace OnlineDanceStore.ViewModels
         private ObservableCollection<ColorItem> colors;
         private ObservableCollection<SizeItem> sizeitem;
         private ObservableCollection<Gender> gender;
-      
+        private string imagepath;
 
         private FileResult photo;
         public string ImageLocation { get => image; set { if (value != image) { image = value; OnPropertyChange(); } } }
@@ -458,12 +458,12 @@ namespace OnlineDanceStore.ViewModels
             {
                 try
                 {
-                    //#region טעינת מסך ביניים
-                    //var lvm = new LoadingPageViewModel() { IsBusy = true };
-                    //await AppShell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
-                    //#endregion
+                    #region טעינת מסך ביניים
+                    var lvm = new LoadingPageViewModel() { IsBusy = true };
+                    await AppShell.Current.Navigation.PushModalAsync(new LoadingPage(lvm));
+                    #endregion
 
-                   
+
 
                     NewItem = new Item();
                     { NewItem.ItemName = itemname;
@@ -478,23 +478,40 @@ namespace OnlineDanceStore.ViewModels
                         NewItem.ColorItem = newColor;
                 }
                     await Upload(photo);
-               
+                    var it = await _service.UploadFile( photo, NewItem);
+                    lvm.IsBusy = false;
+
+                    if (it==null)
+                    {
+                       await Shell.Current.DisplayAlert("לא נתמך", "המוצר לא הועלה", "אישור");
+                    }
+                    else
+                    {
+                        await AppShell.Current.DisplayAlert("הוסף", "אישור הכנסת מוצר", "אישור");
+                        imagepath = it.ItemImage;
+                        if (!string.IsNullOrEmpty(imagepath))
+                        {
+                            await ShowImageAsync();
+                        }
+
+                    }
+
                 }
-                // //var it = await _service.NewItem(item,photo);
+                //    var it = await _service.NewItem(item,photo);
 
-                // lvm.IsBusy = false;
-                // await Shell.Current.Navigation.PopModalAsync();
+                //lvm.IsBusy = false;
+                //await Shell.Current.Navigation.PopModalAsync();
                 //// if (!it.Success)
-                // {
-                //     //ShowRegisterError = true;
-                //     //RegisterErrorMessage = u.Message;
-                // }
-                // else
-                // {
-                //     await AppShell.Current.DisplayAlert("הוסף", "אישור הכנסת מוצר", "אישור");
-                //   //  await SecureStorage.Default.SetAsync("RegistedUser", JsonSerializer.Serialize(u.User));
+                //{
+                //    //ShowRegisterError = true;
+                //    //RegisterErrorMessage = u.Message;
+                //}
+                //     else
+                //{
+                //    await AppShell.Current.DisplayAlert("הוסף", "אישור הכנסת מוצר", "אישור");
+                //    //  await SecureStorage.Default.SetAsync("RegistedUser", JsonSerializer.Serialize(u.User));
 
-                // }
+                //}
 
                 catch (Exception ex)
                 {
@@ -506,6 +523,13 @@ namespace OnlineDanceStore.ViewModels
 
 
             });
+        }
+        public async Task<string> ShowImageAsync()
+        {
+            // כאן תכלול את הלוגיקה למציאת והחזרת נתיב התמונה
+            // נניח שהשיטה הזו עושה עבודה כלשהי שהיא אסינכרונית
+            await Task.Delay(100); // סימולציה של פעולה אסינכרונית
+            return imagepath;
         }
         private async Task PickPhoto()
         {

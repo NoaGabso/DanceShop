@@ -16,4 +16,25 @@ public partial class AdminPage : ContentPage
     {
         await vm.GetSetUpData();
     }
+
+    private async Task OnButtonClickedAsync(AdminPageViewModel vm)
+    {
+        string imagePath = await vm.ShowImageAsync();
+        if (!string.IsNullOrEmpty(imagePath))
+        {
+            PopUpPage popup = new PopUpPage(imagePath);
+            await popup.ShowAsync();
+        }
+        else
+        {
+            Console.WriteLine("Image source is not available");
+            // כאן ניתן לכלול טיפול במקרה שהתמונה לא זמינה
+        }
+    }
+
+    // דוגמה לקריאה למתודה האסינכרונית (למשל באירוע לחיצה על כפתור)
+    public async Task ButtonClickedHandler(AdminPageViewModel vm)
+    {
+        await OnButtonClickedAsync(vm);
+    }
 }

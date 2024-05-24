@@ -170,7 +170,7 @@ namespace OnlineDanceStore.ViewModels
 
             GoToRegister = new Command(async () =>
             {
-                await AppShell.Current.GoToAsync("Register");
+                await AppShell.Current.GoToAsync("//Register");
             });
         }
         #region פעולות עזר

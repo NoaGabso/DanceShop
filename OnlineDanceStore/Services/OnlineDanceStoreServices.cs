@@ -243,25 +243,17 @@ namespace OnlineDanceStore.Services;
                     case (HttpStatusCode.OK):
                     case (HttpStatusCode.Created):
                         {
-
                             return true;
-
                         }
                     default:
                         {
                             Order o;
                             jsonContent = await response.Content.ReadAsStringAsync();
                             o = JsonSerializer.Deserialize<Order>(jsonContent, _serializerOptions);
-
-
-                            return false;
-                        }
-
+                            return false; }
                 }
-
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
-           
            throw new NotImplementedException();
         }
     public async Task<List<Order>> GetUserOrders(int userid)

@@ -210,7 +210,7 @@ namespace OnlineDanceStore.ViewModels
             });
             GoToLogin = new Command(async () =>
             {
-                await AppShell.Current.GoToAsync("Login");
+                await AppShell.Current.GoToAsync("//Login");
             });
         }
         #region פעולות עזר
