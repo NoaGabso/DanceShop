@@ -29,14 +29,7 @@ namespace OnlineDanceStore.ViewModels
         private Gender gender1;
         private SizeItem size1;
         private ColorItem color1;
-        //private int categoriesid;
-        //private string categoriesname
-        //private int genderid;
-        //private string gendername;
-        //private int sizeid;
-        //private string sizename;
-        //private int colorid;
-        //private string colorname;
+       
         private ObservableCollection<Categories> categories;
         private ObservableCollection<SubCategory> subCategories;
         private ObservableCollection<ColorItem> colors;
