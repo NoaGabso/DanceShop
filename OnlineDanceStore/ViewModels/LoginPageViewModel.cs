@@ -150,7 +150,7 @@ namespace OnlineDanceStore.ViewModels
                         await SecureStorage.Default.SetAsync("LoggedUser", JsonSerializer.Serialize(user.User));
                         IsVisible = true;
 
-                        await AppShell.Current.GoToAsync("HomePage");
+                        await AppShell.Current.GoToAsync("///HomePage");
 
                     }
 
@@ -170,7 +170,7 @@ namespace OnlineDanceStore.ViewModels
 
             GoToRegister = new Command(async () =>
             {
-                await AppShell.Current.GoToAsync("//Register");
+                await AppShell.Current.GoToAsync("Register");
             });
         }
         #region פעולות עזר

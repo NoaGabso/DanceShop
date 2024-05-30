@@ -192,7 +192,7 @@ namespace OnlineDanceStore.ViewModels
                         ((App)(Application.Current)).UserinApp = u.User;
                         await AppShell.Current.DisplayAlert("התחברת", "אישור כניסה לאתר", "אישור");
                         await SecureStorage.Default.SetAsync("LoggedUser", JsonSerializer.Serialize(u.User));
-                        await AppShell.Current.GoToAsync("HomePage");
+                        await AppShell.Current.GoToAsync("///HomePage");
                     }
 
 
@@ -210,7 +210,7 @@ namespace OnlineDanceStore.ViewModels
             });
             GoToLogin = new Command(async () =>
             {
-                await AppShell.Current.GoToAsync("//Login");
+                await AppShell.Current.GoToAsync("Login");
             });
         }
         #region פעולות עזר
