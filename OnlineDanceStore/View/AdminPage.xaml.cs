@@ -35,4 +35,10 @@ public partial class AdminPage : ContentPage
         }
     }
 
+    //protected override async void OnAppearing()
+    //{
+    //    base.OnAppearing();
+    //    AdminPageViewModel vm = (AdminPageViewModel)BindingContext;
+    //    vm.GetSetUpData();
+    //}
 }
