@@ -69,10 +69,21 @@
 
 
         </Tab>
+
+        
+            <ShellContent Icon="logout_icon_151219.png">
+                <ContentPage>
+                    <ContentPage.Content>
+                        <Button
+                    Text="Log Out"
+                   Clicked="LogOutClick"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End" />
+                    </ContentPage.Content>
+                </ContentPage>
+            </ShellContent>
+   
+
     </TabBar>
-
-  
-
-
 
 </Shell>

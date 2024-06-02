@@ -57,6 +57,7 @@
 	  <None Remove="Resources\Images\iconshome.png" />
 	  <None Remove="Resources\Images\iconsmagnifying_glass.png" />
 	  <None Remove="Resources\Images\iconsshopping_bag.png" />
+	  <None Remove="Resources\Images\logout_icon_151219.png" />
 	  <None Remove="Resources\Images\shopcartimage.png" />
 	  <None Remove="Resources\Raw\DancerVideo.mp4" />
 	  <None Remove="Resources\Raw\test_dancestore.mp4" />

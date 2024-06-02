@@ -153,7 +153,7 @@ namespace OnlineDanceStore.ViewModels
                         await AppShell.Current.GoToAsync("///HomePage");
 
                     }
-
+                    Password=string.Empty;
 
 
                 }

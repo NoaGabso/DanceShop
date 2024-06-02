@@ -37,10 +37,10 @@ namespace OnlineDanceStore.ViewModels
         #endregion
         public MainPageViewModel()
         {
-
+            ((App)(Application.Current)).UserinApp =null;
             //_service = service;
             //UserName = string.Empty;
-   
+
             RegisterCommand = new Command(async () =>
             {
                IsVisible = true;

@@ -2,6 +2,7 @@
 using OnlineDanceStore.View;
 using OnlineDanceStore.View.Categories;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace OnlineDanceStore;
 
@@ -10,7 +11,7 @@ public partial class AppShell : Shell, INotifyPropertyChanged
     private bool isAdmin;
     
     public event PropertyChangedEventHandler PropertyChanged;
-
+    public ICommand LogOutCommand {  get; private set; }
     public bool IsAdmin
     {
         get => isAdmin;
@@ -35,7 +36,8 @@ public partial class AppShell : Shell, INotifyPropertyChanged
         Routing.RegisterRoute("Register", typeof(RegisterPage));
         Routing.RegisterRoute("Login", typeof(LoginPage));
         IsAdmin = false;
-        
+        LogOutCommand = new Command(async () => await Shell.Current.GoToAsync("///MainPage"));
+
     }
 
     public void SetIsAdmin(bool userIsAdmin)
@@ -43,11 +45,20 @@ public partial class AppShell : Shell, INotifyPropertyChanged
         IsAdmin = userIsAdmin;
     }
 
+   private async void LogOutClick(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
+
     protected virtual void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }
 
 
