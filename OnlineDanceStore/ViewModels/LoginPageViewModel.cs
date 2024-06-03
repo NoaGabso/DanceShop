@@ -154,7 +154,7 @@ namespace OnlineDanceStore.ViewModels
 
                     }
                     Password=string.Empty;
-
+                    Email = string.Empty;
 
                 }
                 catch (Exception ex)

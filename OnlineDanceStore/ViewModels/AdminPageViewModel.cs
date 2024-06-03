@@ -215,6 +215,8 @@ namespace OnlineDanceStore.ViewModels
 
 
             });
+          
+
         }
        
         private async Task PickPhoto()
