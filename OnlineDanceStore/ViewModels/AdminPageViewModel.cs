@@ -213,9 +213,9 @@ namespace OnlineDanceStore.ViewModels
                     //await AppShell.Current.Navigation.PopModalAsync();
                 }
 
-
+           
             });
-          
+      
 
         }
        
