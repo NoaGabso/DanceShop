@@ -21,8 +21,8 @@ namespace OnlineDanceStore.Services;
        // #region TestData
        // public static List<Item> items = new List<Item>() {
 
-       //new Item() { Categories= new Categories(){CategoryId= 2, CategoriesName= "Shoes" },
-       //   SubCategory= new SubCategory(){CategoryId=new Categories(){CategoryId=2} ,SubCategoryId=4, SubcategoryName="Jazz shoes" },
+       //new Item() { Category= new Category(){CategoryId= 2, CategoriesName= "Shoes" },
+       //   SubCategory= new SubCategory(){CategoryId=new Category(){CategoryId=2} ,SubCategoryId=4, SubcategoryName="Jazz shoes" },
        //   ItemName = " jazz dance shoes",
        //   ItemDescription="...shoes...",
        //   Gender=new Gender(){GenderId=1, GenderName ="Female"},
@@ -32,7 +32,7 @@ namespace OnlineDanceStore.Services;
        //   Price= 200,
        //   ItemImage="iconshome.png" },
 
-       //   new Item() { Categories= new Categories(){CategoryId= 1, CategoriesName= "Leotards" },
+       //   new Item() { Category= new Category(){CategoryId= 1, CategoriesName= "Leotards" },
        //   ItemName = "women leotards",
        //   ItemDescription="...leotards...",
        //   Gender=new Gender(){GenderId=1, GenderName ="Female"},
@@ -168,7 +168,7 @@ namespace OnlineDanceStore.Services;
             catch (Exception ex) { Console.WriteLine(ex.Message); }
             return null;
 
-            //return items.Where(x=> x.Categories.CategoryId == CategoryId).ToList();
+            //return items.Where(x=> x.Category.CategoryId == CategoryId).ToList();
         }
 
         public async Task<List<Item>> GetItemsBySubCategory(int CategoryId, int SubCategoryId)
@@ -198,7 +198,7 @@ namespace OnlineDanceStore.Services;
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
             return null;
-            //return items.Where(x=> x.Categories.CategoryId==CategoryId && x.SubCategory.SubCategoryId==SubCategoryId).ToList();
+            //return items.Where(x=> x.Category.CategoryId==CategoryId && x.SubCategory.SubCategoryId==SubCategoryId).ToList();
         }
 
         public async Task<List<Item>> GetItemsByGender(int gender)
@@ -322,7 +322,7 @@ namespace OnlineDanceStore.Services;
         }
         return setup;
     }
-    public async Task<string> GetImage() { return $"{IMAGE_URL}images/"; }
+    public async Task<string> GetImage() { return $"{IMAGE_URL}"; }
     public async Task<Item> UploadFile(FileResult file, Item item)
     {
 
@@ -350,7 +350,7 @@ namespace OnlineDanceStore.Services;
             //פרמטר השני - זהה לשם הפרמטר של הפרמטר כפי שמופיע בחתימת הפעולה בשרת
             //הפרמטר השלישי הוא שם הקובץ עצמו
             var content = new ByteArrayContent(bytes);
-            multipartFormDataContent.Add(content, "file", "item.jpg");
+            multipartFormDataContent.Add(content, "image", "item.jpg");
             //ניתן לחזור על הפעולה אם נרצה קובץ נוסף או במקרה הזה
             //אובייקט
             var itemContent = JsonSerializer.Serialize(item);
@@ -400,7 +400,7 @@ namespace OnlineDanceStore.Services;
     //}
     //    public async Task<List<Item>> GetAllAccessories()
     //    {
-    //        //return items.Where(x => x.Categories.CategoryId == 1).ToList();
+    //        //return items.Where(x => x.Category.CategoryId == 1).ToList();
     //    }
 
     //public async Task<List<Item>> GetItemsForWomen()
@@ -414,11 +414,11 @@ namespace OnlineDanceStore.Services;
 
     //public async Task<List<Item>> GetAllDancingShoes()
     //{
-    //    return items.Where(x => x.Categories.CategoryId == 2).ToList();
+    //    return items.Where(x => x.Category.CategoryId == 2).ToList();
     //}
     //public async Task<List<Item>> GetAllAccessories()
     //{
-    //    return items.Where(x => x.Categories.CategoryId == 3).ToList();
+    //    return items.Where(x => x.Category.CategoryId == 3).ToList();
     //}
     #endregion
     #endregion

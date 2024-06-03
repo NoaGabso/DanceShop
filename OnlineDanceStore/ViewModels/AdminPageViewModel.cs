@@ -119,6 +119,7 @@ namespace OnlineDanceStore.ViewModels
                 SizeItems1 = new ObservableCollection<SizeItem>(setup.SizeItems);
                 Genders1 = new ObservableCollection<Gender>(setup.Genders);
                 //להכניס לאובסרבסל
+                PageLoaded = false;
 
             }
             catch (Exception ex)
@@ -133,12 +134,13 @@ namespace OnlineDanceStore.ViewModels
         public ICommand TakePictureCommand { get; protected set; }
         public ICommand ChangePhoto { get; protected set; }
         public ICommand SetUpDataCommand { get; protected set; }
+        public bool PageLoaded { get; internal set; } = true;
 
         //public bool IsButtonEnabled
         //{
         //    get { return ValidatePage(); }
         //}
-      
+
         public AdminPageViewModel(OnlineDanceStoreServices service)
         {
             
@@ -147,7 +149,7 @@ namespace OnlineDanceStore.ViewModels
             description = string.Empty;
             image = string.Empty;
 
-            UploadPhoto = new Command(async () => { await Shell.Current.DisplayAlert("g", "g", "ok"); });
+          //  UploadPhoto = new Command(async () => { await Shell.Current.DisplayAlert("g", "g", "ok"); });
             TakePictureCommand = new Command(TakePicture);
             ChangePhoto = new Command(TakePicture);
 
@@ -163,54 +165,45 @@ namespace OnlineDanceStore.ViewModels
                     #endregion
 
 
+                    //יצירת פריט
+                    NewItem = new Item()
+                    {
+                       ItemName = itemname,
+                       ItemDescription = description,
+                        Category = newCategory,
+                        SubCategory = newSubCategory,
+                        Quantity = quantity,
+                        Price = price,
+                        Gender = newGender,
+                        SizeItem = newSize,
+                        ColorItem = newColor
+                    };
 
-                    NewItem = new Item();
-                    { NewItem.ItemName = itemname;
-                        NewItem.ItemDescription = description;
-                        NewItem.Categories = newCategory;
-                        NewItem.SubCategory= newSubCategory;
-                        NewItem.Quantity = quantity;
-                        NewItem.Price = price;
-                        NewItem.ItemImage = image;
-                        NewItem.Gender = newGender;
-                        NewItem.SizeItem = newSize;
-                        NewItem.ColorItem = newColor;
-                }
-                    await Upload(photo);
-                    var it = await _service.UploadFile( photo, NewItem);
+                //העלת פריט ותמונה לשרת
+                   bool success= await Upload(); 
+                    
+                    //סגירת חלון הטעינה
                     lvm.IsBusy = false;
+                    await AppShell.Current.Navigation.PopModalAsync();
 
-                    if (it==null)
+                    //אם לא תקין
+                    if (!success)
                     {
                        await Shell.Current.DisplayAlert("לא נתמך", "המוצר לא הועלה", "אישור");
                     }
+                    //אם תקין תמונת המוצר תתעדכן לתמונה מהשרת
                     else
                     {
                         await AppShell.Current.DisplayAlert("הוסף", "אישור הכנסת מוצר", "אישור");
-                        imagepath = it.ItemImage;
-                        if (!string.IsNullOrEmpty(imagepath))
-                        {
-                            await ShowImageAsync();
-                        }
+                        imagepath = await _service.GetImage()+NewItem.ItemImage;
+                        PhotoImageSource = ImageSource.FromUri(new Uri(imagepath));
+                        OnPropertyChange(nameof(PhotoImageSource));
+                        
 
                     }
 
                 }
-                //    var it = await _service.NewItem(item,photo);
-
-                //lvm.IsBusy = false;
-                //await Shell.Current.Navigation.PopModalAsync();
-                //// if (!it.Success)
-                //{
-                //    //ShowRegisterError = true;
-                //    //RegisterErrorMessage = u.Message;
-                //}
-                //     else
-                //{
-                //    await AppShell.Current.DisplayAlert("הוסף", "אישור הכנסת מוצר", "אישור");
-                //   
-
-                //}
+               
 
                 catch (Exception ex)
                 {
@@ -223,13 +216,7 @@ namespace OnlineDanceStore.ViewModels
 
             });
         }
-        public async Task<string> ShowImageAsync()
-        {
-            // כאן תכלול את הלוגיקה למציאת והחזרת נתיב התמונה
-            // נניח שהשיטה הזו עושה עבודה כלשהי שהיא אסינכרונית
-            await Task.Delay(100); // סימולציה של פעולה אסינכרונית
-            return imagepath;
-        }
+       
         private async Task PickPhoto()
         {
             await CrossMedia.Current.Initialize();
@@ -305,20 +292,20 @@ namespace OnlineDanceStore.ViewModels
             }
             catch (Exception ex) { }
         }
-        private async Task Upload(FileResult file)
+        private async Task<bool> Upload()
         {
 
             try
             { //bool success = await _service.UploadPhoto(file);
-                NewItem = await _service.UploadFile(file, NewItem);
+                NewItem = await _service.UploadFile(photo, NewItem);
                 if (NewItem!=null)
                 {
-                    ImageLocation = await _service.GetImage() + $"{NewItem.ItemName}.jpg";
+                    return true;
                 }
-                else
-                    Shell.Current.DisplayAlert("אין קשר לשרת", "לא הצלחתי להעלות את התמונה. נסה שוב", "אישור");
+                return false;
             }
             catch (Exception ex) { }
+            return false;
 
         }
       

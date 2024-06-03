@@ -9,7 +9,7 @@ namespace OnlineDanceStore.Models
     public class Item
     {
         public int ItemId { get; set; } 
-        public Categories Categories { get; set; } 
+        public Categories Category { get; set; } 
         public SubCategory SubCategory { get; set; }
         public string ItemName { get; set; }
         public string ItemDescription { get; set; }
@@ -21,12 +21,12 @@ namespace OnlineDanceStore.Models
         public string ItemImage {  get; set; }
 
         public Item() { }   
-        //public Item(string ItemName, string ItemDescription, Categories Categories, int Quantity, 
+        //public Item(string ItemName, string ItemDescription, Category Category, int Quantity, 
         //    double Price, string ItemImage, Gender Gender, SizeItem SizeItem, ColorItem ColorItem) 
         //{
         //    this.ItemName = ItemName;
         //    this.ItemDescription = ItemDescription;
-        //    this.Categories = Categories;
+        //    this.Category = Category;
         //    this.Quantity = Quantity;
         //    this.Price = Price;
         //    this.ItemImage = ItemImage;

@@ -73,7 +73,6 @@
 
                 <Picker
                     Title="Select a Category"
-                    
                     BackgroundColor="AliceBlue "
                     ItemDisplayBinding="{Binding CategoriesName}"
                     ItemsSource="{Binding Categories1}"
@@ -81,7 +80,7 @@
                 <Picker
                     Title="Select a SubCategory"
                     BackgroundColor="AliceBlue "
-                    ItemDisplayBinding="{Binding SubCategoriesName}"
+                    ItemDisplayBinding="{Binding SubcategoryName}"
                     ItemsSource="{Binding SubCategories1}"
                     SelectedItem="{Binding newSubCategory}" />
 
@@ -102,7 +101,7 @@
                 <Picker
                     Title="Select a Gender"
                     BackgroundColor="AliceBlue"
-                    ItemDisplayBinding="{Binding Genders1}"
+                    ItemDisplayBinding="{Binding GenderName}"
                     ItemsSource="{Binding Genders1}"
                     SelectedItem="{Binding newGender}" />
 

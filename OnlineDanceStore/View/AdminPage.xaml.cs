@@ -9,36 +9,18 @@ public partial class AdminPage : ContentPage
     {
         InitializeComponent();
         BindingContext = vm;
-        InitializeAsync(vm);
+        
         
     }
 
-    private async Task InitializeAsync(AdminPageViewModel vm)
+ 
+
+
+    protected override async void OnAppearing()
     {
-        await vm.GetSetUpData();
-        await OnButtonClickedAsync(vm);
-
+        base.OnAppearing();
+        AdminPageViewModel vm = (AdminPageViewModel)BindingContext;
+        if(vm.PageLoaded)
+            await vm.GetSetUpData();
     }
-
-    private async Task OnButtonClickedAsync(AdminPageViewModel vm)
-    {
-        string imagePath = await vm.ShowImageAsync();
-        if (!string.IsNullOrEmpty(imagePath))
-        {
-            PopUpPage popup = new PopUpPage(imagePath);
-            await popup.ShowAsync();
-        }
-        else
-        {
-            // תצוגת הודעת שגיאה למשתמש
-            await DisplayAlert("Error", "Image source is not available", "OK");
-        }
-    }
-
-    //protected override async void OnAppearing()
-    //{
-    //    base.OnAppearing();
-    //    AdminPageViewModel vm = (AdminPageViewModel)BindingContext;
-    //    vm.GetSetUpData();
-    //}
 }
