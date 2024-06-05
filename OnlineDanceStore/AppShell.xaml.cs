@@ -48,6 +48,7 @@ public partial class AppShell : Shell, INotifyPropertyChanged
    private async void LogOutClick(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("Login");
+        IsAdmin= false;
     }
 
     protected virtual void OnPropertyChanged(string propertyName)
