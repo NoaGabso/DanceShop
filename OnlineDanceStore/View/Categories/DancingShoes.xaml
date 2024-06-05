@@ -25,7 +25,7 @@ FontFamily="myfont"
 TextColor="Pink"
 Text="Women"
 Command="{Binding FilterByGenderCommand}"
-CommandParameter="Women"/>
+CommandParameter="Female"/>
        
         <Button VerticalOptions="Center"
  WidthRequest="120"
@@ -38,8 +38,7 @@ Text="Men"
  BorderColor="#EBE9D9"
 TextColor="Pink"
 Command="{Binding FilterByGenderCommand}"
-CommandParameter="
- men"/>
+CommandParameter="Male"/>
         <Border  Grid.Column="5" Grid.Row="0" BackgroundColor="#897099" Padding="4" WidthRequest="105" HeightRequest="150">
         <Border Grid.Column="5" Grid.Row="0" BackgroundColor="#897099" Padding="4">
            

@@ -149,7 +149,6 @@ namespace OnlineDanceStore.ViewModels
             description = string.Empty;
             image = string.Empty;
 
-          //  UploadPhoto = new Command(async () => { await Shell.Current.DisplayAlert("g", "g", "ok"); });
             TakePictureCommand = new Command(TakePicture);
             ChangePhoto = new Command(TakePicture);
 

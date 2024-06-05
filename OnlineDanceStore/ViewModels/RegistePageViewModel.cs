@@ -195,7 +195,10 @@ namespace OnlineDanceStore.ViewModels
                         await AppShell.Current.GoToAsync("///HomePage");
                     }
 
-
+                    Password = string.Empty;
+                    Email = string.Empty;
+                    Name= string.Empty;
+                    LastName= string.Empty;
 
                 }
                 catch (Exception ex)
